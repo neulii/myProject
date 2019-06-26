@@ -4,7 +4,7 @@
 int main(){
 	
 	//create window
-	sf::RenderWindow window(sf::VideoMode(800,600),"super fenster");
+	sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World");
 
 	sf::RectangleShape shape;
 	shape.setPosition(10,10);

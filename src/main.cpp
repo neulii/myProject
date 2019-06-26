@@ -8,9 +8,9 @@ int main(){
 	//create window
 	sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World");
 
-	sf::RectangleShape test(sf::Vector2f(10,10));
+	
 
-	HooverableRectShape hoover(test);
+	HooverableRectShape hoover(0,0,50,50);
 
 
 	//while window is open

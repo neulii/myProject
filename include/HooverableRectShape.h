@@ -10,9 +10,11 @@ class HooverableRectShape{
 		bool isHoovered;
 		sf::RectangleShape rectShape;
 
+	
+
 	public:
 
-		HooverableRectShape(sf::RectangleShape shape);
+		HooverableRectShape(float x, float y, float width, float height);
 		
 
 

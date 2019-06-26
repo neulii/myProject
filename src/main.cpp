@@ -1,18 +1,17 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 
+#include "HooverableRectShape.h"
+
 int main(){
 	
 	//create window
 	sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World");
 
-	sf::RectangleShape shape;
-	shape.setPosition(10,10);
-	shape.setSize(sf::Vector2f(10,10));
-	shape.setOutlineColor(sf::Color::Blue);
-	shape.setOutlineThickness(2);
+	sf::RectangleShape test(sf::Vector2f(10,10));
 
-	shape.setFillColor(sf::Color::Red);
+	HooverableRectShape hoover(test);
+
 
 	//while window is open
 	while(window.isOpen()){
@@ -31,7 +30,7 @@ int main(){
 
 		//clear window before drawing new frame
 		window.clear();
-		window.draw(shape);
+		
 
 		//show content on display
 		window.display();

@@ -1,4 +1,4 @@
-OBJS = object/main.o
+OBJS = object/main.o object/HooverableRectShape.o
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
@@ -12,6 +12,9 @@ game: $(OBJS)
 
 object/main.o: src/main.cpp
 	g++ $(CXXFLAGS) -c src/main.cpp -o object/main.o $(CPPFLAGS)
+
+object/HooverableRectShape.o: src/HooverableRectShape.cpp include/HooverableRectShape.h
+	g++ $(CXXFLAGS) -c src/HooverableRectShape.cpp -o object/HooverableRectShape.o $(CPPFLAGS)
 
 
 clean:

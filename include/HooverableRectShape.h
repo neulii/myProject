@@ -7,7 +7,7 @@ class HooverableRectShape{
 	
 	private:
 	
-		bool isHoovered;
+		bool isHoovered = false;
 		sf::RectangleShape rectShape;
 
 	
@@ -15,8 +15,8 @@ class HooverableRectShape{
 	public:
 
 		HooverableRectShape(float x, float y, float width, float height);
-		
-
+		void render(sf::RenderWindow &window);
+		void update(long dT);
 
 };
 

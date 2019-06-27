@@ -6,9 +6,9 @@
 class HooverableRectShape{
 	
 	private:
-	
 		bool isHoovered = false;
 		sf::RectangleShape rectShape;
+		sf::RenderWindow *window = nullptr;
 
 	
 

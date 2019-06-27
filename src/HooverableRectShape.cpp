@@ -13,7 +13,7 @@ HooverableRectShape::HooverableRectShape(float x, float y, float width, float he
 
 //render method
 void HooverableRectShape::render(sf::RenderWindow &window){
-
+	this->window = &window;
 }
 
 //update method
@@ -21,10 +21,25 @@ void HooverableRectShape::update(long dT){
 
 
 	//get Absolute MousePosition
+	
+	//when window isn't initialized
+	if(window == nullptr){
+		return;
+	}
+
+	//get position of window
+	sf::Vector2i windowPosition = this->window->getPosition();
+	
+	//get position of mouse
 	sf::Vector2i mousePos = sf::Mouse::getPosition();
+	
+	//calculate relative MousePosition to window
+	sf::Vector2i  relativeMousePos((mousePos.x-windowPosition.x), (mousePos.y-windowPosition.y));
+
+
 	sf::FloatRect rect = rectShape.getLocalBounds();
 
-	neulii::floatRectToConsole(rect);
+	neulii::vector2iToConsole(relativeMousePos);
 
 	//std::cout << rect.left << "   " << rect.top << "    " << rect.width << "  " << rect.height <<  std::endl;
 

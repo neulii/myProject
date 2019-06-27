@@ -14,6 +14,7 @@ HooverableRectShape::HooverableRectShape(float x, float y, float width, float he
 //render method
 void HooverableRectShape::render(sf::RenderWindow &window){
 	this->window = &window;
+	window.draw(rectShape);
 }
 
 //update method
@@ -39,20 +40,29 @@ void HooverableRectShape::update(long dT){
 
 	sf::FloatRect rect = rectShape.getLocalBounds();
 
-	neulii::vector2iToConsole(relativeMousePos);
-
-	//std::cout << rect.left << "   " << rect.top << "    " << rect.width << "  " << rect.height <<  std::endl;
-
-	//std::cout << dT << std::endl;
-	//std::cout << mousePos.x << "   " << mousePos.y << std::endl;
-
+	//check if mouse is in rect
+	if(rect.contains(relativeMousePos.x, relativeMousePos.y)){
+		isHoovered = true;
+	}
+	else{
+		isHoovered = false;
+	}
+	
+	//when rect is hoovered
 	if(isHoovered){
 
-		
+		rectShape.setFillColor(sf::Color::Green);
+		neulii::vector2iToConsole(relativeMousePos);
+	}
+	//when field is not hoovered
+	else{
 
-
+		rectShape.setFillColor(sf::Color::Red);
 
 	}
+
+
+
 
 
 }

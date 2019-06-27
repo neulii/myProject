@@ -7,7 +7,7 @@
 int main(){
 	
 	//create window
-	sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World");
+	sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World",sf::Style::None);
 
 	window.setFramerateLimit(60);
 	

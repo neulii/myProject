@@ -1,5 +1,6 @@
 #include "HooverableRectShape.h"
 #include <iostream>
+#include "Library.h"
 
 
 //Constructor 
@@ -23,7 +24,9 @@ void HooverableRectShape::update(long dT){
 	sf::Vector2i mousePos = sf::Mouse::getPosition();
 	sf::FloatRect rect = rectShape.getLocalBounds();
 
-	std::cout << rect.left << "   " << rect.top << "    " << rect.width << "  " << rect.height <<  std::endl;
+	neulii::floatRectToConsole(rect);
+
+	//std::cout << rect.left << "   " << rect.top << "    " << rect.width << "  " << rect.height <<  std::endl;
 
 	//std::cout << dT << std::endl;
 	//std::cout << mousePos.x << "   " << mousePos.y << std::endl;

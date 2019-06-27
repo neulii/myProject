@@ -2,6 +2,7 @@
 #include "SFML/Graphics.hpp"
 
 #include "HooverableRectShape.h"
+#include "Library.h"
 
 int main(){
 	
@@ -15,7 +16,6 @@ int main(){
 
 	HooverableRectShape hoover(0,0,50,50);
 
-
 	//while window is open
 	while(window.isOpen()){
 
@@ -28,6 +28,7 @@ int main(){
 			//when close event -> close window
 			if(event.type == sf::Event::Closed)
 				window.close();
+	
 
 		}
 

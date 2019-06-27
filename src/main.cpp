@@ -8,7 +8,10 @@ int main(){
 	//create window
 	sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World");
 
+	window.setFramerateLimit(60);
 	
+	sf::Clock clock;
+	sf::Time time;
 
 	HooverableRectShape hoover(0,0,50,50);
 
@@ -28,12 +31,25 @@ int main(){
 
 		}
 
+		//time for Update methods
+		time = clock.getElapsedTime();
+		long dT = time.asMilliseconds();
+
+		//updating logic
+		hoover.update(dT); 
+		clock.restart();
+
 		//clear window before drawing new frame
 		window.clear();
-		
+
+		//rendering window		
+		hoover.render(window);
+
 
 		//show content on display
 		window.display();
+
+
 	}
 
 }

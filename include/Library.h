@@ -3,6 +3,12 @@
 
 #include "SFML/Graphics.hpp"
 
+
+//Function Pointer for getting Hooveraction
+typedef void(*HooverAction)(void);
+
+
+
 namespace neulii{
 
 	// prints a FloatRect to Console

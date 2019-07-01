@@ -5,6 +5,10 @@
 #define DEBUG 0
 
 #include "SFML/Graphics.hpp"
+#include "Library.h"
+
+
+
 
 class HooverableRectShape{
 	
@@ -13,6 +17,10 @@ class HooverableRectShape{
 		sf::RectangleShape rectShape;
 		sf::RenderWindow *window = nullptr;
 		sf::FloatRect rect;
+		
+		//void (*pFunc)(void) = nullptr;
+
+		HooverAction hooverAction = nullptr;
 
 	public:
 
@@ -21,6 +29,8 @@ class HooverableRectShape{
 		void update(long dT);
 		void leaving();
 		void entering();
+
+		void addHooverAction(HooverAction action);
 
 };
 

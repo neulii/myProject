@@ -4,10 +4,26 @@
 #include "HooverableRectShape.h"
 #include "Library.h"
 
+sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World",sf::Style::None);
+
+void test(){
+
+	std::cout << "super" << std::endl;
+}
+
+void closeWindow(){
+	window.close();
+}
+
+
+HooverAction myHooverAction =  &test;
+HooverAction myHooverCloseWindow = & closeWindow;
+
 int main(){
+
+
 	
 	//create window
-	sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World",sf::Style::None);
 
 	window.setFramerateLimit(60);
 	
@@ -16,6 +32,9 @@ int main(){
 
 	HooverableRectShape hoover(0,0,50,50);
 	HooverableRectShape haaver(0,100,50,50);
+
+	hoover.addHooverAction(myHooverAction);
+	haaver.addHooverAction(myHooverCloseWindow);
 
 	//while window is open
 	while(window.isOpen()){

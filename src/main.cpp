@@ -15,6 +15,7 @@ int main(){
 	sf::Time time;
 
 	HooverableRectShape hoover(0,0,50,50);
+	HooverableRectShape haaver(0,100,50,50);
 
 	//while window is open
 	while(window.isOpen()){
@@ -53,6 +54,8 @@ int main(){
 
 		//updating logic
 		hoover.update(dT); 
+		haaver.update(dT);
+
 		clock.restart();
 
 		//clear window before drawing new frame
@@ -60,6 +63,7 @@ int main(){
 
 		//rendering window		
 		hoover.render(window);
+		haaver.render(window);
 
 
 		//show content on display

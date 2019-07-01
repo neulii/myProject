@@ -12,14 +12,15 @@ class HooverableRectShape{
 		bool isHoovered = false;
 		sf::RectangleShape rectShape;
 		sf::RenderWindow *window = nullptr;
-
-	
+		sf::FloatRect rect;
 
 	public:
 
 		HooverableRectShape(float x, float y, float width, float height);
 		void render(sf::RenderWindow &window);
 		void update(long dT);
+		void leaving();
+		void entering();
 
 };
 

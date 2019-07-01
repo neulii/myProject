@@ -4,9 +4,14 @@
 
 //Constructor 
 HooverableRectShape::HooverableRectShape(float x, float y, float width, float height){
-
+	//set Position of rectShape
 	rectShape.setPosition(x,y);
+
+	//set Size of rectShape
 	rectShape.setSize(sf::Vector2f(width, height));
+
+	//get dimensions for floatRect -> contains
+	rect = rectShape.getGlobalBounds();
 
 }
 
@@ -36,14 +41,19 @@ void HooverableRectShape::update(long dT){
 	//calculate relative MousePosition to window
 	sf::Vector2i  relativeMousePos((mousePos.x-windowPosition.x), (mousePos.y-windowPosition.y));
 
-
-	sf::FloatRect rect = rectShape.getLocalBounds();
-
 	//check if mouse is in rect
-	if(rect.contains(relativeMousePos.x, relativeMousePos.y)){
+	if(this->rect.contains(relativeMousePos.x, relativeMousePos.y)){
+		//when mouse is coming in
+		if(isHoovered==false){
+			entering();
+		}
 		isHoovered = true;
 	}
 	else{
+		//when mouse is going out
+		if(isHoovered==true){
+			leaving();
+		}
 		isHoovered = false;
 	}
 	
@@ -66,9 +76,16 @@ void HooverableRectShape::update(long dT){
 		rectShape.setFillColor(sf::Color::Red);
 
 	}
+}
 
-
-
-
+//action when entering area
+void HooverableRectShape::entering(){
+		
 
 }
+
+//action when leaving area
+void HooverableRectShape::leaving(){
+		
+}
+

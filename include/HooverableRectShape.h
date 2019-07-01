@@ -25,14 +25,17 @@ class HooverableRectShape{
 		HooverAction leavingAction = nullptr;
 		HooverAction enterAction = nullptr;
 
-	public:
-
-		HooverableRectShape(float x, float y, float width, float height);
-		void render(sf::RenderWindow &window);
-		void update(long dT);
+	private:
 		void leaving();
 		void entering();
 
+	public:
+
+		HooverableRectShape(float x, float y, float width, float height);
+		
+		void render(sf::RenderWindow &window);
+		void update(long dT);
+		
 		//void addHooverAction(HooverAction action);
 		void setEnterAction(HooverAction action);
 		void setLeavingAction(HooverAction action);
@@ -40,6 +43,8 @@ class HooverableRectShape{
 		//set Color for Default and Hoovering
 		void setHooverColor(sf::Color color);
 		void setDefaultColor(sf::Color color);
+
+	
 };
 
 #endif

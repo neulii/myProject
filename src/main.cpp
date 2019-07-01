@@ -28,6 +28,21 @@ int main(){
 			//when close event -> close window
 			if(event.type == sf::Event::Closed)
 				window.close();
+
+			//if key is pressed
+			if(event.type == sf::Event::KeyPressed){
+
+				//select pressed key
+				switch(event.key.code){
+
+					//ESCAPE Key to close game 
+					case sf::Keyboard::Escape:
+
+						window.close();
+						break;
+
+				}
+			}
 	
 
 		}

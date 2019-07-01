@@ -81,22 +81,31 @@ void HooverableRectShape::update(long dT){
 //action when entering area
 void HooverableRectShape::entering(){
 	
+	if(enterAction!=nullptr)
+		enterAction();
 
 }
 
 //action when leaving area
 void HooverableRectShape::leaving(){
 	
-	if(hooverAction!=nullptr)
-		hooverAction();
-	//when hooveraction is defined
-	// if(pFunc!=nullptr)
-	// 	pFunc();
-		
+	if(leavingAction != nullptr)
+		leavingAction();
+
 }
 
-void HooverableRectShape::addHooverAction(HooverAction action){
-	hooverAction = action;
-	// pFunc = func;
+//set action for entering
+void HooverableRectShape::setEnterAction(HooverAction action){
+	enterAction = action;
 }
+
+//set action for leaving
+void HooverableRectShape::setLeavingAction(HooverAction action){
+	leavingAction = action;
+}
+
+// void HooverableRectShape::addHooverAction(HooverAction action){
+// 	hooverAction = action;
+// 	// pFunc = func;
+// }
 

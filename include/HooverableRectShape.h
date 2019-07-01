@@ -7,7 +7,8 @@
 #include "SFML/Graphics.hpp"
 #include "Library.h"
 
-
+//Function Pointer for getting Hooveraction
+typedef void(*HooverAction)(void);
 
 
 class HooverableRectShape{
@@ -18,9 +19,9 @@ class HooverableRectShape{
 		sf::RenderWindow *window = nullptr;
 		sf::FloatRect rect;
 		
-		//void (*pFunc)(void) = nullptr;
-
-		HooverAction hooverAction = nullptr;
+		//HooverAction hooverAction = nullptr;
+		HooverAction leavingAction = nullptr;
+		HooverAction enterAction = nullptr;
 
 	public:
 
@@ -30,7 +31,10 @@ class HooverableRectShape{
 		void leaving();
 		void entering();
 
-		void addHooverAction(HooverAction action);
+		//void addHooverAction(HooverAction action);
+		void setEnterAction(HooverAction action);
+		void setLeavingAction(HooverAction action);
+
 
 };
 

@@ -4,7 +4,12 @@
 #include "HooverableRectShape.h"
 #include "Library.h"
 
+
+//create window
 sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World",sf::Style::None);
+
+HooverableRectShape hoover(0,0,50,50);
+HooverableRectShape haaver(0,100,50,50);
 
 void test(){
 
@@ -15,27 +20,33 @@ void closeWindow(){
 	window.close();
 }
 
+void setColorBlue(){
+	hoover.setHooverColor(sf::Color::Blue);
+}
+
+//Define Hoover actions for hooverable rectangles
+
 HooverAction myHooverAction =  &test;
-HooverAction myHooverCloseWindow = & closeWindow;
+HooverAction myHooverCloseWindow = &closeWindow;
+HooverAction setHooverBlue = &setColorBlue;
+
 
 int main(){
 
-	//create window
+	hoover.setDefaultColor(sf::Color::Green);
+	hoover.setHooverColor(sf::Color::Magenta);
 
+	//set Framerate to 60 FPS
 	window.setFramerateLimit(60);
 	
 	sf::Clock clock;
 	sf::Time time;
-
-	HooverableRectShape hoover(0,0,50,50);
-	HooverableRectShape haaver(0,100,50,50);
 
 	hoover.setEnterAction(myHooverAction);
 	hoover.setLeavingAction(myHooverCloseWindow);
 
 	//while window is open
 	while(window.isOpen()){
-
 
 		sf::Event event;
 
@@ -77,8 +88,6 @@ int main(){
 
 		//show content on display
 		window.display();
-
-
 	}
 
 }

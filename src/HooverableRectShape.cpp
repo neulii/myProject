@@ -24,7 +24,6 @@ void HooverableRectShape::render(sf::RenderWindow &window){
 //update method
 void HooverableRectShape::update(long dT){
 
-
 	//get Absolute MousePosition
 	
 	//when window isn't initialized
@@ -60,7 +59,7 @@ void HooverableRectShape::update(long dT){
 	//when rect is hoovered
 	if(isHoovered){
 
-		rectShape.setFillColor(sf::Color::Green);
+		rectShape.setFillColor(hooveringColor);
 
 
 		//Debugging iformation for console
@@ -73,7 +72,7 @@ void HooverableRectShape::update(long dT){
 	//when field is not hoovered
 	else{
 
-		rectShape.setFillColor(sf::Color::Red);
+		rectShape.setFillColor(defaultColor);
 
 	}
 }
@@ -104,8 +103,13 @@ void HooverableRectShape::setLeavingAction(HooverAction action){
 	leavingAction = action;
 }
 
-// void HooverableRectShape::addHooverAction(HooverAction action){
-// 	hooverAction = action;
-// 	// pFunc = func;
-// }
+//set Color for Hoovering
+void HooverableRectShape::setHooverColor(sf::Color color){
+	hooveringColor = color;
+}
+
+//set default Color
+void HooverableRectShape::setDefaultColor(sf::Color color){
+	defaultColor = color;
+}
 

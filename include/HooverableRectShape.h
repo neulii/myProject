@@ -18,8 +18,10 @@ class HooverableRectShape{
 		sf::RectangleShape rectShape;
 		sf::RenderWindow *window = nullptr;
 		sf::FloatRect rect;
+
+		sf::Color hooveringColor = sf::Color::Red;
+		sf::Color defaultColor = sf::Color::White;
 		
-		//HooverAction hooverAction = nullptr;
 		HooverAction leavingAction = nullptr;
 		HooverAction enterAction = nullptr;
 
@@ -35,7 +37,9 @@ class HooverableRectShape{
 		void setEnterAction(HooverAction action);
 		void setLeavingAction(HooverAction action);
 
-
+		//set Color for Default and Hoovering
+		void setHooverColor(sf::Color color);
+		void setDefaultColor(sf::Color color);
 };
 
 #endif

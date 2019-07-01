@@ -1,6 +1,9 @@
 #ifndef HOOVERABLERECTSHAPE
 #define HOOVERABLERECTSHAPE
 
+//define Debugging mode on or off
+#define DEBUG 0
+
 #include "SFML/Graphics.hpp"
 
 class HooverableRectShape{

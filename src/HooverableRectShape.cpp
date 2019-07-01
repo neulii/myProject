@@ -2,7 +2,6 @@
 #include <iostream>
 #include "Library.h"
 
-
 //Constructor 
 HooverableRectShape::HooverableRectShape(float x, float y, float width, float height){
 
@@ -52,7 +51,14 @@ void HooverableRectShape::update(long dT){
 	if(isHoovered){
 
 		rectShape.setFillColor(sf::Color::Green);
-		neulii::vector2iToConsole(relativeMousePos);
+
+
+		//Debugging iformation for console
+
+		#if DEBUG == 1
+			neulii::vector2iToConsole(relativeMousePos);
+		#endif
+
 	}
 	//when field is not hoovered
 	else{

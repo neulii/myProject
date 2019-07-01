@@ -15,14 +15,11 @@ void closeWindow(){
 	window.close();
 }
 
-
 HooverAction myHooverAction =  &test;
 HooverAction myHooverCloseWindow = & closeWindow;
 
 int main(){
 
-
-	
 	//create window
 
 	window.setFramerateLimit(60);
@@ -33,8 +30,8 @@ int main(){
 	HooverableRectShape hoover(0,0,50,50);
 	HooverableRectShape haaver(0,100,50,50);
 
-	hoover.addHooverAction(myHooverAction);
-	haaver.addHooverAction(myHooverCloseWindow);
+	hoover.setEnterAction(myHooverAction);
+	hoover.setLeavingAction(myHooverCloseWindow);
 
 	//while window is open
 	while(window.isOpen()){
@@ -53,18 +50,11 @@ int main(){
 			if(event.type == sf::Event::KeyPressed){
 
 				//select pressed key
-				switch(event.key.code){
-
-					//ESCAPE Key to close game 
-					case sf::Keyboard::Escape:
-
-						window.close();
-						break;
-
+				
+				if(event.key.code == sf::Keyboard::Escape){
+					window.close();
 				}
 			}
-	
-
 		}
 
 		//time for Update methods

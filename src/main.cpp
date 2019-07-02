@@ -1,15 +1,18 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 
+#include <vector>
+
 #include "HooverableRectShape.h"
 #include "Library.h"
 
 
+std::vector<HooverableRectShape*> fields;
+
 //create window
 sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World",sf::Style::None);
 
-HooverableRectShape hoover(0,0,50,50);
-HooverableRectShape haaver(0,100,50,50);
+
 
 void test(){
 
@@ -21,7 +24,7 @@ void closeWindow(){
 }
 
 void setColorBlue(){
-	hoover.setHooverColor(sf::Color::Blue);
+
 }
 
 //Define Hoover actions for hooverable rectangles
@@ -31,19 +34,18 @@ HooverAction myHooverCloseWindow = &closeWindow;
 HooverAction setHooverBlue = &setColorBlue;
 
 
+
+
 int main(){
 
-	hoover.setDefaultColor(sf::Color::Green);
-	hoover.setHooverColor(sf::Color::Magenta);
+	fields.push_back(new HooverableRectShape(100,0,50,50));
+	fields.push_back(new HooverableRectShape(100,50,50,50));
 
 	//set Framerate to 60 FPS
 	window.setFramerateLimit(60);
 	
 	sf::Clock clock;
 	sf::Time time;
-
-	hoover.setEnterAction(myHooverAction);
-	hoover.setLeavingAction(myHooverCloseWindow);
 
 	//while window is open
 	while(window.isOpen()){
@@ -72,22 +74,32 @@ int main(){
 		time = clock.getElapsedTime();
 		long dT = time.asMilliseconds();
 
+	//===================================================
 		//updating logic
-		hoover.update(dT); 
-		haaver.update(dT);
+		
+
+		//update field vector
+		for(unsigned i=0; i<fields.size();i++){
+			fields.at(i)->update(dT);
+
+		}
 
 		clock.restart();
+	//=====================================================
+		//rendering all
 
 		//clear window before drawing new frame
 		window.clear();
 
-		//rendering window		
-		hoover.render(window);
-		haaver.render(window);
+		//render field vector
+		for(unsigned i=0; i<fields.size();i++){
+			fields.at(i)->render(window);
 
+		}
 
 		//show content on display
 		window.display();
+	//========================================================
 	}
 
 }

@@ -80,6 +80,7 @@ void HooverableRectShape::update(long dT){
 //action when entering area
 void HooverableRectShape::entering(){
 	
+	//check if enterAction is set
 	if(enterAction!=nullptr)
 		enterAction();
 
@@ -88,6 +89,7 @@ void HooverableRectShape::entering(){
 //action when leaving area
 void HooverableRectShape::leaving(){
 	
+	//check if leavingaction is set
 	if(leavingAction != nullptr)
 		leavingAction();
 

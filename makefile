@@ -9,6 +9,7 @@ CPPFLAGS = -I "SFML/include" -I "include"
 
 game: $(OBJS)
 	$(CXX) $(CXXFLAGS) -o game $(OBJS) $(LDLIBS) $(LDFLAGS)
+	
 
 object/main.o: src/main.cpp
 	g++ $(CXXFLAGS) -c src/main.cpp -o object/main.o $(CPPFLAGS)

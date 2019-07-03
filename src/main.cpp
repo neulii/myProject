@@ -6,40 +6,56 @@
 #include "HooverableRectShape.h"
 #include "Library.h"
 
+void setColorBlue();
+void test();
 
+unsigned widthInFields = 10;
+unsigned heightInFields = 10;
+
+unsigned fieldWidth = 50;
+unsigned fieldHeight = 50;
+
+
+unsigned targetResolutionWidth = widthInFields * fieldWidth;
+unsigned targetResolutionHeight = heightInFields * fieldHeight;
+
+//fields 
 std::vector<HooverableRectShape*> fields;
 
-//create window
-sf::RenderWindow window(sf::VideoMode(800,600),"Hello SFML-World",sf::Style::None);
-
-
-
-void test(){
-
-	std::cout << "super" << std::endl;
-}
-
-void closeWindow(){
-	window.close();
-}
-
-void setColorBlue(){
-
-}
 
 //Define Hoover actions for hooverable rectangles
 
 HooverAction myHooverAction =  &test;
-HooverAction myHooverCloseWindow = &closeWindow;
 HooverAction setHooverBlue = &setColorBlue;
 
 
-
-
+//main - method
 int main(){
 
-	fields.push_back(new HooverableRectShape(100,0,50,50));
-	fields.push_back(new HooverableRectShape(100,50,50,50));
+	//create window
+	sf::RenderWindow window(sf::VideoMode(targetResolutionWidth,targetResolutionWidth),
+						"Hello SFML-World",
+						sf::Style::None);
+	//calculate elements needed
+	unsigned elements = widthInFields * heightInFields;
+
+	//create elements and add it to field-vector
+	for(unsigned i=0; i < elements; i++){
+
+		unsigned elementInRow = i % widthInFields;
+		unsigned elementInCol = i / widthInFields;
+
+		float tempPosX = fieldWidth * elementInRow;
+		float tempPosY = fieldHeight *elementInCol;
+
+		HooverableRectShape* tempField;
+		//make temporary field 
+		tempField = new HooverableRectShape(tempPosX, tempPosY, static_cast<float>(fieldWidth), static_cast<float>(fieldHeight));
+		tempField->setHooverColor(sf::Color::Yellow);
+		//add field to vector
+		fields.push_back(tempField);
+
+	}
 
 	//set Framerate to 60 FPS
 	window.setFramerateLimit(60);
@@ -101,5 +117,13 @@ int main(){
 		window.display();
 	//========================================================
 	}
+}
+
+void test(){
+
+	std::cout << "super" << std::endl;
+}
+
+void setColorBlue(){
 
 }

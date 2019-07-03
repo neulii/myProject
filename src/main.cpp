@@ -33,9 +33,12 @@ HooverAction setHooverBlue = &setColorBlue;
 int main(){
 
 	//create window
-	sf::RenderWindow window(sf::VideoMode(targetResolutionWidth,targetResolutionWidth),
+	sf::RenderWindow window(sf::VideoMode(
+						targetResolutionWidth,
+						targetResolutionWidth),
 						"Hello SFML-World",
 						sf::Style::None);
+	
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
 
@@ -49,9 +52,14 @@ int main(){
 		float tempPosY = fieldHeight *elementInCol;
 
 		HooverableRectShape* tempField;
+		
 		//make temporary field 
-		tempField = new HooverableRectShape(tempPosX, tempPosY, static_cast<float>(fieldWidth), static_cast<float>(fieldHeight));
-		tempField->setHooverColor(sf::Color::Yellow);
+		tempField = new HooverableRectShape(
+				tempPosX, 
+				tempPosY, 
+				static_cast<float>(fieldWidth), 
+				static_cast<float>(fieldHeight));
+
 		//add field to vector
 		fields.push_back(tempField);
 

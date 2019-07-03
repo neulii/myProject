@@ -1,4 +1,4 @@
-OBJS = object/main.o object/HooverableRectShape.o object/Library.o
+OBJS = object/main.o object/HooverableRectShape.o object/Library.o object/ClickableHooverableRectShape.o
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
@@ -19,6 +19,10 @@ object/HooverableRectShape.o: src/HooverableRectShape.cpp include/HooverableRect
 
 object/Library.o: src/Library.cpp include/Library.h
 	g++ $(CXXFLAGS) -c src/Library.cpp -o object/Library.o $(CPPFLAGS)
+
+object/ClickableHooverableRectShape.o: src/ClickableHooverableRectShape.cpp include/ClickableHooverableRectShape.h
+	g++ $(CXXFLAGS) -c src/ClickableHooverableRectShape.cpp -o object/ClickableHooverableRectShape.o $(CPPFLAGS)
+
 
 
 clean:

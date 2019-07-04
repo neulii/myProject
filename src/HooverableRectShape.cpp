@@ -12,6 +12,10 @@ HooverableRectShape::HooverableRectShape(float x, float y, float width, float he
 
 	//get dimensions for floatRect -> contains
 	rect = rectShape.getGlobalBounds();
+	
+	//set defaultColors
+	defaultColor = sf::Color::White;
+	hooveringColor = sf::Color::Green;
 
 }
 
@@ -112,6 +116,8 @@ void HooverableRectShape::setHooverColor(sf::Color color){
 
 //set default Color
 void HooverableRectShape::setDefaultColor(sf::Color color){
-	defaultColor = color;
+	defaultColor=color;
+	rectShape.setFillColor(defaultColor);
+
 }
 

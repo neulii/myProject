@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "HooverableRectShape.h"
+#include "ClickableHooverableRectShape.h"
 #include "Library.h"
 
 void setColorBlue();
@@ -31,6 +32,11 @@ HooverAction setHooverBlue = &setColorBlue;
 
 //main - method
 int main(){
+
+
+	ClickableHooverableRectShape test(10,10,50,50);
+	//test.setDefaultColor(sf::Color::Green);
+
 
 	//create window
 	sf::RenderWindow window(sf::VideoMode(
@@ -107,6 +113,7 @@ int main(){
 			fields.at(i)->update(dT);
 
 		}
+		test.update(dT);
 
 		clock.restart();
 	//=====================================================
@@ -120,6 +127,7 @@ int main(){
 			fields.at(i)->render(window);
 
 		}
+		test.render(window);
 
 		//show content on display
 		window.display();

@@ -1,3 +1,6 @@
 SFML
 .DS_Store
 *.o
+*.exe
+*.dll
+game

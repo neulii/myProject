@@ -25,15 +25,7 @@ void HooverableRectShape::render(sf::RenderWindow &window){
 	window.draw(rectShape);
 }
 
-//update method
-void HooverableRectShape::update(long dT){
-
-	//get Absolute MousePosition
-	
-	//when window isn't initialized
-	if(window == nullptr){
-		return;
-	}
+bool HooverableRectShape::checkIfHoovered(){
 
 	//get position of window
 	sf::Vector2i windowPosition = this->window->getPosition();
@@ -59,9 +51,24 @@ void HooverableRectShape::update(long dT){
 		}
 		isHoovered = false;
 	}
+
+	return isHoovered;
+
+}
+
+
+//update method
+void HooverableRectShape::update(long dT){
+
+	//get Absolute MousePosition
 	
+	//when window isn't initialized
+	if(window == nullptr){
+		return;
+	}
+
 	//when rect is hoovered
-	if(isHoovered){
+	if(checkIfHoovered()){
 
 		rectShape.setFillColor(hooveringColor);
 

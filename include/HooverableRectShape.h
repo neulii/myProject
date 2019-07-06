@@ -28,6 +28,7 @@ class HooverableRectShape{
 	private:
 		void leaving();
 		void entering();
+		bool checkIfHoovered();
 
 	public:
 

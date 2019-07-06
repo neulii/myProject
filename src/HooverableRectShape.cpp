@@ -72,7 +72,6 @@ void HooverableRectShape::update(long dT){
 
 		rectShape.setFillColor(hooveringColor);
 
-
 		//Debugging iformation for console
 
 		#if DEBUG == 1

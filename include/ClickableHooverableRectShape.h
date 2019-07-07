@@ -19,7 +19,7 @@ public:
 	ClickableHooverableRectShape(float x, float y, float width, float height);
 
 	void setPressedColor(sf::Color color);
-	bool checkClickAt(sf::Vector2f mousePos);	
+	void operateClick(sf::Mouse::Button mouseButton);	
 	void update(long dT);
 };
 

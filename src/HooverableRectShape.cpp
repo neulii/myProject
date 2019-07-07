@@ -69,21 +69,12 @@ void HooverableRectShape::update(long dT){
 
 	//when rect is hoovered
 	if(checkIfHoovered()){
-
 		rectShape.setFillColor(hooveringColor);
-
-		//Debugging iformation for console
-
-		#if DEBUG == 1
-			neulii::vector2iToConsole(relativeMousePos);
-		#endif
-
 	}
+
 	//when field is not hoovered
 	else{
-
 		rectShape.setFillColor(defaultColor);
-
 	}
 }
 

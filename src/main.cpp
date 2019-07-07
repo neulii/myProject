@@ -89,6 +89,8 @@ int main(){
 			if(event.type == sf::Event::Closed)
 				window.close();
 
+
+
 			//if key is pressed
 			if(event.type == sf::Event::KeyPressed){
 
@@ -98,6 +100,12 @@ int main(){
 					window.close();
 				}
 			}
+
+			//check mouseclick
+			if(event.type == sf::Event::MouseButtonPressed){
+				test.operateClick(event.mouseButton.button);
+			}
+
 		}
 
 		//time for Update methods

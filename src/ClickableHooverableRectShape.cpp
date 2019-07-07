@@ -5,9 +5,21 @@ ClickableHooverableRectShape::ClickableHooverableRectShape(float x, float y, flo
 
 }
 
+//overrides update method from hoverablerectshape
 void ClickableHooverableRectShape::update(long dT){
 
-	std::cout << "test" << std::endl;
+	
+}
 
+void ClickableHooverableRectShape::operateClick(sf::Mouse::Button button){
 
+	if(button == sf::Mouse::Left){
+
+		std::cout << "leftclick" << std::endl;
+	}
+
+	if(button == sf::Mouse::Right){
+		std::cout << "right click" << std::endl;
+	}
+	
 }

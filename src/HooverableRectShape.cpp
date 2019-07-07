@@ -118,3 +118,8 @@ void HooverableRectShape::setDefaultColor(sf::Color color){
 
 }
 
+sf::RenderWindow* HooverableRectShape::getWindow(){
+	return window;
+
+}
+

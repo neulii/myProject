@@ -45,6 +45,7 @@ class HooverableRectShape{
 		void setHooverColor(sf::Color color);
 		void setDefaultColor(sf::Color color);
 
+		sf::RenderWindow* getWindow();
 	
 };
 

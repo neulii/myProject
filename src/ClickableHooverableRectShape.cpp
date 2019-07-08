@@ -8,6 +8,34 @@ ClickableHooverableRectShape::ClickableHooverableRectShape(float x, float y, flo
 //overrides update method from hoverablerectshape
 void ClickableHooverableRectShape::update(long dT){
 
+
+
+	//check if window is NULL
+	if(getWindow()==nullptr){
+		return;
+	}
+
+	if(checkIfHoovered()){
+		rectShape.setFillColor(hooveringColor);
+		std::cout << "lsdkjf"<< std::endl;
+	}
+	else{
+		rectShape.setFillColor(defaultColor);
+	}
+
+	//left button down
+	if(checkIfHoovered() && sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+		rectShape.setFillColor(sf::Color::Red);
+	}
+	//right button down
+	else if(checkIfHoovered() && sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+		rectShape.setFillColor(sf::Color::Blue);
+	}
+	else
+	{
+		rectShape.setFillColor(defaultColor);
+	}
+
 }
 
 void ClickableHooverableRectShape::operateClick(sf::Mouse::Button button){
@@ -20,7 +48,7 @@ void ClickableHooverableRectShape::operateClick(sf::Mouse::Button button){
 		return;
 	
 	//when mouse is clicked inside
-	if(rect.contains( sf::Mouse::getPosition(*window).x,sf::Mouse::getPosition(*window).y)){
+	if(checkIfHoovered()){
 
 		//leftclick
 		if(button == sf::Mouse::Left){

@@ -17,13 +17,17 @@ class HooverableRectShape{
 		bool isHoovered = false;
 		sf::RectangleShape rectShape;
 		sf::RenderWindow *window = nullptr;
-		sf::FloatRect rect;
+		
 
 		sf::Color hooveringColor = sf::Color::Red;
 		sf::Color defaultColor = sf::Color::White;
 		
 		HooverAction leavingAction = nullptr;
 		HooverAction enterAction = nullptr;
+
+	protected:
+		sf::FloatRect rect;
+
 
 	private:
 		void leaving();

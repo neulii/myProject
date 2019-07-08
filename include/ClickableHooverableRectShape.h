@@ -21,6 +21,9 @@ public:
 	void setPressedColor(sf::Color color);
 	void operateClick(sf::Mouse::Button mouseButton);	
 	void update(long dT);
+
+	void leftClickAction();
+	void rightClickAction();
 };
 
 

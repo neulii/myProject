@@ -1,6 +1,7 @@
 #include "ClickableHooverableRectShape.h"
 #include <iostream>
 
+//Constructor
 ClickableHooverableRectShape::ClickableHooverableRectShape(float x, float y, float width, float height):HooverableRectShape(x,y,width,height){
 
 }
@@ -8,17 +9,17 @@ ClickableHooverableRectShape::ClickableHooverableRectShape(float x, float y, flo
 //overrides update method from hoverablerectshape
 void ClickableHooverableRectShape::update(long dT){
 
-
-
 	//check if window is NULL
 	if(getWindow()==nullptr){
 		return;
 	}
 
+	//Coloring when hoovered
 	if(checkIfHoovered()){
 		rectShape.setFillColor(hooveringColor);
-		std::cout << "lsdkjf"<< std::endl;
+		//std::cout << "lsdkjf"<< std::endl;
 	}
+	//coloring when NOT hoovered
 	else{
 		rectShape.setFillColor(defaultColor);
 	}
@@ -31,13 +32,9 @@ void ClickableHooverableRectShape::update(long dT){
 	else if(checkIfHoovered() && sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 		rectShape.setFillColor(sf::Color::Blue);
 	}
-	else
-	{
-		rectShape.setFillColor(defaultColor);
-	}
-
 }
 
+//oparate clicking action
 void ClickableHooverableRectShape::operateClick(sf::Mouse::Button button){
 
 	//getting window for calculate relative MousePos
@@ -61,7 +58,6 @@ void ClickableHooverableRectShape::operateClick(sf::Mouse::Button button){
 			std::cout << "right at: " << sf::Mouse::getPosition(*window).x << "   " << sf::Mouse::getPosition(*window).y << std::endl;
 			rightClickAction();
 		}
-
 	}
 }
 
@@ -76,6 +72,3 @@ void ClickableHooverableRectShape::rightClickAction(){
 
 
 }
-
-	
-	

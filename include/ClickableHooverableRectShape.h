@@ -26,6 +26,4 @@ public:
 	void rightClickAction();
 };
 
-
-
 #endif

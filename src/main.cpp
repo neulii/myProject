@@ -132,7 +132,8 @@ int main(){
 
 		//render field vector
 		for(unsigned i=0; i<fields.size();i++){
-			fields.at(i)->render(window);
+			
+			//fields.at(i)->render(window);
 
 		}
 		test.render(window);

@@ -26,7 +26,7 @@ unsigned targetResolutionWidth = widthInFields * fieldWidth;
 unsigned targetResolutionHeight = heightInFields * fieldHeight;
 
 //fields 
-std::vector<HooverableRectShape*> fields;
+std::vector<ClickableHooverableRectShape*> fields;
 
 //Define Hoover actions for hooverable rectangles
 
@@ -40,7 +40,7 @@ sf::RenderWindow window(sf::VideoMode(
 				"Hello SFML-World",
 				sf::Style::None);
 
-ClickableHooverableRectShape button(10,10,50,50);
+//ClickableHooverableRectShape button(10,10,50,50);
 //test.setDefaultColor(sf::Color::Green);
 
 //main - method
@@ -58,10 +58,10 @@ int main(){
 		float tempPosX = fieldWidth * elementInRow;
 		float tempPosY = fieldHeight *elementInCol;
 
-		HooverableRectShape* tempField;
+		ClickableHooverableRectShape* tempField;
 		
 		//make temporary field 
-		tempField = new HooverableRectShape(
+		tempField = new ClickableHooverableRectShape(
 				tempPosX, 
 				tempPosY, 
 				static_cast<float>(fieldWidth), 
@@ -104,7 +104,7 @@ int main(){
 
 			//check mouseclick
 			if(event.type == sf::Event::MouseButtonPressed){
-				button.operateClick(event.mouseButton.button);
+				//button.operateClick(event.mouseButton.button);
 			}
 
 		}
@@ -149,11 +149,11 @@ void render(sf::RenderWindow &window){
 
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++){
-		//fields.at(i)->render(window);
+		fields.at(i)->render(window);
 
 	}
 
-	button.render(window);
+	//button.render(window);
 }
 
 //updating logic
@@ -164,7 +164,7 @@ void update(long dT){
 
 	}
 
-	button.update(dT);
+	//button.update(dT);
 
 }
 

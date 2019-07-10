@@ -6,27 +6,27 @@
 
 namespace neulii{
 
-//Function Pointer for getting Hooveraction
-typedef void(*ClickAction)(void);
+	//Function Pointer for getting Hooveraction
+	typedef void(*ClickAction)(void);
 
-class ClickableHooverableRectShape :public HooverableRectShape{
+	class ClickableHooverableRectShape :public HooverableRectShape{
 
-private:
+	private:
 
-	bool isPressed = false;
-	sf::Color pressedColor = sf::Color::Red;
+		bool isPressed = false;
+		sf::Color pressedColor = sf::Color::Red;
 
-public:
+	public:
 
-	ClickableHooverableRectShape(float x, float y, float width, float height);
+		ClickableHooverableRectShape(float x, float y, float width, float height);
 
-	void setPressedColor(sf::Color color);
-	void operateClick(sf::Mouse::Button mouseButton);	
-	void update(long dT);
+		void setPressedColor(sf::Color color);
+		void operateClick(sf::Mouse::Button mouseButton);	
+		void update(long dT);
 
-	void leftClickAction();
-	void rightClickAction();
-};
+		void leftClickAction();
+		void rightClickAction();
+	};
 
 }//namespace neulii
 

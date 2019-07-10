@@ -2,6 +2,8 @@
 #include <iostream>
 #include "Library.h"
 
+namespace neulii{
+
 //Constructor 
 HooverableRectShape::HooverableRectShape(float x, float y, float width, float height){
 	//set Position of rectShape
@@ -118,3 +120,4 @@ sf::RenderWindow* HooverableRectShape::getWindow(){
 
 }
 
+}//namespace neulii

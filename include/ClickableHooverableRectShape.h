@@ -4,6 +4,8 @@
 #include "HooverableRectShape.h"
 
 
+namespace neulii{
+
 //Function Pointer for getting Hooveraction
 typedef void(*ClickAction)(void);
 
@@ -25,5 +27,7 @@ public:
 	void leftClickAction();
 	void rightClickAction();
 };
+
+}//namespace neulii
 
 #endif

@@ -7,8 +7,13 @@
 #include "ClickableHooverableRectShape.h"
 #include "Library.h"
 
+using namespace neulii;
+
 void setColorBlue();
 void test();
+
+void render(sf::RenderWindow& window);
+void update(long dT);
 
 unsigned widthInFields = 10;
 unsigned heightInFields = 10;
@@ -23,28 +28,24 @@ unsigned targetResolutionHeight = heightInFields * fieldHeight;
 //fields 
 std::vector<HooverableRectShape*> fields;
 
-
 //Define Hoover actions for hooverable rectangles
 
 HooverAction myHooverAction =  &test;
 HooverAction setHooverBlue = &setColorBlue;
 
+//create window
+sf::RenderWindow window(sf::VideoMode(
+				targetResolutionWidth,
+				targetResolutionWidth),
+				"Hello SFML-World",
+				sf::Style::None);
+
+ClickableHooverableRectShape button(10,10,50,50);
+//test.setDefaultColor(sf::Color::Green);
 
 //main - method
 int main(){
 
-
-	ClickableHooverableRectShape test(10,10,50,50);
-	//test.setDefaultColor(sf::Color::Green);
-
-
-	//create window
-	sf::RenderWindow window(sf::VideoMode(
-						targetResolutionWidth,
-						targetResolutionWidth),
-						"Hello SFML-World",
-						sf::Style::None);
-	
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
 
@@ -103,7 +104,7 @@ int main(){
 
 			//check mouseclick
 			if(event.type == sf::Event::MouseButtonPressed){
-				test.operateClick(event.mouseButton.button);
+				button.operateClick(event.mouseButton.button);
 			}
 
 		}
@@ -115,33 +116,23 @@ int main(){
 	//===================================================
 		//updating logic
 		
-
-		//update field vector
-		for(unsigned i=0; i<fields.size();i++){
-			fields.at(i)->update(dT);
-
-		}
-		test.update(dT);
-
+		update(dT);
+		
 		clock.restart();
 	//=====================================================
-		//rendering all
 
 		//clear window before drawing new frame
 		window.clear();
 
-		//render field vector
-		for(unsigned i=0; i<fields.size();i++){
-			
-			//fields.at(i)->render(window);
-
-		}
-		test.render(window);
+		//render all elements
+		render(window);
 
 		//show content on display
 		window.display();
 	//========================================================
 	}
+
+
 }
 
 void test(){
@@ -152,3 +143,28 @@ void test(){
 void setColorBlue(){
 
 }
+
+//rendering all elements to display
+void render(sf::RenderWindow &window){
+
+	//render field vector
+	for(unsigned i=0; i<fields.size();i++){
+		//fields.at(i)->render(window);
+
+	}
+
+	button.render(window);
+}
+
+//updating logic
+void update(long dT){
+	//update field vector
+	for(unsigned i=0; i<fields.size();i++){
+		fields.at(i)->update(dT);
+
+	}
+
+	button.update(dT);
+
+}
+

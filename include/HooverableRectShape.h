@@ -1,11 +1,10 @@
 #ifndef HOOVERABLERECTSHAPE
 #define HOOVERABLERECTSHAPE
 
-//define Debugging mode on or off
-#define DEBUG 0
-
 #include "SFML/Graphics.hpp"
 #include "Library.h"
+
+namespace neulii{
 
 //Function Pointer for getting Hooveraction
 typedef void(*HooverAction)(void);
@@ -48,5 +47,7 @@ class HooverableRectShape{
 		sf::RenderWindow* getWindow();
 	
 };
+
+}//namespace neulii
 
 #endif

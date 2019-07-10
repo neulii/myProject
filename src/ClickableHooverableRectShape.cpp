@@ -1,6 +1,8 @@
 #include "ClickableHooverableRectShape.h"
 #include <iostream>
 
+namespace neulii{
+
 //Constructor
 ClickableHooverableRectShape::ClickableHooverableRectShape(float x, float y, float width, float height):HooverableRectShape(x,y,width,height){
 
@@ -72,3 +74,5 @@ void ClickableHooverableRectShape::rightClickAction(){
 
 
 }
+
+}//namespace neulii

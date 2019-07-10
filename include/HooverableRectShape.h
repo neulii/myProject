@@ -9,7 +9,6 @@ namespace neulii{
 	//Function Pointer for getting Hooveraction
 	typedef void(*HooverAction)(void);
 
-
 	class HooverableRectShape{
 		
 		private:
@@ -45,7 +44,6 @@ namespace neulii{
 			void setDefaultColor(sf::Color color);
 
 			sf::RenderWindow* getWindow();
-		
 	};
 
 }//namespace neulii

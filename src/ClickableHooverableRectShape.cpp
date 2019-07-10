@@ -51,13 +51,13 @@ namespace neulii{
 
 			//leftclick
 			if(button == sf::Mouse::Left){
-				std::cout << "left at: " << sf::Mouse::getPosition(*window).x << "   " << sf::Mouse::getPosition(*window).y << std::endl;
+				//std::cout << "left at: " << sf::Mouse::getPosition(*window).x << "   " << sf::Mouse::getPosition(*window).y << std::endl;
 				leftClickAction();
 			}
 
 			//rightclick
 			if(button == sf::Mouse::Right){
-				std::cout << "right at: " << sf::Mouse::getPosition(*window).x << "   " << sf::Mouse::getPosition(*window).y << std::endl;
+				//std::cout << "right at: " << sf::Mouse::getPosition(*window).x << "   " << sf::Mouse::getPosition(*window).y << std::endl;
 				rightClickAction();
 			}
 		}
@@ -65,14 +65,16 @@ namespace neulii{
 
 	//left-click Action;
 	void ClickableHooverableRectShape::leftClickAction(){
-
-
+		if(leftClick!=nullptr){
+			leftClick();
+		}
 	}
 
 	//right-click action
 	void ClickableHooverableRectShape::rightClickAction(){
-
-
+		if(rightClick!=nullptr){
+			rightClick();
+		}
 	}
 
 }//namespace neulii

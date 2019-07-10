@@ -3,7 +3,6 @@
 
 #include "HooverableRectShape.h"
 
-
 namespace neulii{
 
 	//Function Pointer for getting Hooveraction
@@ -16,6 +15,12 @@ namespace neulii{
 		bool isPressed = false;
 		sf::Color pressedColor = sf::Color::Red;
 
+		ClickAction leftClick = nullptr;
+		ClickAction rightClick = nullptr;
+
+		void leftClickAction();
+		void rightClickAction();
+	
 	public:
 
 		ClickableHooverableRectShape(float x, float y, float width, float height);
@@ -24,8 +29,9 @@ namespace neulii{
 		void operateClick(sf::Mouse::Button mouseButton);	
 		void update(long dT);
 
-		void leftClickAction();
-		void rightClickAction();
+		void setRightclickAction(ClickAction action);
+		void setLeftclickAction(ClickAction action);
+
 	};
 
 }//namespace neulii

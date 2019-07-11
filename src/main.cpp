@@ -106,12 +106,6 @@ int main(){
 					window.close();
 				}
 			}
-
-			//check mouseclick
-			if(event.type == sf::Event::MouseButtonPressed){
-				button.operateClick(event.mouseButton.button);
-			}
-
 		}
 
 		//time for Update methods

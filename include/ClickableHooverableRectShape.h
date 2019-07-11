@@ -13,7 +13,8 @@ namespace neulii{
 	private:
 
 		bool isPressed = false;
-		sf::Color pressedColor = sf::Color::Red;
+		sf::Color leftPressedColor = sf::Color::Red;
+		sf::Color rightPressedColor = sf::Color::Blue;
 
 		ClickAction leftClick = nullptr;
 		ClickAction rightClick = nullptr;
@@ -25,7 +26,9 @@ namespace neulii{
 
 		ClickableHooverableRectShape(float x, float y, float width, float height);
 
-		void setPressedColor(sf::Color color);
+		void setRightPressedColor(sf::Color color);
+		void setLeftPressedColor(sf::Color color);
+		
 		void operateClick(sf::Mouse::Button mouseButton);	
 		void update(long dT);
 

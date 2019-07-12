@@ -4,7 +4,12 @@
 namespace neulii{
 
 	//Constructor
-	ClickableHooverableRectShape::ClickableHooverableRectShape(float x, float y, float width, float height):HooverableRectShape(x,y,width,height){
+	ClickableHooverableRectShape::ClickableHooverableRectShape(	float x, 
+																float y, 
+																float width, 
+																float height)
+		:HooverableRectShape(x,y,width,height)
+	{
 
 	}
 
@@ -19,20 +24,10 @@ namespace neulii{
 		//Coloring when hoovered
 		if(checkIfHoovered()){
 			rectShape.setFillColor(hooveringColor);
-			//std::cout << "lsdkjf"<< std::endl;
 		}
 		//coloring when NOT hoovered
 		else{
 			rectShape.setFillColor(defaultColor);
-		}
-
-		//left button down
-		if(checkIfHoovered() && sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-			rectShape.setFillColor(leftPressedColor);
-		}
-		//right button down
-		else if(checkIfHoovered() && sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-			rectShape.setFillColor(rightPressedColor);
 		}
 
 		//when mouse is clicked inside
@@ -40,13 +35,13 @@ namespace neulii{
 
 			//leftclick
 			if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-				//std::cout << "left at: " << sf::Mouse::getPosition(getWindow()).x << "   " << sf::Mouse::getPosition(window).y << std::endl;
+				rectShape.setFillColor(leftPressedColor);
 				leftClickAction();
 			}
 
 			//rightclick
 			if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
-				//std::cout << "right at: " << sf::Mouse::getPosition(*window).x << "   " << sf::Mouse::getPosition(*window).y << std::endl;
+				rectShape.setFillColor(rightPressedColor);
 				rightClickAction();
 			}
 		}

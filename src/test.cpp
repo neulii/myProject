@@ -2,26 +2,70 @@
 #include <bitset>
 
 #include <fstream>
+#include <vector>
+
+using namespace std;
+
+void printMenu();
+
+char userInput;
+bool userIsInteracting = true;
+string stringToWrite;
 
 int main(){
 
+	system("cls");
+	printMenu();
+	
+	do{
 
-	using namespace std;
+		cin >> userInput;
 
-	ofstream myFile("hallo.txt");
+		switch(userInput){
 
-	if(myFile.is_open()){
+			//write in file
+			case '1':
+				cout << "schreiben" << endl;
+				stringToWrite = getTextFromUser();
+				break;
+			
+			//read from file
+			case '2':
+				break;
 
-		myFile << "das ist ein test" << endl ;
+			case '0':
+				cout << "Programm Ende erreicht" << endl;
+				userIsInteracting = false;
+				break;
 
-		myFile << "noch ein test" << endl;
-		myFile.close();
-	}
+			default: 
+				system("cls");
+				
+				cout << "Eingabe nicht erkannt" << endl <<endl;
+			
+				printMenu();
 
-
-	ifstream readFile()
+		}
+	}while(userIsInteracting);
 
 
 
 	return 0;
+}
+
+void printMenu(){
+
+	cout << "Was wollen Sie tun?" << endl<<endl;
+	cout << "1 - Datei schreiben" << endl;
+	cout << "2 - Datei lesen" << endl;
+	cout << "==================" << endl;
+	cout << "0 - Beenden" << endl << endl;
+
+	cout << "Eingabe: ";
+
+}
+
+getTextFromUser(){
+
+	
 }

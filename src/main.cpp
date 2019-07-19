@@ -12,6 +12,7 @@ using namespace neulii;
 void exitProg();
 void setColorBlue();
 void test();
+void buttonClickedText();
 
 void render(sf::RenderWindow& window);
 void update(long dT);
@@ -34,7 +35,7 @@ std::vector<ClickableHooverableRectShape*> fields;
 HooverAction myHooverAction =  &test;
 HooverAction setHooverBlue = &setColorBlue;
 
-ClickAction click = &exitProg;
+ClickAction click = &buttonClickedText;
 
 //create window
 sf::RenderWindow window(sf::VideoMode(
@@ -171,3 +172,8 @@ void exitProg(){
 	exit(0);
 }
 
+void buttonClickedText(){
+
+	std::cout << "button clicked" << std::endl;
+
+}

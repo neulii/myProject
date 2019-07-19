@@ -1,23 +1,25 @@
 #include <iostream>
 #include <bitset>
+
+#include <fstream>
+
 int main(){
 
 
 	using namespace std;
 
-	int result = 0;
+	ofstream myFile("hallo.txt");
 
-	//   0 1 0 1 0 
-	int i = 0b0100;
-	int j = 0b1101;
+	if(myFile.is_open()){
 
-	result = i ^ j;
+		myFile << "das ist ein test" << endl ;
 
-	
-	cout << bitset<8>(result) << endl;
+		myFile << "noch ein test" << endl;
+		myFile.close();
+	}
 
 
-	
+	ifstream readFile()
 
 
 

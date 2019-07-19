@@ -27,6 +27,16 @@ clean:
 	rm $(OBJS)
 	rm game
 
-cleanwin:
+cleanwin: 
 	del object\\*.o
 	del game.exe
+
+test: object/test.o
+	g++ -o test object/test.o $(LDFLAGS) $(LDLIBS) 
+
+object/test.o: src/test.cpp
+	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o $(CPPFLAGS)
+
+cleantest:
+	del object\test.o
+	del test.exe

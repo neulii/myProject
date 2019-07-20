@@ -20,6 +20,8 @@ void printMenu();
 void getTextFromUser();
 void showBufferText();
 
+ofstream output;
+string file;
 char userInput;
 bool userIsInteracting = true;
 vector<string> stringToWrite;
@@ -62,20 +64,34 @@ int main(){
 			//write text from buffer to file
 			case '4':
 			
-				string fileName;
+				
 
 				system(clearScreen);
 				cout << "Geben Sie einen Dateinamen an: ";
-				getline(std::cin, fileName);
-				fileName = fileName + "txt";
-
-				ofstream output(fileName);
-
-				for(unsigned i; i<stringToWrite.size();i++){
+				
+				//clear newline
+				getchar();
+				
+				//get filname
+				getline(cin, file);
+			
+				//add file extension
+				file.append(".txt");
+				
+				
+				//open file
+				output.open(file);
+				
+				//write lines into file
+				for(unsigned i = 0; i<stringToWrite.size();i++){
 					output << stringToWrite.at(i) << endl;
-
-
 				}
+				
+				//close file
+				output.close();
+
+				cout << "Datei wurde geschrieben!" << endl << endl;
+			
 
 				break;
 
@@ -84,9 +100,6 @@ int main(){
 				
 				cout << "Eingabe nicht erkannt" << endl <<endl;
 				
-			
-				
-
 		}
 	}while(userIsInteracting);
 

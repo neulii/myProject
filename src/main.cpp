@@ -74,6 +74,10 @@ int main(){
 				static_cast<float>(fieldWidth), 
 				static_cast<float>(fieldHeight));
 
+		tempField->setDefaultColor(sf::Color::Black);
+		tempField->setLeftPressedColor(sf::Color::Yellow);
+
+
 		//add field to vector
 		fields.push_back(tempField);
 
@@ -150,11 +154,11 @@ void render(sf::RenderWindow &window){
 
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++){
-		//fields.at(i)->render(window);
+		fields.at(i)->render(window);
 
 	}
 
-	button.render(window);
+	//button.render(window);
 }
 
 //updating logic

@@ -21,7 +21,7 @@ namespace neulii{
 
 	void printStringVec(std::vector<std::string> &stringVector){	
 		
-		for(int i=0; i<stringVector.size(); i++){
+		for(unsigned i=0; i<stringVector.size(); i++){
 			std::cout << stringVector.at(i) << std::endl;
 		}
 

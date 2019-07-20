@@ -37,12 +37,13 @@ int main(){
 
 		switch(userInput){
 
+			//exit program
 			case '0':
 				cout << "Programm Ende erreicht" << endl;
 				userIsInteracting = false;
 				break;
 
-			//write in file
+			//input text from console
 			case '1':
 				getTextFromUser();
 				
@@ -52,18 +53,39 @@ int main(){
 			case '2':
 				break;
 
-
+			//show added text to console
 			case '3':
 				showBufferText();
 				cout << endl << endl;
+				break;
+			
+			//write text from buffer to file
+			case '4':
+			
+				string fileName;
+
+				system(clearScreen);
+				cout << "Geben Sie einen Dateinamen an: ";
+				getline(std::cin, fileName);
+				fileName = fileName + "txt";
+
+				ofstream output(fileName);
+
+				for(unsigned i; i<stringToWrite.size();i++){
+					output << stringToWrite.at(i) << endl;
+
+
+				}
+
 				break;
 
 			default: 
 				system(clearScreen);
 				
 				cout << "Eingabe nicht erkannt" << endl <<endl;
+				
 			
-				printMenu();
+				
 
 		}
 	}while(userIsInteracting);
@@ -96,11 +118,11 @@ void getTextFromUser(){
 	
 	while(userInputLoop){
 		getline(cin, lineString);
+		
 		if(lineString.length()==0){
 			break;
 		}
 		else {
-			//cout << "eingefuegt" << endl;
 			stringToWrite.push_back(lineString);
 		}
 	}	

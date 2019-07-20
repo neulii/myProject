@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include "Library.h"
 
 //checking cls/clear command for different operating systems
 #if defined _WIN32
@@ -66,7 +67,7 @@ int main(){
 
 		}
 	}while(userIsInteracting);
-	
+
 	return 0;
 }
 
@@ -101,16 +102,13 @@ void getTextFromUser(){
 		else {
 			//cout << "eingefuegt" << endl;
 			stringToWrite.push_back(lineString);
-
 		}
-
 	}	
 }
 
 void showBufferText(){
 	cout << "Text im Buffer: " << endl << endl;
 	
-	for(int i = 0; i < stringToWrite.size();i++){
-		cout << stringToWrite.at(i) << endl;
-	}
+	neulii::printStringVec(stringToWrite);
+
 }

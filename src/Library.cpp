@@ -1,5 +1,8 @@
 #include "Library.h"
 #include <iostream>
+#include <vector>
+#include <string>
+
 
 namespace neulii{
 
@@ -14,6 +17,14 @@ namespace neulii{
 	
 	void vector2iToConsole(sf::Vector2i vector){
 		std::cout << "x: " << vector.x  << "   y: " << vector.y << std::endl;
+	}
+
+	void printStringVec(std::vector<std::string> &stringVector){	
+		
+		for(int i=0; i<stringVector.size(); i++){
+			std::cout << stringVector.at(i) << std::endl;
+		}
+
 	}
 
 } //namespace neulii

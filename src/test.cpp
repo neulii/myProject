@@ -3,14 +3,16 @@
 
 #include <fstream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 void printMenu();
+void getTextFromUser();
 
 char userInput;
 bool userIsInteracting = true;
-string stringToWrite;
+vector<string> stringToWrite;
 
 int main(){
 
@@ -26,11 +28,13 @@ int main(){
 			//write in file
 			case '1':
 				cout << "schreiben" << endl;
-				stringToWrite = getTextFromUser();
+				
 				break;
 			
 			//read from file
 			case '2':
+				getTextFromUser();
+
 				break;
 
 			case '0':
@@ -65,7 +69,23 @@ void printMenu(){
 
 }
 
-getTextFromUser(){
+void getTextFromUser(){
+
+	string lineString = "empty";
+	bool userInputLoop = true;
+
+	cout << "Geben Sie einen Text ein: " << endl << endl;
+	
+	cin.clear();
+	
+	while(userInputLoop){
+		getline(cin, lineString);
+		if(lineString.length()==0){
+			break;
+		}
+	}
+	cout << "end of while" << endl;
+
 
 	
 }

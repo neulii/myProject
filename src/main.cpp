@@ -51,6 +51,7 @@ ClickableHooverableRectShape button(10,10,50,50);
 int main(){
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
+	button.setRightclickAction(click);
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;

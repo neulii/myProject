@@ -82,7 +82,6 @@ void printMenu(){
 	cout << "0 - Beenden" << endl << endl;
 
 	cout << "Eingabe: ";
-
 }
 
 void getTextFromUser(){

@@ -2,10 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include <fstream>
 
 namespace neulii{
-
 
 	void floatRectToConsole(sf::FloatRect rect){
 
@@ -25,6 +24,17 @@ namespace neulii{
 			std::cout << stringVector.at(i) << std::endl;
 		}
 
+	}
+
+	void writeStringVecToFile(std::vector<std::string> &vector, std::string fileName){
+
+		std::ofstream output;
+		output.open(fileName);
+
+		for(unsigned i = 0; i<vector.size();i++){
+			output << vector.at(i) << std::endl;
+		}
+		output.close();
 	}
 
 } //namespace neulii

@@ -14,6 +14,9 @@ namespace neulii{
 	//prints a string vector to the console
 	void printStringVec(std::vector<std::string> &stringVector);
 
+	//write a string vector to file
+	void writeStringVecToFile(std::vector<std::string> &vector, std::string fileName);
+
 } //namespace neulii
 
 #endif

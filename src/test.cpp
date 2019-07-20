@@ -74,10 +74,11 @@ int main(){
 void printMenu(){
 
 	cout << "Was wollen Sie tun?" << endl<<endl;
-	cout << "1 - Datei schreiben" << endl;
+	cout << "1 - Text eingeben" << endl;
 	cout << "2 - Datei lesen" << endl;
 	cout << "3 - Text im Buffer anzeigen" << endl;
-	cout << "==================" << endl;
+	cout << "4 - Text im Buffer in Datei Schreiben" << endl;
+	cout << "=====================================" << endl;
 	cout << "0 - Beenden" << endl << endl;
 
 	cout << "Eingabe: ";

@@ -19,6 +19,7 @@ using namespace std;
 void printMenu();
 void getTextFromUser();
 void showBufferText();
+void writeFile();
 
 ofstream output;
 string file;
@@ -63,36 +64,8 @@ int main(){
 			
 			//write text from buffer to file
 			case '4':
-			
-				
-
-				system(clearScreen);
-				cout << "Geben Sie einen Dateinamen an: ";
-				
-				//clear newline
-				getchar();
-				
-				//get filname
-				getline(cin, file);
-			
-				//add file extension
-				file.append(".txt");
-				
-				
-				//open file
-				output.open(file);
-				
-				//write lines into file
-				for(unsigned i = 0; i<stringToWrite.size();i++){
-					output << stringToWrite.at(i) << endl;
-				}
-				
-				//close file
-				output.close();
-
-				cout << "Datei wurde geschrieben!" << endl << endl;
-			
-
+				writeFile();
+		
 				break;
 
 			default: 
@@ -146,4 +119,24 @@ void showBufferText(){
 	
 	neulii::printStringVec(stringToWrite);
 
+}
+
+void writeFile(){
+	system(clearScreen);
+	cout << "Geben Sie einen Dateinamen an: ";
+	
+	//clear newline
+	getchar();
+	
+	//get filname
+	getline(cin, file);
+
+	//add file extension
+	file.append(".txt");
+	
+	//write to file
+	neulii::writeStringVecToFile(stringToWrite, file);
+
+	cout << "Datei wurde geschrieben!" << endl << endl;
+			
 }

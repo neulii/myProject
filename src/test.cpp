@@ -1,25 +1,30 @@
 #include <iostream>
-#include <bitset>
+
+#define NL '\n'
+
+
+
+int getValueFromUser(){
+	int inputNumber = 0; 
+	std::cout << "enter your number: " << NL;
+	std::cin >> inputNumber;
+
+	return inputNumber;
+
+}
+
+void showNumber(int number){
+
+	std::cout << "number: " << number << NL;
+
+}
+
 int main(){
 
+	int number = getValueFromUser();
 
-	using namespace std;
-
-	int result = 0;
-
-	//   0 1 0 1 0 
-	int i = 0b0100;
-	int j = 0b1101;
-
-	result = i ^ j;
-
+	showNumber(number);
+	 
+	return EXIT_FAILURE;
 	
-	cout << bitset<8>(result) << endl;
-
-
-	
-
-
-
-	return 0;
 }

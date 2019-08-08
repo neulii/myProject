@@ -32,10 +32,10 @@ cleanwin:
 	del game.exe
 
 test: object/test.o
-	g++ -o test object/test.o $(LDFLAGS) $(LDLIBS) 
+	g++ -o test object/test.o $(LDFLAGS) $(LDLIBS)  
 
 object/test.o: src/test.cpp
-	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o $(CPPFLAGS)
+	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o $(CPPFLAGS) -Wpedantic -Wall -Wextra
 
 cleantest:
 	del object\test.o

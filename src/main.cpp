@@ -12,6 +12,7 @@ using namespace neulii;
 void exitProg();
 void setColorBlue();
 void test();
+void buttonClickedText();
 
 void render(sf::RenderWindow& window);
 void update(long dT);
@@ -34,7 +35,7 @@ std::vector<ClickableHooverableRectShape*> fields;
 HooverAction myHooverAction =  &test;
 HooverAction setHooverBlue = &setColorBlue;
 
-ClickAction click = &exitProg;
+ClickAction click = &buttonClickedText;
 
 //create window
 sf::RenderWindow window(sf::VideoMode(
@@ -50,6 +51,7 @@ ClickableHooverableRectShape button(10,10,50,50);
 int main(){
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
+	button.setRightclickAction(click);
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
@@ -71,6 +73,10 @@ int main(){
 				tempPosY, 
 				static_cast<float>(fieldWidth), 
 				static_cast<float>(fieldHeight));
+
+		tempField->setDefaultColor(sf::Color::Black);
+		tempField->setLeftPressedColor(sf::Color::Yellow);
+
 
 		//add field to vector
 		fields.push_back(tempField);
@@ -148,11 +154,11 @@ void render(sf::RenderWindow &window){
 
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++){
-		//fields.at(i)->render(window);
+		fields.at(i)->render(window);
 
 	}
 
-	button.render(window);
+	//button.render(window);
 }
 
 //updating logic
@@ -171,3 +177,8 @@ void exitProg(){
 	exit(0);
 }
 
+void buttonClickedText(){
+
+	std::cout << "button clicked" << std::endl;
+
+}

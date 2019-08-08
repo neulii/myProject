@@ -36,14 +36,32 @@ namespace neulii{
 			//leftclick
 			if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 				rectShape.setFillColor(leftPressedColor);
-				leftClickAction();
+				if(!leftActionExecuted){
+					leftClickAction();
+					leftActionExecuted = true;
+				}
+
 			}
 
 			//rightclick
 			if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 				rectShape.setFillColor(rightPressedColor);
-				rightClickAction();
+				if(!rightActionExecuted){
+					rightClickAction();
+					rightActionExecuted = true;
+				}
 			}
+
+			//reset flag when mousebutton is released and action is executed
+			if(leftActionExecuted && !sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+				leftActionExecuted = false;
+			}
+
+			if(rightActionExecuted && !sf::Mouse::isButtonPressed(sf::Mouse::Right)){
+				rightActionExecuted = false;
+			}
+
+
 		}
 	}
 

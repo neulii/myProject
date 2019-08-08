@@ -13,6 +13,10 @@ namespace neulii{
 	private:
 
 		bool isPressed = false;
+
+		bool leftActionExecuted = false;
+		bool rightActionExecuted = false;
+
 		sf::Color leftPressedColor = sf::Color::Red;
 		sf::Color rightPressedColor = sf::Color::Blue;
 

@@ -38,5 +38,6 @@ object/test.o: src/test.cpp
 	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o $(CPPFLAGS) -Wpedantic -Wall -Wextra
 
 cleantest:
+	rm object/*.o
 	del object\test.o
 	del test.exe

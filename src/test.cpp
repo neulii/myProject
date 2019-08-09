@@ -3,13 +3,12 @@
 #define NL '\n'
 
 
-
 int getValueFromUser(){
 	int inputNumber = 0; 
 	std::cout << "enter your number: " << NL;
 	std::cin >> inputNumber;
 	//test;
-	
+
 
 	return inputNumber;
 

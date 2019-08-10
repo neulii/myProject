@@ -1,41 +1,46 @@
 #include <iostream>
-#include <bitset>
-#include <typeinfo>
 
-	#define NL '\n'
+#define NL '\n'
 
-	using std::cout;
+using std::cout;
 
-	int main(){
+struct Point3D{
+	double x = 0;
+	double y = 0;
+	double z = 0;
+};
 
-		const unsigned char hungry	= 1 << 0; //0000_0001
-		const unsigned char angry 	= 1 << 1; //0000_0010
-		const unsigned char men 	= 1 << 4; //0001_0000
-		const unsigned char woman  	= 1 << 5; //0010_0000
+enum class Color{
+	Red,
+	Blue,
+	Orange
+};
 
-		int test = 0;
+enum class Type{
+	Good,
+	Bad
+};
 
-		unsigned char options = (0 | hungry);
-		options = options | angry;
-
-		options = options | woman;
-		
-		options = options & ~angry;
-		options = options & ~woman;
-		options  &= ~hungry;
-		
-		
-		if(options & angry){
-			cout  << "achtung wuetend" << NL;
-		}
-		
-
-
-		std::cout << std::bitset<8>(options) << NL;
-		cout << typeid(test).name() << NL;
-
-
-
-		return EXIT_FAILURE;
-		
+void printPoint3D(Point3D point){
+	cout << "x: " << point.x << NL;
+	cout << "y: " << point.y << NL;
+	cout << "z: " << point.z << NL;
 }
+
+
+int main(){
+
+	Type t = Type::Bad;
+	Color c = Color::Red;
+
+
+	cout << static_cast<int>(t) << NL;
+
+	Point3D myPoint;
+	printPoint3D(myPoint);
+
+	return EXIT_FAILURE;
+	
+}
+
+

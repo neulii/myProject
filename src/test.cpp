@@ -28,6 +28,7 @@
 		if(options & angry){
 			cout  << "achtung wuetend" << NL;
 		}
+		
 
 
 		std::cout << std::bitset<8>(options) << NL;

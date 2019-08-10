@@ -17,6 +17,12 @@ namespace neulii{
 	//write a string vector to file
 	void writeStringVecToFile(std::vector<std::string> &vector, std::string fileName);
 
+
+	/*	random Generator is to be initialized before using with:
+
+		std::srand(static_cast<unsigned long>(std::time(nullptr)))*/
+	unsigned getRandomInt(unsigned min, unsigned max);
+
 } //namespace neulii
 
 #endif

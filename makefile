@@ -31,14 +31,14 @@ cleanwin:
 	del object\\*.o
 	del game.exe
 
-test: object/test.o
-	g++ -o test object/test.o    
+test: object/test.o object/Library.o
+	g++ -o test object/test.o object/Library.o $(LDFLAGS)
 
-test.exe: object/test.o
-	g++ -o test.exe object/test.o
+test.exe: object/test.o object/Library.o
+	g++ -o test.exe object/test.o object/Library.o $(LDFLAGS)
 
 object/test.o: src/test.cpp
-	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o  -Wpedantic -Wall -Wextra
+	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o  -I "include" -Wpedantic -Wall -Wextra $(CPPFLAGS)
 
 cleantest:
 	rm object/*.o

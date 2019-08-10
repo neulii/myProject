@@ -37,6 +37,20 @@ namespace neulii{
 		output.close();
 	}
 
+	unsigned getRandomInt(unsigned min, unsigned max){
+
+	/*
+		random Generator is to be initialized before using with:
+
+		std::srand(static_cast<unsigned long>(std::time(nullptr)));
+
+	*/
+		int randNumber = std::rand();
+		int randomNumber =  randNumber % (max - min + 1) + min;
+
+		return randomNumber;
+	}
+
 } //namespace neulii
 
 

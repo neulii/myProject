@@ -1,43 +1,23 @@
 #include <iostream>
+#include <ctime>
 
 #define NL '\n'
 
 using std::cout;
 
-struct Point3D{
-	double x = 0;
-	double y = 0;
-	double z = 0;
-};
-
-enum class Color{
-	Red,
-	Blue,
-	Orange
-};
-
-enum class Type{
-	Good,
-	Bad
-};
-
-void printPoint3D(Point3D point){
-	cout << "x: " << point.x << NL;
-	cout << "y: " << point.y << NL;
-	cout << "z: " << point.z << NL;
-}
-
-
 int main(){
 
-	Type t = Type::Bad;
-	Color c = Color::Red;
+	std::srand(static_cast<unsigned long>(std::time(nullptr)));
 
+	for (int i = 1; i<=100; i++){
 
-	cout << static_cast<int>(t) << NL;
+		cout << std::rand() << "\t" ;
 
-	Point3D myPoint;
-	printPoint3D(myPoint);
+		if(i%5==0){
+			cout << NL;
+
+		}
+	}
 
 	return EXIT_FAILURE;
 	

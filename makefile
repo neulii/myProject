@@ -34,6 +34,9 @@ cleanwin:
 test: object/test.o
 	g++ -o test object/test.o    
 
+test.exe: object/test.o
+	g++ -o test.exe object/test.o
+
 object/test.o: src/test.cpp
 	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o  -Wpedantic -Wall -Wextra
 

@@ -5,3 +5,4 @@ SFML
 *.dll
 game
 .vscode
+test

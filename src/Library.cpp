@@ -6,6 +6,9 @@
 
 namespace neulii{
 
+	#define NL '\n'
+	#define TAB '\t'
+
 	void floatRectToConsole(sf::FloatRect rect){
 
 		std::cout << "x:      " << rect.left <<   std::endl;
@@ -37,6 +40,7 @@ namespace neulii{
 		output.close();
 	}
 
+	//returns a random integer
 	unsigned getRandomInt(unsigned min, unsigned max){
 
 	/*
@@ -49,6 +53,41 @@ namespace neulii{
 		int randomNumber =  randNumber % (max - min + 1) + min;
 
 		return randomNumber;
+	}
+
+	//sorts the array 
+	void sortIntegerArray(int array[], size_t size){
+		unsigned maxValue;
+		for(int j = 0; j<size; j++){
+
+			maxValue = findMaxAtArray(array, size-j);
+			
+			int swap = array[maxValue];
+			array[maxValue] = array[size-j-1];
+			array[size-j-1] = swap;
+		}
+	}
+
+	//returns the position of the biggest value
+	unsigned findMaxAtArray(int array[], size_t size){
+
+		unsigned maxValuePos = 0;
+		for(unsigned i = 0; i<size; i++){
+			
+			if(array[maxValuePos]<array[i]){
+				maxValuePos = i;
+			}
+		}
+		return maxValuePos;
+	}
+
+	//print the array to the console
+	void printArrayToConsole(int array[], size_t size){
+		std::cout << "=================" << NL;
+		for (unsigned i = 0; i<size; i++){
+			std::cout << array[i]<< NL;
+		}
+		std::cout << "=================" << NL;
 	}
 
 } //namespace neulii

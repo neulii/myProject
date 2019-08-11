@@ -3,19 +3,27 @@
 #include "Library.h"
 
 #define NL '\n'
+#define TAB '\t'
 
 using std::cout;
+
 
 int main(){
 
 	std::srand(static_cast<unsigned long>(std::time(nullptr)));
+	int numbers[100];
 
 	for (int i = 1; i<=100; i++){
-		int rn = neulii::getRandomInt(0,6);
-		cout << rn << "\t" ;
-		if(i%5==0){
-			cout << NL;
+		numbers[i] = neulii::getRandomInt(0,100);
 
+
+
+	}
+
+	for (int i = 1; i<=100; i++){
+		cout << numbers[i] << TAB;
+		if(i%10==0){
+			cout << NL;
 		}
 	}
 

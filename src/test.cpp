@@ -7,26 +7,18 @@
 
 using std::cout;
 
-
 int main(){
 
-	std::srand(static_cast<unsigned long>(std::time(nullptr)));
-	int numbers[100];
+	int numbers[] = {22,66,10,1,66,4000,100,3,20,444};
+	size_t arraySize = sizeof(numbers)/sizeof(numbers[0]);
+	
+	neulii::printArrayToConsole(numbers, arraySize);
 
-	for (int i = 1; i<=100; i++){
-		numbers[i] = neulii::getRandomInt(0,100);
+	neulii::sortIntegerArray(numbers,arraySize);
 
-
-
-	}
-
-	for (int i = 1; i<=100; i++){
-		cout << numbers[i] << TAB;
-		if(i%10==0){
-			cout << NL;
-		}
-	}
-
+	neulii::printArrayToConsole(numbers, arraySize);
+	
+	
 	return EXIT_FAILURE;
 	
 }

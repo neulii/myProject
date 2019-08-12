@@ -56,9 +56,9 @@ namespace neulii{
 	}
 
 	//sorts the array 
-	void sortIntegerArray(int array[], size_t size){
+	void selectionSortIntegerArray(int array[], size_t size){
 		unsigned maxValue;
-		for(int j = 0; j<size; j++){
+		for(unsigned j = 0; j<size; j++){
 
 			maxValue = findMaxAtArray(array, size-j);
 			

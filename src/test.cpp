@@ -15,10 +15,19 @@ int main(){
 	neulii::printArrayToConsole(numbers, arraySize);
 
 	std::sort(numbers, numbers+arraySize);
+
+	int i = 10;
+	int j = 20;
+
+	cout << i << "  " << j << NL;
+
+
+	std::swap(i,j);
 	
+		cout << i << "  " << j << NL;
 	//neulii::sortIntegerArray(numbers,arraySize);
 
-	neulii::printArrayToConsole(numbers, arraySize);
+	
 	
 	
 

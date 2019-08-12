@@ -24,9 +24,12 @@ namespace neulii{
 	unsigned getRandomInt(unsigned min, unsigned max);
 	
 	unsigned findMaxAtArray(int array[], size_t size);
+
 	void selectionSortIntegerArray(int array[], size_t size);
-	void printArrayToConsole(int array[], size_t size);
+	void bubbleSortIntegerArray(int array[], size_t size);
 	
+	void printArrayToConsole(int array[], size_t size);
+	void printArrayToLineConsole(int array[], size_t size);
 
 } //namespace neulii
 

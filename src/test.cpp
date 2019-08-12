@@ -10,23 +10,17 @@ using std::cout;
 
 int main(){
 
-	int numbers[] = {22,66,10,1,66,4000,100,3,20,444};
-	size_t arraySize = sizeof(numbers)/sizeof(numbers[0]);
-	neulii::printArrayToConsole(numbers, arraySize);
-
-	std::sort(numbers, numbers+arraySize);
-
-	int i = 10;
-	int j = 20;
-
-	cout << i << "  " << j << NL;
-
-
-	std::swap(i,j);
+	int numbers[] = {1000,2,1,100,3,23};
+	int numbers2[] = {1000,2,1,100,3,23};
 	
-		cout << i << "  " << j << NL;
-	//neulii::sortIntegerArray(numbers,arraySize);
+	size_t arraySize = sizeof(numbers)/sizeof(numbers[0]);
+	
 
+	neulii::selectionSortIntegerArray(numbers2,arraySize);
+	neulii::bubbleSortIntegerArray(numbers,arraySize);
+	
+	neulii::printArrayToConsole(numbers2, arraySize);
+	neulii::printArrayToConsole(numbers, arraySize);
 	
 	
 	

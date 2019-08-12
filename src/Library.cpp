@@ -55,7 +55,7 @@ namespace neulii{
 		return randomNumber;
 	}
 
-	//sorts the array 
+	//sorts the array with selection sort
 	void selectionSortIntegerArray(int array[], size_t size){
 		unsigned maxValue;
 		for(unsigned j = 0; j<size; j++){
@@ -65,6 +65,18 @@ namespace neulii{
 			int swap = array[maxValue];
 			array[maxValue] = array[size-j-1];
 			array[size-j-1] = swap;
+		}
+	}
+
+	//sorts array with bubble sort
+	void bubbleSortIntegerArray(int array[], size_t size){
+		for(unsigned j=0; j<size-1; j++){
+			for (unsigned i=0; i<size-j-1; i++){
+						
+				if(array[i]>array[i+1]){
+					std::swap(array[i], array[i+1]);
+				}					
+			}		
 		}
 	}
 
@@ -88,6 +100,17 @@ namespace neulii{
 			std::cout << array[i]<< NL;
 		}
 		std::cout << "=================" << NL;
+	}
+
+	//print array in one line to console
+	void printArrayToLineConsole(int array[], size_t size){
+		//std::cout << "=================" << NL;
+		for (unsigned i = 0; i<size; i++){
+			std::cout << array[i]<< "  " ;
+		}
+
+		std::cout << NL;
+		//std::cout << "=================" << NL;
 	}
 
 } //namespace neulii

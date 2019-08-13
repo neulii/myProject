@@ -8,7 +8,8 @@
 #include <array>
 
 
-
+typedef int (*myfuncPointer_t)(int,int);
+typedef void(*printIntMunber_t)(int);
 
 struct Person{
 	int age;
@@ -26,21 +27,38 @@ int sum(int a, int b){
 	return a+b;
 }
 
+int min(int a, int b){
+	return a-b;
+}
+
+void executeFunction(myfuncPointer_t m, int a, int b){
+
+	std::cout <<m(a,b) << NL;
+}
 
 
-
-
-
-
-int main(){
+int main(int argc, char* argv[]){
 	
-	std::array<int,10> myArray;
+	int number = std::atoi(argv[1]);
 
-	myArray.at(1);
+	
+	std::cout << "parameter: " << number << NL;
 
-	std::cout << myArray.size() << NL;
+	// myfuncPointer_t sub = &min;
+	// myfuncPointer_t add = &sum;
 
-	sum(10,10);
+	// executeFunction(sub, 1,20);
+	// executeFunction(add,100,100);
+
+ 
+	
+
+
+
+
+
+
+
 
 	return EXIT_FAILURE;
 	

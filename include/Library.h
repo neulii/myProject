@@ -3,6 +3,9 @@
 
 #include "SFML/Graphics.hpp"
 
+#define NL '\n'
+#define TAB '\t'
+
 namespace neulii{
 
 	// prints a FloatRect to Console

@@ -6,9 +6,6 @@
 
 namespace neulii{
 
-	#define NL '\n'
-	#define TAB '\t'
-
 	void floatRectToConsole(sf::FloatRect rect){
 
 		std::cout << "x:      " << rect.left <<   std::endl;

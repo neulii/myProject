@@ -6,58 +6,83 @@
 #include <string>
 #include <string>
 #include <array>
+#include <cassert>
+#include <sstream>
+
+//#define DEBUG
+
+enum class Gender{
+
+		Male,
+		Female
+
+	};
+	
+
+class Person{
+	
+	private:
+
+	std::string  	m_name;
+	unsigned		m_birthYear;
+	Gender 			m_gender;
+
+	public: 
+
+	Person(){
+		m_name = "noname";
+		m_birthYear = 1900;
+		m_gender = Gender::Male;
+
+	}
+
+	Person(std::string name, unsigned birthYear, Gender gender){
+		m_name = name;
+		m_birthYear = birthYear;
+		m_gender = gender;
+
+	}
+
+	void printPersonData(){
+		std::cout << "Name:       " << m_name << NL;
+		std::cout << "Birth Year: " << m_birthYear << NL;
+		std::cout << "Gender:     ";
+
+		if(m_gender == Gender::Male){
+			std::cout << "Male";
+		}  
+		else{
+			std::cout << "Female";
+		}
+
+		std::cout << NL;
+
+	}
+
+	std::string getName(){
+		return m_name;
+	}
+
+	int getBirthYear(){
+		return m_birthYear;
+	}
+
+	Gender getGender(){
+		return m_gender;
+	}
+	
 
 
-typedef int (*myfuncPointer_t)(int,int);
-typedef void(*printIntMunber_t)(int);
-
-struct Person{
-	int age;
-	std::string name;
 };
 
-void printInt(int myInt){
 
-	std::cout << "int: " << myInt << NL;
-
-}
-
-int sum(int a, int b){
-
-	return a+b;
-}
-
-int min(int a, int b){
-	return a-b;
-}
-
-void executeFunction(myfuncPointer_t m, int a, int b){
-
-	std::cout <<m(a,b) << NL;
-}
-
-
-int main(int argc, char* argv[]){
+int main(){
 	
-	int number = std::atoi(argv[1]);
+	Person neulii;
+	Person flo("florian",1988, Gender::Male);
 
-	
-	std::cout << "parameter: " << number << NL;
-
-	// myfuncPointer_t sub = &min;
-	// myfuncPointer_t add = &sum;
-
-	// executeFunction(sub, 1,20);
-	// executeFunction(add,100,100);
-
- 
-	
-
-
-
-
-
-
+	neulii.printPersonData();
+	flo.printPersonData();
 
 
 	return EXIT_FAILURE;

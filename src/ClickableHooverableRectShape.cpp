@@ -16,19 +16,7 @@ namespace neulii{
 	//overrides update method from hoverable rectshape
 	void ClickableHooverableRectShape::update(long dT){
 
-		//check if window is NULL
-		if(getWindow()==nullptr){
-			return;
-		}
-
-		//Coloring when hoovered
-		if(checkIfHoovered()){
-			rectShape.setFillColor(hooveringColor);
-		}
-		//coloring when NOT hoovered
-		else{
-			rectShape.setFillColor(defaultColor);
-		}
+		HooverableRectShape::update(dT);
 
 		//when mouse is clicked inside
 		if(checkIfHoovered()){

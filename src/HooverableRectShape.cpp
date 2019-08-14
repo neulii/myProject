@@ -25,6 +25,9 @@ namespace neulii{
 	//checks if shape is hoovered
 	bool HooverableRectShape::checkIfHoovered(){
 
+		//if window isnt initialized
+		if(getWindow()==nullptr)
+			return false;
 		//get position of window
 		sf::Vector2i windowPosition = this->window->getPosition();
 		
@@ -57,13 +60,6 @@ namespace neulii{
 
 	//update method
 	void HooverableRectShape::update(long dT){
-
-		//get Absolute MousePosition
-		
-		//when window isn't initialized
-		if(window == nullptr){
-			return;
-		}
 
 		//when rect is hoovered
 		if(checkIfHoovered()){

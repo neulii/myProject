@@ -54,9 +54,7 @@ namespace neulii{
 		}
 
 		return isHoovered;
-
 	}
-
 
 	//update method
 	void HooverableRectShape::update(long dT){
@@ -78,7 +76,6 @@ namespace neulii{
 		//check if enterAction is set
 		if(enterAction!=nullptr)
 			enterAction();
-
 	}
 
 	//action when leaving area
@@ -87,7 +84,6 @@ namespace neulii{
 		//check if leavingaction is set
 		if(leavingAction != nullptr)
 			leavingAction();
-
 	}
 
 	//set action for entering
@@ -109,7 +105,6 @@ namespace neulii{
 	void HooverableRectShape::setDefaultColor(sf::Color color){
 		defaultColor=color;
 		rectShape.setFillColor(defaultColor);
-
 	}
 
 	//returns window

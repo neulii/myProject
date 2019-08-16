@@ -38,7 +38,6 @@ namespace neulii{
 
 		void setRightclickAction(ClickAction action);
 		void setLeftclickAction(ClickAction action);
-
 	};
 
 }//namespace neulii

@@ -10,12 +10,12 @@ namespace neulii{
 																float height)
 		:HooverableRectShape(x,y,width,height)
 	{
-
 	}
 
 	//overrides update method from hoverable rectshape
-	void ClickableHooverableRectShape::update(long dT){
-
+	void ClickableHooverableRectShape::update(long dT)
+	{
+		//constructor from parent class
 		HooverableRectShape::update(dT);
 
 		//when mouse is clicked inside
@@ -28,7 +28,6 @@ namespace neulii{
 					leftClickAction();
 					leftActionExecuted = true;
 				}
-
 			}
 
 			//rightclick
@@ -48,8 +47,6 @@ namespace neulii{
 			if(rightActionExecuted && !sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 				rightActionExecuted = false;
 			}
-
-
 		}
 	}
 

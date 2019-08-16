@@ -5,7 +5,8 @@
 namespace neulii{
 
 	//Constructor 
-	HooverableRectShape::HooverableRectShape(float x, float y, float width, float height){
+	HooverableRectShape::HooverableRectShape(float x, float y, float width, float height)
+	{
 		//set Position of rectShape
 		rectShape.setPosition(x,y);
 

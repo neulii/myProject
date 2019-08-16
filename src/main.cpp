@@ -6,6 +6,7 @@
 #include "HooverableRectShape.h"
 #include "ClickableHooverableRectShape.h"
 #include "Library.h"
+#include "TitleBar.h"
 
 using namespace neulii;
 
@@ -30,6 +31,7 @@ unsigned targetResolutionHeight = heightInFields * fieldHeight;
 //fields 
 std::vector<ClickableHooverableRectShape*> fields;
 
+
 //Define Hoover actions for hooverable rectangles
 
 HooverAction myHooverAction =  &test;
@@ -44,6 +46,7 @@ sf::RenderWindow window(sf::VideoMode(
 				"Hello SFML-World",
 				sf::Style::None);
 
+neulii::TitleBar titleBar(window,false, false, false);
 ClickableHooverableRectShape button(10,10,50,50);
 //test.setDefaultColor(sf::Color::Green);
 
@@ -158,6 +161,8 @@ void render(sf::RenderWindow &window){
 
 	}
 
+	titleBar.render(window);
+
 	//button.render(window);
 }
 
@@ -170,6 +175,7 @@ void update(long dT){
 	}
 
 	button.update(dT);
+	titleBar.update(dT);
 
 }
 

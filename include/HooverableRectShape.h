@@ -43,6 +43,8 @@ namespace neulii{
 			void setHooverColor(sf::Color color);
 			void setDefaultColor(sf::Color color);
 
+			void setPosition(float x, float y);
+			void setSize(sf::Vector2f size);
 			sf::RenderWindow* getWindow();
 	};
 

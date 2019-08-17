@@ -23,7 +23,7 @@ namespace neulii{
         neulii::ClickableHooverableRectShape* m_buttonResize;
         neulii::ClickableHooverableRectShape* m_buttonMaximize;
 
-        sf::RectangleShape m_titleBarShape;
+        neulii::ClickableHooverableRectShape* m_titleBarShape;
 
     public: 
         

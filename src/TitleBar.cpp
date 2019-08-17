@@ -11,8 +11,7 @@ namespace neulii
     {
         
         m_window =&window;
-        m_titleBarShape.setFillColor(m_titleBarColor);
-
+        m_titleBarShape = new ClickableHooverableRectShape(window.getPosition().x,window.getPosition().y,window.getSize().x,window.getSize().y);
     }
 
     void TitleBar::update(long dT)
@@ -24,20 +23,21 @@ namespace neulii
         m_titleBarPosY = 0;
         m_titleBarLength = m_window->getSize().x;
 
+       
+        m_titleBarShape->setPosition(m_titleBarPosX, m_titleBarPosY);
+        m_titleBarShape->setSize(sf::Vector2f(m_titleBarLength, m_titleBarHeight));
 
-        m_titleBarShape.setPosition(m_titleBarPosX, m_titleBarPosY);
-        m_titleBarShape.setSize(sf::Vector2f(m_titleBarLength, m_titleBarHeight));
-
+        m_titleBarShape->setDefaultColor(m_titleBarColor);
 
 
     }
 
     void TitleBar::render(sf::RenderWindow& window)
     {
-        
-        window.draw(m_titleBarShape);
-       std::cout << m_titleBarLength << NL;
+       m_titleBarShape->render(window);
 
+        
+       
     }
 
 

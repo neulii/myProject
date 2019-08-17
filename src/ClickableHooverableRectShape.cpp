@@ -24,20 +24,30 @@ namespace neulii{
 			//leftclick
 			if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 				rectShape.setFillColor(leftPressedColor);
+
+				leftButtonIsDown = true;
+
 				if(!leftActionExecuted){
 					leftClickAction();
 					leftActionExecuted = true;
 				}
 			}
+			else 
+				leftButtonIsDown = false;
 
 			//rightclick
 			if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 				rectShape.setFillColor(rightPressedColor);
+
+				rightButtonIsDown = true;
+
 				if(!rightActionExecuted){
 					rightClickAction();
 					rightActionExecuted = true;
 				}
 			}
+			else
+				rightButtonIsDown = false;
 
 			//reset flag when mousebutton is released and action is executed
 			if(leftActionExecuted && !sf::Mouse::isButtonPressed(sf::Mouse::Left)){
@@ -79,6 +89,14 @@ namespace neulii{
 
 	void ClickableHooverableRectShape::setRightclickAction(ClickAction action){
 		rightClick = action;
+	}
+
+	bool ClickableHooverableRectShape::isLeftButtonDown(){
+		return leftButtonIsDown;
+	}
+
+	bool ClickableHooverableRectShape::isRightButtonDown(){
+		return rightButtonIsDown;
 	}
 
 }//namespace neulii

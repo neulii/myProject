@@ -17,6 +17,9 @@ namespace neulii{
 		bool leftActionExecuted = false;
 		bool rightActionExecuted = false;
 
+		bool leftButtonIsDown = false;
+		bool rightButtonIsDown = false;
+
 		sf::Color leftPressedColor = sf::Color::Red;
 		sf::Color rightPressedColor = sf::Color::Blue;
 
@@ -38,6 +41,9 @@ namespace neulii{
 
 		void setRightclickAction(ClickAction action);
 		void setLeftclickAction(ClickAction action);
+
+		bool isRightButtonDown();
+		bool isLeftButtonDown();
 	};
 
 }//namespace neulii

@@ -18,6 +18,8 @@ void buttonClickedText();
 void render(sf::RenderWindow& window);
 void update(long dT);
 
+unsigned titleBarHeight = 25;
+
 unsigned widthInFields = 10;
 unsigned heightInFields = 10;
 
@@ -66,7 +68,7 @@ int main(){
 		unsigned elementInCol = i / widthInFields;
 
 		float tempPosX = fieldWidth * elementInRow;
-		float tempPosY = fieldHeight *elementInCol;
+		float tempPosY = titleBarHeight + fieldHeight *elementInCol;
 
 		ClickableHooverableRectShape* tempField;
 		

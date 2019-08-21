@@ -29,7 +29,10 @@ namespace neulii
 
         m_titleBarShape->setDefaultColor(m_titleBarColor);
 
-
+        if(m_titleBarShape->isLeftButtonDown())
+        {
+            
+        }
     }
 
     void TitleBar::render(sf::RenderWindow& window)

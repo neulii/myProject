@@ -16,6 +16,7 @@ namespace neulii
 
     void TitleBar::update(long dT)
     {
+
         // m_titleBarPosX = m_window->getPosition().x;
         // m_titleBarPosY = m_window->getPosition().y;
         
@@ -28,16 +29,43 @@ namespace neulii
         m_titleBarShape->setSize(sf::Vector2f(m_titleBarLength, m_titleBarHeight));
 
         m_titleBarShape->setDefaultColor(m_titleBarColor);
+       
+        m_titleBarShape->update(dT);
+
+      
 
         if(m_titleBarShape->isLeftButtonDown())
         {
+            dragBegin = true;
+            std::cout << "vorher" << std::endl;
+            mouseDragBeginPosition = sf::Mouse::getPosition();
             
+            vector2iToConsole(mouseDragBeginPosition);
+
+            
+        
+        
         }
+
+        if(!m_titleBarShape->isLeftButtonDown())
+        {
+            dragBegin = false;
+        }
+
+        if(dragBegin)
+        {
+            std::cout << "draging" << std::endl;
+            m_window->setPosition(sf::Vector2i(m_window->getPosition().x+(mouseDragBeginPosition.x-sf::Mouse::getPosition().x),
+                                  m_window->getPosition().y+(mouseDragBeginPosition.y-sf::Mouse::getPosition().y) ));
+        }
+
+
     }
 
     void TitleBar::render(sf::RenderWindow& window)
     {
        m_titleBarShape->render(window);
+      
 
         
        

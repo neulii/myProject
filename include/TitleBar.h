@@ -15,6 +15,11 @@ namespace neulii{
 
         float m_titleBarPosX;
         float m_titleBarPosY;
+
+        bool dragBegin = false;
+
+        sf::Vector2i mouseDragBeginPosition;
+        
         
         sf::RenderWindow *m_window;
         sf::Color m_titleBarColor = sf::Color::White;

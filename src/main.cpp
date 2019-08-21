@@ -159,7 +159,7 @@ void render(sf::RenderWindow &window){
 
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++){
-		fields.at(i)->render(window);
+		// fields.at(i)->render(window);
 
 	}
 
@@ -172,7 +172,7 @@ void render(sf::RenderWindow &window){
 void update(long dT){
 	//update field vector
 	for(unsigned i=0; i<fields.size();i++){
-		fields.at(i)->update(dT);
+		// fields.at(i)->update(dT);
 
 	}
 

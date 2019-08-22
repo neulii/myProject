@@ -49,7 +49,10 @@ sf::RenderWindow window(sf::VideoMode(
 				sf::Style::None);
 
 neulii::TitleBar titleBar(window,false, false, false);
-ClickableHooverableRectShape button(10,10,50,50);
+neulii::ClickableHooverableRectShape button(10,100,10,90);
+
+
+
 //test.setDefaultColor(sf::Color::Green);
 
 //main - method
@@ -57,6 +60,7 @@ int main(){
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
 	button.setRightclickAction(click);
+	button.setDefaultColor(sf::Color::Green);
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
@@ -162,6 +166,7 @@ void render(sf::RenderWindow &window){
 		// fields.at(i)->render(window);
 
 	}
+	button.render(window);
 
 	titleBar.render(window);
 

@@ -11,7 +11,10 @@ namespace neulii
     {
         
         m_window =&window;
-        m_titleBarShape = new ClickableHooverableRectShape(window.getPosition().x,window.getPosition().y,window.getSize().x,window.getSize().y);
+        m_titleBarShape = new ClickableHooverableRectShape( 0,
+                                                            0,
+                                                            window.getSize().x,
+                                                            m_titleBarHeight);
     }
 
     void TitleBar::update(long dT)

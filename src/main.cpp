@@ -93,7 +93,7 @@ int main(){
 	}
 
 	//set Framerate to 60 FPS
-	window.setFramerateLimit(60);
+	//window.setFramerateLimit(60);
 	
 	sf::Clock clock;
 	sf::Time time;

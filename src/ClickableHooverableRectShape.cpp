@@ -57,6 +57,11 @@ namespace neulii{
 			if(rightActionExecuted && !sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 				rightActionExecuted = false;
 			}
+		}	
+		//when shape isnt hoovered button is more clicked
+		else{
+			leftButtonIsDown = false;
+			rightButtonIsDown =false;
 		}
 	}
 

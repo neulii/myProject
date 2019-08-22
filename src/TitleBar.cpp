@@ -35,43 +35,38 @@ namespace neulii
        
         m_titleBarShape->update(dT);
 
-      
 
         if(m_titleBarShape->isLeftButtonDown())
         {
             dragBegin = true;
-            std::cout << "vorher" << std::endl;
-            mouseDragBeginPosition = sf::Mouse::getPosition();
+            //std::cout << "vorher" << std::endl;
+            if(!dragBegin){
+                mouseDragBeginPosition = sf::Mouse::getPosition();
+                vector2iToConsole(mouseDragBeginPosition);
             
-            vector2iToConsole(mouseDragBeginPosition);
-
-            
-        
+            }
         
         }
-
-        if(!m_titleBarShape->isLeftButtonDown())
+        else
         {
+            mouseDragBeginPosition = sf::Mouse::getPosition();
             dragBegin = false;
+
         }
 
         if(dragBegin)
         {
-            std::cout << "draging" << std::endl;
-            m_window->setPosition(sf::Vector2i(m_window->getPosition().x+(mouseDragBeginPosition.x-sf::Mouse::getPosition().x),
-                                  m_window->getPosition().y+(mouseDragBeginPosition.y-sf::Mouse::getPosition().y) ));
+            //std::cout << "draging" << std::endl;
+            m_window->setPosition(sf::Vector2i(m_window->getPosition().x-(mouseDragBeginPosition.x-sf::Mouse::getPosition().x),
+                                  m_window->getPosition().y-(mouseDragBeginPosition.y-sf::Mouse::getPosition().y) ));
+        mouseDragBeginPosition = sf::Mouse::getPosition();
         }
-
-
     }
 
     void TitleBar::render(sf::RenderWindow& window)
     {
        m_titleBarShape->render(window);
-      
-
-        
-       
+    
     }
 
 

@@ -19,7 +19,9 @@ namespace neulii{
         bool dragBegin = false;
 
         sf::Vector2i mouseDragBeginPosition;
-        
+
+        sf::Vector2i mouseOldPosition = {0,0};
+        sf::Vector2i mouseNewPosition = {0,0};
         
         sf::RenderWindow *m_window;
         sf::Color m_titleBarColor = sf::Color::White;

@@ -19,6 +19,9 @@ namespace neulii
 
     void TitleBar::update(long dT)
     {
+        mouseOldPosition = mouseNewPosition;
+        mouseNewPosition = sf::Mouse::getPosition();
+
 
         // m_titleBarPosX = m_window->getPosition().x;
         // m_titleBarPosY = m_window->getPosition().y;
@@ -42,7 +45,7 @@ namespace neulii
             //std::cout << "vorher" << std::endl;
             if(!dragBegin){
                 mouseDragBeginPosition = sf::Mouse::getPosition();
-                vector2iToConsole(mouseDragBeginPosition);
+               // vector2iToConsole(mouseDragBeginPosition);
             
             }
         
@@ -57,9 +60,18 @@ namespace neulii
         if(dragBegin)
         {
             //std::cout << "draging" << std::endl;
-            m_window->setPosition(sf::Vector2i(m_window->getPosition().x-(mouseDragBeginPosition.x-sf::Mouse::getPosition().x),
-                                  m_window->getPosition().y-(mouseDragBeginPosition.y-sf::Mouse::getPosition().y) ));
-        mouseDragBeginPosition = sf::Mouse::getPosition();
+            //m_window->setPosition(sf::Vector2i(m_window->getPosition().x-(mouseDragBeginPosition.x-sf::Mouse::getPosition().x),
+                                  //m_window->getPosition().y-(mouseDragBeginPosition.y-sf::Mouse::getPosition().y) ));
+            
+            
+            mouseDragBeginPosition = sf::Mouse::getPosition();
+
+            sf::Vector2i diffPosition = mouseNewPosition - mouseOldPosition;
+           // vector2iToConsole(diffPosition);
+            
+            sf::Vector2i newPos = m_window->getPosition()+diffPosition;
+
+            m_window->setPosition(newPos);
         }
     }
 

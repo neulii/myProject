@@ -46,7 +46,7 @@ sf::RenderWindow window(sf::VideoMode(
 				targetResolutionWidth,
 				targetResolutionWidth),
 				"Hello SFML-World"
-				,sf::Style::Close
+				,sf::Style::Default
 				/*,
 				sf::Style::None*/);
 
@@ -59,8 +59,11 @@ neulii::ClickableHooverableRectShape button(10,100,10,90);
 
 //main - method
 int main(){
-
-	window.setView(sf::View(sf::FloatRect(0,26,targetResolutionWidth,targetResolutionHeight)));
+	
+	//Wegen Bug mit titlebar
+	#ifdef _WIN32
+		window.setView(sf::View(sf::FloatRect(0,26,targetResolutionWidth,targetResolutionHeight)));
+	#endif
 
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
@@ -77,7 +80,12 @@ int main(){
 		unsigned elementInCol = i / widthInFields;
 
 		float tempPosX = fieldWidth * elementInRow;
-		float tempPosY = titleBarHeight + fieldHeight *elementInCol;
+		float tempPosY = fieldHeight *elementInCol;
+
+		//wegen bug mit titlebar
+		#ifdef _WIN32
+			tempPosY = tempPosY + titleBarHeight;
+		#endif
 
 		ClickableHooverableRectShape* tempField;
 		

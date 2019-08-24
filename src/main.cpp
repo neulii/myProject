@@ -45,8 +45,10 @@ ClickAction click = &buttonClickedText;
 sf::RenderWindow window(sf::VideoMode(
 				targetResolutionWidth,
 				targetResolutionWidth),
-				"Hello SFML-World",
-				sf::Style::None);
+				"Hello SFML-World"
+				,sf::Style::Close
+				/*,
+				sf::Style::None*/);
 
 neulii::TitleBar titleBar(window,false, false, false);
 neulii::ClickableHooverableRectShape button(10,100,10,90);
@@ -57,6 +59,9 @@ neulii::ClickableHooverableRectShape button(10,100,10,90);
 
 //main - method
 int main(){
+
+	window.setView(sf::View(sf::FloatRect(0,26,targetResolutionWidth,targetResolutionHeight)));
+
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
 	button.setRightclickAction(click);
@@ -163,12 +168,12 @@ void render(sf::RenderWindow &window){
 
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++){
-		// fields.at(i)->render(window);
+		fields.at(i)->render(window);
 
 	}
 	button.render(window);
 
-	titleBar.render(window);
+	//titleBar.render(window);
 
 	//button.render(window);
 }
@@ -177,9 +182,12 @@ void render(sf::RenderWindow &window){
 void update(long dT){
 	//update field vector
 	for(unsigned i=0; i<fields.size();i++){
-		// fields.at(i)->update(dT);
+		fields.at(i)->update(dT);
 
 	}
+
+	neulii::vector2iToConsole(sf::Mouse::getPosition()-window.getPosition());
+
 
 	button.update(dT);
 	titleBar.update(dT);

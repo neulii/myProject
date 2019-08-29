@@ -12,7 +12,8 @@ namespace neulii{
 	void floatRectToConsole(sf::FloatRect rect);
 	
 	//prints a Vector2i to the console
-	void vector2iToConsole(sf::Vector2i vector);
+	void vector2ToConsole(sf::Vector2i vector);
+	void vector2ToConsole(sf::Vector2f vector);
 
 	//prints a string vector to the console
 	void printStringVec(std::vector<std::string> &stringVector);

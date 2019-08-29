@@ -14,9 +14,15 @@ namespace neulii{
 		std::cout << "height: " << rect.height << std::endl; 
 	}
 	
-	void vector2iToConsole(sf::Vector2i vector){
+	void vector2ToConsole(sf::Vector2i vector){
 		std::cout << "x: " << vector.x  << "   y: " << vector.y << std::endl;
 	}
+
+	void vector2ToConsole(sf::Vector2f vector){
+		std::cout << "x: " << vector.x  << "   y: " << vector.y << std::endl;
+	}
+	
+
 
 	void printStringVec(std::vector<std::string> &stringVector){	
 		

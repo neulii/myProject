@@ -54,6 +54,10 @@ neulii::TitleBar titleBar(window,false, false, false);
 neulii::ClickableHooverableRectShape button(10,100,10,90);
 
 
+sf::Vector2i pixelPos;
+
+// convert it to world coordinates
+sf::Vector2f worldPos;
 
 //test.setDefaultColor(sf::Color::Green);
 
@@ -64,6 +68,12 @@ int main(){
 	#ifdef _WIN32
 		window.setView(sf::View(sf::FloatRect(0,26,targetResolutionWidth,targetResolutionHeight)));
 	#endif
+
+
+
+
+
+
 
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
@@ -194,7 +204,11 @@ void update(long dT){
 
 	}
 
-	neulii::vector2iToConsole(sf::Mouse::getPosition()-window.getPosition());
+	pixelPos = sf::Mouse::getPosition(window);
+	worldPos = window.mapPixelToCoords(pixelPos);
+
+	neulii::vector2ToConsole(worldPos);
+	//neulii::vector2iToConsole(sf::Mouse::getPosition()-window.getPosition());
 
 
 	button.update(dT);

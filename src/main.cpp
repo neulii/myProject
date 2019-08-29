@@ -6,7 +6,6 @@
 #include "HooverableRectShape.h"
 #include "ClickableHooverableRectShape.h"
 #include "Library.h"
-#include "TitleBar.h"
 
 using namespace neulii;
 
@@ -17,8 +16,6 @@ void buttonClickedText();
 
 void render(sf::RenderWindow& window);
 void update(long dT);
-
-unsigned titleBarHeight = 25;
 
 unsigned widthInFields = 10;
 unsigned heightInFields = 10;
@@ -50,8 +47,7 @@ sf::RenderWindow window(sf::VideoMode(
 				/*,
 				sf::Style::None*/);
 
-neulii::TitleBar titleBar(window,false, false, false);
-neulii::ClickableHooverableRectShape button(10,100,10,90);
+neulii::ClickableHooverableRectShape button(100,100,100,100);
 
 
 sf::Vector2i pixelPos;
@@ -63,17 +59,6 @@ sf::Vector2f worldPos;
 
 //main - method
 int main(){
-	
-	//Wegen Bug mit titlebar
-	#ifdef _WIN32
-		window.setView(sf::View(sf::FloatRect(0,26,targetResolutionWidth,targetResolutionHeight)));
-	#endif
-
-
-
-
-
-
 
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
@@ -91,11 +76,6 @@ int main(){
 
 		float tempPosX = fieldWidth * elementInRow;
 		float tempPosY = fieldHeight *elementInCol;
-
-		//wegen bug mit titlebar
-		#ifdef _WIN32
-			tempPosY = tempPosY + titleBarHeight;
-		#endif
 
 		ClickableHooverableRectShape* tempField;
 		
@@ -186,12 +166,10 @@ void render(sf::RenderWindow &window){
 
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++){
-		fields.at(i)->render(window);
+		// fields.at(i)->render(window);
 
 	}
 	button.render(window);
-
-	//titleBar.render(window);
 
 	//button.render(window);
 }
@@ -203,16 +181,16 @@ void update(long dT){
 		fields.at(i)->update(dT);
 
 	}
+	// std::cout << "================" << std::endl;
+	neulii::vector2ToConsole(sf::Mouse::getPosition(window));
 
-	pixelPos = sf::Mouse::getPosition(window);
-	worldPos = window.mapPixelToCoords(pixelPos);
+	//  pixelPos = sf::Mouse::getPosition(window);
+	//  worldPos = window.mapPixelToCoords(pixelPos);
 
-	neulii::vector2ToConsole(worldPos);
-	//neulii::vector2iToConsole(sf::Mouse::getPosition()-window.getPosition());
-
+	// neulii::vector2ToConsole(worldPos);
 
 	button.update(dT);
-	titleBar.update(dT);
+	
 
 }
 

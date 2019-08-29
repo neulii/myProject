@@ -33,10 +33,15 @@ namespace neulii{
 		sf::Vector2i windowPosition = this->window->getPosition();
 		
 		//get position of mouse
-		sf::Vector2i mousePos = sf::Mouse::getPosition();
+		sf::Vector2i mousePos = sf::Mouse::getPosition(*window);
+
+		sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
+		sf::Vector2f worldPos = window->mapPixelToCoords(pixelPos);
 		
+		
+
 		//calculate relative MousePosition to window
-		sf::Vector2i  relativeMousePos((mousePos.x-windowPosition.x), (mousePos.y-windowPosition.y));
+		sf::Vector2i  relativeMousePos((worldPos.x), (worldPos.y));
 
 		//check if mouse is in rect
 		if(this->rect.contains(relativeMousePos.x, relativeMousePos.y)){

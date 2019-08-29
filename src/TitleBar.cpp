@@ -2,6 +2,7 @@
 #include <iostream>
 
 namespace neulii
+//testchange
 {
    //Constructor
     TitleBar::TitleBar( sf::RenderWindow &window, 

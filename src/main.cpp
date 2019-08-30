@@ -23,13 +23,11 @@ unsigned heightInFields = 10;
 unsigned fieldWidth = 50;
 unsigned fieldHeight = 50;
 
-
 unsigned targetResolutionWidth = widthInFields * fieldWidth;
 unsigned targetResolutionHeight = heightInFields * fieldHeight;
 
 //fields 
 std::vector<ClickableHooverableRectShape*> fields;
-
 
 //Define Hoover actions for hooverable rectangles
 
@@ -58,8 +56,8 @@ sf::Vector2f worldPos;
 //test.setDefaultColor(sf::Color::Green);
 
 //main - method
-int main(){
-
+int main()
+{
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
 	button.setRightclickAction(click);
@@ -89,10 +87,8 @@ int main(){
 		tempField->setDefaultColor(sf::Color::Black);
 		tempField->setLeftPressedColor(sf::Color::Yellow);
 
-
 		//add field to vector
 		fields.push_back(tempField);
-
 	}
 
 	//set Framerate to 60 FPS
@@ -102,21 +98,21 @@ int main(){
 	sf::Time time;
 
 	//while window is open
-	while(window.isOpen()){
+	while(window.isOpen())
+	{
 
 		sf::Event event;
 
 		//check events while window is open
-		while(window.pollEvent(event)){
-
+		while(window.pollEvent(event))
+		{
 			//when close event -> close window
 			if(event.type == sf::Event::Closed)
 				window.close();
 
-
-
 			//if key is pressed
-			if(event.type == sf::Event::KeyPressed){
+			if(event.type == sf::Event::KeyPressed)
+			{
 
 				//select pressed key
 				
@@ -148,26 +144,27 @@ int main(){
 		window.display();
 	//========================================================
 	}
-
-
 }
 
-void test(){
+void test()
+{
 
 	std::cout << "super" << std::endl;
 }
 
-void setColorBlue(){
+void setColorBlue()
+{
 
 }
 
 //rendering all elements to display
-void render(sf::RenderWindow &window){
+void render(sf::RenderWindow &window)
+{
 
 	//render field vector
-	for(unsigned i=0; i<fields.size();i++){
+	for(unsigned i=0; i<fields.size();i++)
+	{
 		// fields.at(i)->render(window);
-
 	}
 	button.render(window);
 
@@ -175,9 +172,11 @@ void render(sf::RenderWindow &window){
 }
 
 //updating logic
-void update(long dT){
+void update(long dT)
+{
 	//update field vector
-	for(unsigned i=0; i<fields.size();i++){
+	for(unsigned i=0; i<fields.size();i++)
+	{
 		fields.at(i)->update(dT);
 
 	}
@@ -190,16 +189,14 @@ void update(long dT){
 	// neulii::vector2ToConsole(worldPos);
 
 	button.update(dT);
-	
-
 }
 
-void exitProg(){
+void exitProg()
+{
 	exit(0);
 }
 
-void buttonClickedText(){
-
+void buttonClickedText()
+{
 	std::cout << "button clicked" << std::endl;
-
 }

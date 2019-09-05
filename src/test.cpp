@@ -84,7 +84,7 @@ public:
 };
 
 
-int main()
+int hallo()
 {
 
 	

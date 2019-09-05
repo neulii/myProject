@@ -6,3 +6,6 @@ SFML
 game
 .vscode
 test
+/myProject/Debug/myProject.tlog
+/myProject/Debug
+/myProject

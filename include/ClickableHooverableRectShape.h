@@ -36,7 +36,7 @@ namespace neulii{
 		void setRightPressedColor(sf::Color color);
 		void setLeftPressedColor(sf::Color color);
 		
-		void operateClick(sf::Mouse::Button mouseButton);	
+		//void operateClick(sf::Mouse::Button mouseButton);	
 		void update(long dT);
 
 		void setRightclickAction(ClickAction action);

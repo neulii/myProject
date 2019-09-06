@@ -78,30 +78,15 @@ public:
 	{
 		return m_gender;
 	}
-	
-
 
 };
 
-
 int hallo()
 {
-
-	
-
 	Person neulii;
 	Person flo("florian",1988, Person::Gender::Male);
 
-	
-
-
-
-
 	Person mama = Person("mama",1961,Person::Gender::Female);
-	
-	
-	
 
 	return EXIT_FAILURE;
-	
 }

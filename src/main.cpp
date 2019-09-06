@@ -62,7 +62,9 @@ int main()
 	button.setRightclickAction(click);
 	button.setDefaultColor(sf::Color::Green);
 
-	
+	button.setEnterAction(test);
+	button.setLeavingAction(test);
+
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
@@ -183,7 +185,7 @@ void update(long dT)
 
 	}
 	// std::cout << "================" << std::endl;
-	neulii::vector2ToConsole(sf::Mouse::getPosition(window));
+	//neulii::vector2ToConsole(sf::Mouse::getPosition(window));
 
 	//  pixelPos = sf::Mouse::getPosition(window);
 	//  worldPos = window.mapPixelToCoords(pixelPos);

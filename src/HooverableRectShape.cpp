@@ -41,10 +41,10 @@ namespace neulii{
 		
 
 		//calculate relative MousePosition to window
-		sf::Vector2i  relativeMousePos((worldPos.x), (worldPos.y));
+		sf::Vector2i  relativeMousePos((static_cast<int>(worldPos.x)), static_cast<int>((worldPos.y)));
 
 		//check if mouse is in rect
-		if(this->rect.contains(relativeMousePos.x, relativeMousePos.y)){
+		if(this->rect.contains(static_cast<float>(relativeMousePos.x), static_cast<float>(relativeMousePos.y))){
 			//when mouse is coming in
 			if(isHoovered==false){
 				entering();

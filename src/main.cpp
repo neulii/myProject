@@ -47,7 +47,6 @@ sf::RenderWindow window(sf::VideoMode(
 
 neulii::ClickableHooverableRectShape button(100,100,100,100);
 
-
 sf::Vector2i pixelPos;
 
 // convert it to world coordinates
@@ -63,6 +62,8 @@ int main()
 	button.setRightclickAction(click);
 	button.setDefaultColor(sf::Color::Green);
 
+	
+
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
 
@@ -72,8 +73,8 @@ int main()
 		unsigned elementInRow = i % widthInFields;
 		unsigned elementInCol = i / widthInFields;
 
-		float tempPosX = fieldWidth * elementInRow;
-		float tempPosY = fieldHeight *elementInCol;
+		float tempPosX = static_cast<float>(fieldWidth * elementInRow);
+		float tempPosY = static_cast<float>(fieldHeight *elementInCol);
 
 		ClickableHooverableRectShape* tempField;
 		
@@ -167,6 +168,7 @@ void render(sf::RenderWindow &window)
 		// fields.at(i)->render(window);
 	}
 	button.render(window);
+	
 
 	//button.render(window);
 }
@@ -187,7 +189,7 @@ void update(long dT)
 	//  worldPos = window.mapPixelToCoords(pixelPos);
 
 	// neulii::vector2ToConsole(worldPos);
-
+	
 	button.update(dT);
 }
 

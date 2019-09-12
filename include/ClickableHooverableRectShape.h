@@ -44,6 +44,8 @@ namespace neulii{
 
 		bool isRightButtonDown();
 		bool isLeftButtonDown();
+
+		sf::Color getLeftPressedColor();
 	};
 
 }//namespace neulii

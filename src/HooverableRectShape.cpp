@@ -119,6 +119,11 @@ namespace neulii{
 
 	}
 
+	sf::Color HooverableRectShape::getDefaultColor()
+	{
+		return defaultColor;
+	}
+
 	void HooverableRectShape::setPosition(float x, float y){
 		rectShape.setPosition(x,y);
 		rect.left = rectShape.getPosition().x;

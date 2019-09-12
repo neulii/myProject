@@ -59,10 +59,10 @@ namespace neulii{
 			}
 		}	
 		//when shape isnt hoovered button is more clicked
-		else{
+		/*else{
 			leftButtonIsDown = false;
 			rightButtonIsDown =false;
-		}
+		}*/
 	}
 
 	//left-click Action;
@@ -104,4 +104,8 @@ namespace neulii{
 		return rightButtonIsDown;
 	}
 
+	sf::Color ClickableHooverableRectShape::getLeftPressedColor()
+	{
+		return leftPressedColor;
+	}
 }//namespace neulii

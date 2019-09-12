@@ -48,6 +48,8 @@ namespace neulii{
 			void setPosition(float x, float y);
 			void setSize(sf::Vector2f size);
 			sf::RenderWindow* getWindow();
+
+			sf::Color getDefaultColor();
 	};
 
 }//namespace neulii

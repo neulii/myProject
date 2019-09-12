@@ -14,21 +14,14 @@ namespace neulii {
 		sf::Vector2i mouseOld = sf::Vector2i(0, 0);
 		sf::Vector2i mouseNew = sf::Vector2i(0, 0);
 
+		bool draggingActive = false;
 
 	public:
 		
 		DragNDropField(float x, float y, float width, float height);
 		void update(long dT);
-
-
-
 	};
 
-
-
 }
-
-
-
 
 #endif

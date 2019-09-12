@@ -27,6 +27,7 @@ namespace neulii{
 
 				leftButtonIsDown = true;
 
+				//for action is just executed  one time
 				if(!leftActionExecuted){
 					leftClickAction();
 					leftActionExecuted = true;
@@ -41,6 +42,7 @@ namespace neulii{
 
 				rightButtonIsDown = true;
 
+				//for action is just executed  one time
 				if(!rightActionExecuted){
 					rightClickAction();
 					rightActionExecuted = true;

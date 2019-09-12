@@ -34,6 +34,8 @@ namespace neulii{
 			
 			void render(sf::RenderWindow &window);
 			void update(long dT);
+
+			sf::Vector2f getPosition();
 			
 			bool checkIfHoovered();
 			void setEnterAction(HooverAction action);

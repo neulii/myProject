@@ -121,10 +121,17 @@ namespace neulii{
 
 	void HooverableRectShape::setPosition(float x, float y){
 		rectShape.setPosition(x,y);
+		rect.left = rectShape.getPosition().x;
+		rect.top = rectShape.getPosition().y;
 	}
 
 	void HooverableRectShape::setSize(sf::Vector2f size){
 		rectShape.setSize(size);
+	}
+
+	sf::Vector2f HooverableRectShape::getPosition()
+	{
+		return rectShape.getPosition();
 	}
 
 }//namespace neulii

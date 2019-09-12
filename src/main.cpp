@@ -5,6 +5,7 @@
 
 #include "HooverableRectShape.h"
 #include "ClickableHooverableRectShape.h"
+#include "DragNDropField.h"
 #include "Library.h"
 
 using namespace neulii;
@@ -46,6 +47,8 @@ sf::RenderWindow window(sf::VideoMode(
 				sf::Style::None*/);
 
 neulii::ClickableHooverableRectShape button(100,100,100,100);
+neulii::DragNDropField dragRect(100, 200, 50, 50);
+
 
 sf::Vector2i pixelPos;
 
@@ -170,6 +173,7 @@ void render(sf::RenderWindow &window)
 		// fields.at(i)->render(window);
 	}
 	button.render(window);
+	dragRect.render(window);
 	
 
 	//button.render(window);
@@ -191,7 +195,8 @@ void update(long dT)
 	//  worldPos = window.mapPixelToCoords(pixelPos);
 
 	// neulii::vector2ToConsole(worldPos);
-	
+	dragRect.update(dT);
+
 	button.update(dT);
 }
 

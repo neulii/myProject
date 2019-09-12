@@ -48,9 +48,14 @@ sf::RenderWindow window(sf::VideoMode(
 
 neulii::ClickableHooverableRectShape button(100,100,100,100);
 neulii::DragNDropField dragRect(100, 200, 50, 50);
+neulii::DragNDropField dragRect2(150, 200, 50, 50);
+neulii::DragNDropField dragRect3(100, 250, 50, 50);
+
+
 
 
 sf::Vector2i pixelPos;
+
 
 // convert it to world coordinates
 sf::Vector2f worldPos;
@@ -173,7 +178,10 @@ void render(sf::RenderWindow &window)
 		// fields.at(i)->render(window);
 	}
 	button.render(window);
+	
 	dragRect.render(window);
+	dragRect2.render(window);
+	dragRect3.render(window);
 	
 
 	//button.render(window);
@@ -196,6 +204,8 @@ void update(long dT)
 
 	// neulii::vector2ToConsole(worldPos);
 	dragRect.update(dT);
+	dragRect2.update(dT);
+	dragRect3.update(dT);
 
 	button.update(dT);
 }

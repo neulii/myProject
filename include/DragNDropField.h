@@ -16,6 +16,7 @@ namespace neulii {
 
 		bool draggingActive = false;
 
+
 	public:
 		
 		DragNDropField(float x, float y, float width, float height);

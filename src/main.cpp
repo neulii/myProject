@@ -7,6 +7,7 @@
 #include "ClickableHooverableRectShape.h"
 #include "DragNDropField.h"
 #include "Library.h"
+#include "Button.h"
 
 using namespace neulii;
 
@@ -52,7 +53,7 @@ neulii::DragNDropField dragRect2(150, 200, 50, 50);
 neulii::DragNDropField dragRect3(100, 250, 50, 50);
 
 
-
+neulii::Button myButton(0,0,50,50);
 
 sf::Vector2i pixelPos;
 
@@ -184,6 +185,8 @@ void render(sf::RenderWindow &window)
 	}
 	button.render(window);
 	
+	myButton.render(window);
+	
 	dragRect.render(window);
 	dragRect2.render(window);
 	dragRect3.render(window);
@@ -211,6 +214,8 @@ void update(long dT)
 	dragRect.update(dT);
 	dragRect2.update(dT);
 	dragRect3.update(dT);
+	
+	myButton.update(dT);
 
 	button.update(dT);
 }

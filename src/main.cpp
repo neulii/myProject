@@ -46,7 +46,7 @@ sf::RenderWindow window(sf::VideoMode(
 				/*,
 				sf::Style::None*/);
 
-neulii::ClickableHooverableRectShape button(100,100,100,100);
+neulii::DragNDropField button(100,100,100,100);
 neulii::DragNDropField dragRect(100, 200, 50, 50);
 neulii::DragNDropField dragRect2(150, 200, 50, 50);
 neulii::DragNDropField dragRect3(100, 250, 50, 50);
@@ -68,10 +68,15 @@ int main()
 	button.setLeftPressedColor(sf::Color::Yellow);
 	button.setLeftclickAction(click);
 	button.setRightclickAction(click);
-	button.setDefaultColor(sf::Color::Green);
+	button.setDefaultColor(sf::Color::Yellow);
 
 	button.setEnterAction(test);
 	button.setLeavingAction(test);
+
+	dragRect.setDefaultColor(sf::Color::Green);
+	dragRect2.setDefaultColor(sf::Color::Blue);
+	dragRect3.setDefaultColor(sf::Color::Yellow);
+
 
 
 	//calculate elements needed

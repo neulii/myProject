@@ -1,4 +1,4 @@
-OBJS = object/main.o object/HooverableRectShape.o object/Library.o object/ClickableHooverableRectShape.o #object/TitleBar.o
+OBJS = object/main.o object/HooverableRectShape.o object/Library.o object/ClickableHooverableRectShape.o object/DragNDropField.o
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
@@ -23,6 +23,10 @@ object/Library.o: src/Library.cpp include/Library.h
 object/ClickableHooverableRectShape.o: src/ClickableHooverableRectShape.cpp include/ClickableHooverableRectShape.h
 	g++ $(CXXFLAGS) -c src/ClickableHooverableRectShape.cpp -o object/ClickableHooverableRectShape.o $(CPPFLAGS)
 
+object/DragNDropField.o: src/DragNDropField.cpp include/DragNDropField.h
+	g++ $(CXXFLAGS) -c src/DragNDropField.cpp -o object/DragNDropField.o $(CPPFLAGS)
+
+
 #object/TitleBar.o: src/TitleBar.cpp include/TitleBar.h
 #	g++  $(CXXFLAGS) -c src/TitleBar.cpp -o object/TitleBar.o $(CPPFLAGS)
 
@@ -43,6 +47,8 @@ test.exe: object/test.o object/Library.o
 
 object/test.o: src/test.cpp
 	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o  -I "include" -Wpedantic -Wall -Wextra $(CPPFLAGS)
+
+
 
 cleantest:
 	rm object/*.o

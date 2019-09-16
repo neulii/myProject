@@ -17,6 +17,7 @@ namespace neulii
 		Button(float x, float y, float width, float height); 
 		
 		void update(long dT);
+		void render(sf::RenderWindow& window);
 	};
 
 

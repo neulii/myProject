@@ -22,30 +22,29 @@ namespace neulii
 	{
 		ClickableHooverableRectShape::update(dT);
 
-		unsigned offset;
+		unsigned offset = 0;
+
 		if(checkIfHoovered())
 		{
-			
 			offset = OFFSET_HOOVERED;
-			std::cout << offset << std::endl;
-
 		}
 		else
 		{
 			offset = OFFSET_UNHOOVERED;
-			std::cout << "not hovered" << std::endl;
+			
 		}
 
 		
-		std::cout << offset << std::endl;
+		shadowShape.setPosition(shadowPosX+offset, shadowPosY+offset);
+
 
 	}
 
 	void Button::render(sf::RenderWindow& window)
 	{
 
-		window.draw(shadowShape);
 		ClickableHooverableRectShape::render(window);
+		window.draw(shadowShape);
 
 	}
 

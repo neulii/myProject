@@ -14,8 +14,8 @@ namespace neulii
 		unsigned shadowPosY = 0;
 
 		sf::RectangleShape shadowShape;
-		unsigned const OFFSET_HOOVERED= 4;
-		unsigned const OFFSET_UNHOOVERED= 1;
+		unsigned const OFFSET_HOOVERED= 1;
+		unsigned const OFFSET_UNHOOVERED= 3;
 
 	public: 
 		

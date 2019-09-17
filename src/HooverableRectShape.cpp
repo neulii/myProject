@@ -58,7 +58,7 @@ namespace neulii{
 			}
 			isHoovered = false;
 		}
-		std::cout << isHoovered << std::endl;
+
 		return isHoovered;
 	}
 

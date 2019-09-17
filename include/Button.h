@@ -8,9 +8,14 @@ namespace neulii
 	class Button : public ClickableHooverableRectShape
 	{
 
-	private: 
+	private:
+
+		unsigned shadowPosX = 0;
+		unsigned shadowPosY = 0;
 
 		sf::RectangleShape shadowShape;
+		unsigned const OFFSET_HOOVERED= 4;
+		unsigned const OFFSET_UNHOOVERED= 1;
 
 	public: 
 		

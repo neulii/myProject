@@ -183,13 +183,13 @@ void render(sf::RenderWindow &window)
 	{
 		// fields.at(i)->render(window);
 	}
-	button.render(window);
+//	button.render(window);
 	
 	myButton.render(window);
 	
-	dragRect.render(window);
-	dragRect2.render(window);
-	dragRect3.render(window);
+//	dragRect.render(window);
+//	dragRect2.render(window);
+//	dragRect3.render(window);
 	
 
 	//button.render(window);

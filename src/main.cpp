@@ -53,7 +53,7 @@ neulii::DragNDropField dragRect2(150, 200, 50, 50);
 neulii::DragNDropField dragRect3(100, 250, 50, 50);
 
 
-neulii::Button myButton(0,0,50,50);
+neulii::Button myButton(100,100,50,50);
 
 sf::Vector2i pixelPos;
 

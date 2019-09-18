@@ -9,11 +9,11 @@ namespace neulii
 	{
 		shadowPosX = x + OFFSET_UNHOOVERED;
 		shadowPosY = y + OFFSET_UNHOOVERED;
-		
+	
 		shadowShape.setPosition(shadowPosX , shadowPosY);
 
 		shadowShape.setSize(sf::Vector2f(width, height));
-		shadowShape.setFillColor(sf::Color::Red);
+		shadowShape.setFillColor(sf::Color::Green);
 
 
 	}
@@ -24,7 +24,7 @@ namespace neulii
 
 		unsigned offset = 0;
 
-		if(checkIfHoovered())
+		if(isLeftButtonDown())
 		{
 			offset = OFFSET_HOOVERED;
 		}
@@ -35,7 +35,7 @@ namespace neulii
 		}
 
 		
-		shadowShape.setPosition(shadowPosX+offset, shadowPosY+offset);
+		shadowShape.setPosition(shadowPosX - offset, shadowPosY - offset);
 
 
 	}
@@ -43,8 +43,9 @@ namespace neulii
 	void Button::render(sf::RenderWindow& window)
 	{
 
-		ClickableHooverableRectShape::render(window);
 		window.draw(shadowShape);
+
+		ClickableHooverableRectShape::render(window);
 
 	}
 

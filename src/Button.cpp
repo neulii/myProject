@@ -7,15 +7,16 @@ namespace neulii
 	Button::Button(float x, float y, float width, float height) : 
 		ClickableHooverableRectShape(x,y,width,height) 
 	{
-		shadowPosX = x + OFFSET_UNHOOVERED;
-		shadowPosY = y + OFFSET_UNHOOVERED;
+		buttonPosX = x + OFFSET_UNHOOVERED;
+		buttonPosY = y + OFFSET_UNHOOVERED;
 	
-		shadowShape.setPosition(shadowPosX , shadowPosY);
+		//set shape on right bottom position
+		shadowShape.setPosition(buttonPosX+2 , buttonPosY+2);
 
 		shadowShape.setSize(sf::Vector2f(width, height));
 		shadowShape.setFillColor(sf::Color::Green);
 
-
+		setPosition(buttonPosX, buttonPosY);
 	}
 
 	void Button::update(long dT)  
@@ -34,21 +35,14 @@ namespace neulii
 			
 		}
 
-		
-		shadowShape.setPosition(shadowPosX - offset, shadowPosY - offset);
-
-
+		setPosition(buttonPosX- offset, buttonPosY- offset);
 	}
 
 	void Button::render(sf::RenderWindow& window)
 	{
 
 		window.draw(shadowShape);
-
 		ClickableHooverableRectShape::render(window);
-
 	}
-
-
 
 }//namespace neulii

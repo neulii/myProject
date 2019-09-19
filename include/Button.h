@@ -10,10 +10,11 @@ namespace neulii
 
 	private:
 
-		unsigned shadowPosX = 0;
-		unsigned shadowPosY = 0;
+		unsigned buttonPosX = 0;
+		unsigned buttonPosY = 0;
 
 		sf::RectangleShape shadowShape;
+
 		unsigned const OFFSET_HOOVERED= 1;
 		unsigned const OFFSET_UNHOOVERED= 3;
 
@@ -24,15 +25,6 @@ namespace neulii
 		void update(long dT);
 		void render(sf::RenderWindow& window);
 	};
-
-
 }
-
-
-
-
-
-
-
 
 #endif

@@ -110,8 +110,8 @@ int main()
 		fields.push_back(tempField);
 	}
 
-	//set Framerate to 60 FPS
-	window.setFramerateLimit(60);
+	//set Framerate to 60 FPS -> deactivated macos performance 
+	//window.setFramerateLimit(60);
 	
 	sf::Clock clock;
 	sf::Time time;

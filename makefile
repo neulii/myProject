@@ -1,4 +1,4 @@
-OBJS = object/main.o object/HooverableRectShape.o object/Library.o object/ClickableHooverableRectShape.o object/DragNDropField.o object/Button.o
+OBJS = object/main.o object/HooverableRectShape.o object/Library.o object/ClickableHooverableRectShape.o object/DragNDropField.o object/Button.o object/MenuButton.o
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
@@ -28,6 +28,10 @@ object/DragNDropField.o: src/DragNDropField.cpp include/DragNDropField.h
 
 object/Button.o: src/Button.cpp include/Button.h
 	g++ $(CXXFLAGS) -c src/Button.cpp -o object/Button.o $(CPPFLAGS)
+
+object/MenuButton.o: src/MenuButton.cpp include/MenuButton.h
+	g++ $(CXXFLAGS) -c src/MenuButton.cpp -o object/MenuButton.o $(CPPFLAGS)
+
 
 #object/TitleBar.o: src/TitleBar.cpp include/TitleBar.h
 #	g++  $(CXXFLAGS) -c src/TitleBar.cpp -o object/TitleBar.o $(CPPFLAGS)

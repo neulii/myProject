@@ -8,6 +8,7 @@
 #include "DragNDropField.h"
 #include "Library.h"
 #include "Button.h"
+#include "MenuButton.h"
 
 using namespace neulii;
 
@@ -54,6 +55,7 @@ neulii::DragNDropField dragRect3(100, 250, 50, 50);
 
 
 neulii::Button myButton(100,100,50,50);
+MenuButton menuButton("superbutton", 100,200,100,50);
 
 sf::Vector2i pixelPos;
 
@@ -186,7 +188,7 @@ void render(sf::RenderWindow &window)
 //	button.render(window);
 	
 	myButton.render(window);
-	
+	menuButton.render(window);	
 //	dragRect.render(window);
 //	dragRect2.render(window);
 //	dragRect3.render(window);
@@ -216,7 +218,7 @@ void update(long dT)
 	dragRect3.update(dT);
 	
 	myButton.update(dT);
-
+	menuButton.update(dT);
 	button.update(dT);
 }
 

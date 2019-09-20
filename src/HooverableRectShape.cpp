@@ -139,5 +139,8 @@ namespace neulii{
 		return rectShape.getPosition();
 	}
 
-	
+	sf::RectangleShape HooverableRectShape::getRectangleShape()
+	{
+		return rectShape;	
+	}
 }//namespace neulii

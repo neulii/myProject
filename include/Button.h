@@ -12,11 +12,21 @@ namespace neulii
 
 		unsigned buttonPosX = 0;
 		unsigned buttonPosY = 0;
+		
+		unsigned shadowOffsetX = 3;
+		unsigned shadowOffsetY = 3;
+
+		float buttonTextPosX = 0;
+		float buttonTextPosY = 0;
 
 		sf::RectangleShape shadowShape;
 
-		unsigned const OFFSET_HOOVERED= 1;
-		unsigned const OFFSET_UNHOOVERED= 3;
+		unsigned const pressedOffsetX = 2; 
+		unsigned const pressedOffsetY = 2;
+	
+		sf::Text buttonText;
+		sf::Font buttonFont;
+		sf::Color textColor;
 
 	public: 
 		

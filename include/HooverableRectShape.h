@@ -36,7 +36,8 @@ namespace neulii{
 			void update(long dT);
 
 			sf::Vector2f getPosition();
-			
+			sf::RectangleShape getRectangleShape();
+
 			bool checkIfHoovered();
 			void setEnterAction(HooverAction action);
 			void setLeavingAction(HooverAction action);

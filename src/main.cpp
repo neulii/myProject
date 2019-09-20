@@ -54,8 +54,11 @@ neulii::DragNDropField dragRect2(150, 200, 50, 50);
 neulii::DragNDropField dragRect3(100, 250, 50, 50);
 
 
-neulii::Button myButton(100,100,50,50);
-MenuButton menuButton("superbutton", 100,200,100,50);
+neulii::Button myButton(100,100,100,35);
+
+
+
+
 
 sf::Vector2i pixelPos;
 
@@ -81,6 +84,7 @@ int main()
 	dragRect3.setDefaultColor(sf::Color::Yellow);
 
 
+	myButton.setDefaultColor(sf::Color::Blue);
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
@@ -188,7 +192,7 @@ void render(sf::RenderWindow &window)
 //	button.render(window);
 	
 	myButton.render(window);
-	menuButton.render(window);	
+	
 //	dragRect.render(window);
 //	dragRect2.render(window);
 //	dragRect3.render(window);
@@ -218,7 +222,6 @@ void update(long dT)
 	dragRect3.update(dT);
 	
 	myButton.update(dT);
-	menuButton.update(dT);
 	button.update(dT);
 }
 

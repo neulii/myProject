@@ -3,9 +3,6 @@
 
 namespace neulii
 {
-
-//TODO Button Text must be inserted		
-		
 	//Constructor
 	Button::Button(float x, float y, float width, float height) : 
 		ClickableHooverableRectShape(x,y,width,height) 
@@ -19,20 +16,20 @@ namespace neulii
 
 		shadowShape.setSize(sf::Vector2f(width, height));
 		shadowShape.setFillColor(sf::Color::Green);
-		
+	
+		//set text for button
 		if (!buttonFont.loadFromFile("resources/fonts/arial.ttf")) 
 		{
 			std::cout << "Fehler beim Laden der button-Schrift";
 		}	
+
 		textColor = sf::Color::White;
 		
-		buttonText.setString("super"); 
-
 		buttonText.setFont(buttonFont);
-		//this->buttonText.setString(buttonText);
+		buttonText.setString("hallo");
 		buttonText.setCharacterSize(20);
 		buttonTextPosX = buttonPosX + (getRectangleShape().getSize().x - this->buttonText.getLocalBounds().width) / 2;
-		buttonTextPosY = buttonPosY + (getRectangleShape().getSize().y - this->buttonText.getLocalBounds().height) / 2;
+		buttonTextPosY = -5+  buttonPosY + (getRectangleShape().getSize().y - this->buttonText.getLocalBounds().height) / 2;
 		buttonText.setPosition(buttonTextPosX,buttonTextPosY);
 		buttonText.setFillColor(textColor);
 	
@@ -48,7 +45,6 @@ namespace neulii
 		{
 			setPosition(buttonPosX + pressedOffsetX, buttonPosY + pressedOffsetY);
 			buttonText.setPosition(buttonTextPosX + pressedOffsetX, buttonTextPosY + pressedOffsetY);
-			
 		}
 		else
 		{
@@ -64,9 +60,6 @@ namespace neulii
 		window.draw(shadowShape);
 		ClickableHooverableRectShape::render(window);
 		window.draw(buttonText);	
-	
-	
-	
 	}
 
 }//namespace neulii

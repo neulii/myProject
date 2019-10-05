@@ -15,18 +15,14 @@ void MenuButton::update(long dT) {
 
 	if (isHoovered)
 	{
-
-
 		this->drawBackgroundcolor = this->hooverBackgroundColor;
 		this->drawTextColor = this->hooverTextColor;
-
 	}
 
 	else
 	{
 		this->drawBackgroundcolor = this->normalBackgroundColor;
 		this->drawTextColor = this->normalTextColor;
-		
 	}
 
 	if (isPressed) {
@@ -72,8 +68,10 @@ MenuButton::MenuButton(string buttonText, float x, float y, float width, float h
 	this->buttonText.setFont(buttonFont);
 	this->buttonText.setString(buttonText);
 	this->buttonText.setCharacterSize(20);
+
 	this->buttonTextPosX = x + (width - this->buttonText.getLocalBounds().width) / 2;
 	this->buttonTextPosY = y + (height - this->buttonText.getLocalBounds().height) / 2;
+
 	this->buttonText.setPosition(buttonTextPosX,buttonTextPosY);
 	this->buttonText.setFillColor(normalTextColor);
 }

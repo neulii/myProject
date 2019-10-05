@@ -56,12 +56,7 @@ neulii::DragNDropField dragRect3(100, 250, 50, 50);
 
 neulii::Button myButton(100,100,100,35);
 
-
-
-
-
 sf::Vector2i pixelPos;
-
 
 // convert it to world coordinates
 sf::Vector2f worldPos;
@@ -83,8 +78,9 @@ int main()
 	dragRect2.setDefaultColor(sf::Color::Blue);
 	dragRect3.setDefaultColor(sf::Color::Yellow);
 
-
+	
 	myButton.setDefaultColor(sf::Color::Blue);
+	myButton.setLeftclickAction(click);
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;

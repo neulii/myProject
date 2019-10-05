@@ -1,4 +1,4 @@
-OBJS = object/main.o object/HooverableRectShape.o object/Library.o object/ClickableHooverableRectShape.o object/DragNDropField.o object/Button.o object/MenuButton.o
+OBJS = object/main.o object/HooverableRectShape.o object/Library.o object/ClickableHooverableRectShape.o object/DragNDropField.o object/Button.o object/MenuButton.o object/GameObject.o
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
@@ -9,7 +9,7 @@ LDFLAGS = -L "SFML/lib"
 CPPFLAGS = -I "SFML/include" -I "include" 
 
 game: $(OBJS) 
-	$(CXX) $(CXXFLAGS) -o game $(OBJS) $(LDFLAGS) $(LDLIBS) 
+	$(CXX) $(CXXFLAGS) -o game $(OBJS) $(LDFLAGS) $(LDLIBS)
 
 object/main.o: src/main.cpp 
 	g++ $(CXXFLAGS) -c src/main.cpp -o object/main.o $(CPPFLAGS)
@@ -32,6 +32,8 @@ object/Button.o: src/Button.cpp include/Button.h
 object/MenuButton.o: src/MenuButton.cpp include/MenuButton.h
 	g++ $(CXXFLAGS) -c src/MenuButton.cpp -o object/MenuButton.o $(CPPFLAGS)
 
+object/GameObject.o: src/GameObject.cpp include/GameObject.h
+	g++ $(CXXFLAGS) -c src/GameObject.cpp -o object/GameObject.o $(CPPFLAGS)
 
 #object/TitleBar.o: src/TitleBar.cpp include/TitleBar.h
 #	g++  $(CXXFLAGS) -c src/TitleBar.cpp -o object/TitleBar.o $(CPPFLAGS)

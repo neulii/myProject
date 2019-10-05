@@ -10,83 +10,82 @@
 #include <sstream>
 #include <chrono>
 
-//#define DEBUG
+namespace neulii {
 
+	//#define DEBUG
 
-
-class Person
-{
-public:
-
-	//an enum to define the gender of the person
-	enum class Gender
+	class Person
 	{
+	public:
 
-		Male,	//for male
-		Female	//for female
-
-	};
-	
-
-private:
-
-	std::string  	m_name = "noname";
-	unsigned		m_birthYear = 1900;
-	Gender 			m_gender = Gender::Male;
-
-public: 
-
-	Person() 
-	{
-	}
-
-	Person(std::string name, unsigned birthYear, Gender gender)
-		: m_name(name), m_birthYear(birthYear), m_gender(gender)
-	{
-	
-	}
-
-	void printPersonData() const{
-		std::cout << "Name:       " << m_name << NL;
-		std::cout << "Birth Year: " << m_birthYear << NL;
-		std::cout << "Gender:     ";
-
-		if(m_gender == Gender::Male)
+		//an enum to define the gender of the person
+		enum class Gender
 		{
-			std::cout << "Male";
-		}  
-		else
+
+			Male,	//for male
+			Female	//for female
+
+		};
+	
+	private:
+
+		std::string  	m_name = "noname";
+		unsigned		m_birthYear = 1900;
+		Gender 			m_gender = Gender::Male;
+
+	public: 
+
+		Person() 
 		{
-			std::cout << "Female";
 		}
 
-		std::cout << NL;
+		Person(std::string name, unsigned birthYear, Gender gender)
+			: m_name(name), m_birthYear(birthYear), m_gender(gender)
+		{
+	
+		}
 
-	}
+		void printPersonData() const{
+			std::cout << "Name:       " << m_name << NL;
+			std::cout << "Birth Year: " << m_birthYear << NL;
+			std::cout << "Gender:     ";
 
-	std::string getName() const
+			if(m_gender == Gender::Male)
+			{
+				std::cout << "Male";
+			}  
+			else
+			{
+				std::cout << "Female";
+			}
+
+			std::cout << NL;
+
+		}
+
+		std::string getName() const
+		{
+			return m_name;
+		}
+
+		int getBirthYear() const
+		{
+			return m_birthYear;
+		}
+
+		Gender getGender() const
+		{
+			return m_gender;
+		}
+	};
+
+	int hallo()
 	{
-		return m_name;
+		Person neulii;
+		Person flo("florian",1988, Person::Gender::Male);
+
+		Person mama = Person("mama",1961,Person::Gender::Female);
+
+		return EXIT_FAILURE;
 	}
-
-	int getBirthYear() const
-	{
-		return m_birthYear;
-	}
-
-	Gender getGender() const
-	{
-		return m_gender;
-	}
-
-};
-
-int hallo()
-{
-	Person neulii;
-	Person flo("florian",1988, Person::Gender::Male);
-
-	Person mama = Person("mama",1961,Person::Gender::Female);
-
-	return EXIT_FAILURE;
 }

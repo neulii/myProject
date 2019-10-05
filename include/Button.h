@@ -6,7 +6,7 @@
 namespace neulii
 {
 
-	class Button : public ClickableHooverableRectShape, public GameObject
+	class Button : public ClickableHooverableRectShape
 	{
 
 	private:

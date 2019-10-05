@@ -1,6 +1,6 @@
 #ifndef HOOVERABLERECTSHAPE
 #define HOOVERABLERECTSHAPE
-
+#include "GameObject.h"
 #include "SFML/Graphics.hpp"
 #include "Library.h"
 
@@ -9,7 +9,7 @@ namespace neulii{
 	//Function Pointer for getting Hooveraction
 	typedef void(*HooverAction)(void);
 
-	class HooverableRectShape{
+	class HooverableRectShape : public GameObject{
 		
 		private:
 			bool isHoovered = false;

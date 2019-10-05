@@ -2,10 +2,11 @@
 #define BUTTON_H
 
 #include "ClickableHooverableRectShape.h"
+#include "GameObject.h"
 namespace neulii
 {
 
-	class Button : public ClickableHooverableRectShape
+	class Button : public ClickableHooverableRectShape, public GameObject
 	{
 
 	private:

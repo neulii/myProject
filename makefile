@@ -38,14 +38,14 @@ object/GameObject.o: src/GameObject.cpp include/GameObject.h
 #object/TitleBar.o: src/TitleBar.cpp include/TitleBar.h
 #	g++  $(CXXFLAGS) -c src/TitleBar.cpp -o object/TitleBar.o $(CPPFLAGS)
 
-
 clean:
 	rm $(OBJS)
 	rm game
 
 cleanwin: 
-	del object\\*.o
 	del game.exe
+	rm object/*.o
+	del object\*.o
 
 test: object/test.o object/Library.o
 	g++ -o test object/test.o object/Library.o $(LDFLAGS)
@@ -56,9 +56,7 @@ test.exe: object/test.o object/Library.o
 object/test.o: src/test.cpp
 	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o  -I "include" -Wpedantic -Wall -Wextra $(CPPFLAGS)
 
-
-
 cleantest:
+	del test.exe
 	rm object/*.o
 	del object\test.o
-	del test.exe

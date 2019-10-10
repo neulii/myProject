@@ -48,13 +48,7 @@ sf::RenderWindow window(sf::VideoMode(
 				/*,
 				sf::Style::None*/);
 
-neulii::DragNDropField button(100,100,100,100);
-neulii::DragNDropField dragRect(100, 200, 50, 50);
-neulii::DragNDropField dragRect2(150, 200, 50, 50);
-neulii::DragNDropField dragRect3(100, 250, 50, 50);
 
-
-neulii::Button myButton(100,100,100,35);
 
 sf::Vector2i pixelPos;
 
@@ -66,21 +60,7 @@ sf::Vector2f worldPos;
 //main - method
 int main()
 {
-	button.setLeftPressedColor(sf::Color::Yellow);
-	button.setLeftclickAction(click);
-	button.setRightclickAction(click);
-	button.setDefaultColor(sf::Color::Yellow);
-
-	button.setEnterAction(test);
-	button.setLeavingAction(test);
-
-	dragRect.setDefaultColor(sf::Color::Green);
-	dragRect2.setDefaultColor(sf::Color::Blue);
-	dragRect3.setDefaultColor(sf::Color::Yellow);
-
 	
-	myButton.setDefaultColor(sf::Color::Blue);
-	myButton.setLeftclickAction(click);
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
@@ -91,7 +71,7 @@ int main()
 		unsigned elementInRow = i % widthInFields;
 		unsigned elementInCol = i / widthInFields;
 
-		float tempPosX = static_cast<float>(fieldWidth * elementInRow);
+		float tempPosX = static_cast<float>(fieldWidth  *elementInRow);
 		float tempPosY = static_cast<float>(fieldHeight *elementInCol);
 
 		ClickableHooverableRectShape* tempField;
@@ -103,7 +83,7 @@ int main()
 				static_cast<float>(fieldWidth), 
 				static_cast<float>(fieldHeight));
 
-		tempField->setDefaultColor(sf::Color::Black);
+		tempField->setDefaultColor(sf::Color::Blue);
 		tempField->setLeftPressedColor(sf::Color::Yellow);
 
 		//add field to vector
@@ -183,18 +163,9 @@ void render(sf::RenderWindow &window)
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++)
 	{
-		// fields.at(i)->render(window);
+		fields.at(i)->render(window);
 	}
-//	button.render(window);
-	
-	myButton.render(window);
-	
-//	dragRect.render(window);
-//	dragRect2.render(window);
-//	dragRect3.render(window);
-	
 
-	//button.render(window);
 }
 
 //updating logic
@@ -206,19 +177,7 @@ void update(long dT)
 		fields.at(i)->update(dT);
 
 	}
-	// std::cout << "================" << std::endl;
-	//neulii::vector2ToConsole(sf::Mouse::getPosition(window));
 
-	//  pixelPos = sf::Mouse::getPosition(window);
-	//  worldPos = window.mapPixelToCoords(pixelPos);
-
-	// neulii::vector2ToConsole(worldPos);
-	dragRect.update(dT);
-	dragRect2.update(dT);
-	dragRect3.update(dT);
-	
-	myButton.update(dT);
-	button.update(dT);
 }
 
 void exitProg()

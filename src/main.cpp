@@ -9,6 +9,7 @@
 #include "Library.h"
 #include "Button.h"
 #include "MenuButton.h"
+#include "Sprite.h"
 
 using namespace neulii;
 
@@ -60,6 +61,8 @@ sf::Vector2f worldPos;
 //main - method
 int main()
 {
+	//Sprite *sprite = new Sprite();
+
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;

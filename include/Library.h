@@ -8,6 +8,9 @@
 
 namespace neulii{
 
+	//log message to console
+	void log(const char* message);
+
 	// prints a FloatRect to Console
 	void floatRectToConsole(sf::FloatRect rect);
 	

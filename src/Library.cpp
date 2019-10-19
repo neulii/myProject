@@ -6,6 +6,11 @@
 
 namespace neulii{
 
+	void log(const char* message)
+	{
+		std::cout << message << std::endl;
+	}
+
 	void floatRectToConsole(sf::FloatRect rect){
 
 		std::cout << "x:      " << rect.left <<   std::endl;

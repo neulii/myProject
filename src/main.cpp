@@ -60,7 +60,6 @@ sf::Vector2f worldPos;
 //main - method
 int main()
 {
-	
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;

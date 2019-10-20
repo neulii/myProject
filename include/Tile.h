@@ -1,18 +1,18 @@
-#ifndef SPRITE_H
-#define SPRITE_H
+#ifndef TILE_H
+#define TILE_H
 
 #include "GameObject.h"
 
 namespace neulii{
 
-    class Sprite : public GameObject
+    class Tile : public GameObject
     {
 
         public:
 
         void update(long dT);
         void render(sf::RenderWindow &window);
-        
+
 
 
 
@@ -22,4 +22,4 @@ namespace neulii{
 
 } // namespace neulii
 
-#endif // Sprite.h
+#endif // Tile.h

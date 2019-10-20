@@ -7,7 +7,7 @@ OBJS = \
 	object/Button.o \
 	object/MenuButton.o \
 	object/GameObject.o \
-	object/Sprite.o 
+	object/Tile.o 
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
@@ -44,8 +44,8 @@ object/MenuButton.o: src/MenuButton.cpp include/MenuButton.h
 object/GameObject.o: src/GameObject.cpp include/GameObject.h
 	g++ $(CXXFLAGS) -c src/GameObject.cpp -o object/GameObject.o $(CPPFLAGS)
 
-object/Sprite.o: src/Sprite.cpp include/Sprite.h
-	g++ $(CXXFLAGS) -c src/Sprite.cpp -o object/Sprite.o $(CPPFLAGS)
+object/Tile.o: src/Tile.cpp include/Tile.h
+	g++ $(CXXFLAGS) -c src/Tile.cpp -o object/Tile.o $(CPPFLAGS)
 
 
 #object/TitleBar.o: src/TitleBar.cpp include/TitleBar.h

@@ -9,7 +9,7 @@
 #include "Library.h"
 #include "Button.h"
 #include "MenuButton.h"
-#include "Sprite.h"
+#include "Tile.h"
 
 using namespace neulii;
 
@@ -32,6 +32,8 @@ unsigned targetResolutionHeight = heightInFields * fieldHeight;
 
 //fields 
 std::vector<ClickableHooverableRectShape*> fields;
+
+Tile* tile;
 
 //Define Hoover actions for hooverable rectangles
 
@@ -61,7 +63,16 @@ sf::Vector2f worldPos;
 //main - method
 int main()
 {
-	//Sprite *sprite = new Sprite();
+	sf::Texture tex;
+
+	if(!tex.loadFromFile("resources/images/coalField.png"))
+	{
+		log("error by loading texture");
+	}
+
+	tile = new Tile(tex);
+	tile->setPosition(100,100);
+
 
 
 	//calculate elements needed
@@ -141,6 +152,8 @@ int main()
 		//render all elements
 		render(window);
 
+		
+
 		//show content on display
 		window.display();
 	//========================================================
@@ -167,6 +180,9 @@ void render(sf::RenderWindow &window)
 	{
 		fields.at(i)->render(window);
 	}
+
+	tile->render(window);
+
 
 }
 

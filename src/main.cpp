@@ -33,7 +33,9 @@ unsigned targetResolutionHeight = heightInFields * fieldHeight;
 //fields 
 std::vector<ClickableHooverableRectShape*> fields;
 
-Tile* tile;
+//tiles
+
+std::vector<Tile*> tiles;
 
 //Define Hoover actions for hooverable rectangles
 
@@ -63,16 +65,14 @@ sf::Vector2f worldPos;
 //main - method
 int main()
 {
-	sf::Texture tex;
+	sf::Texture grassFieldTexture;
 
-	if(!tex.loadFromFile("resources/images/coalField.png"))
+	if(!grassFieldTexture.loadFromFile("resources/images/grassField.png"))
 	{
 		log("error by loading texture");
 	}
 
-	tile = new Tile(tex);
-	tile->setPosition(100,100);
-
+	
 
 
 	//calculate elements needed
@@ -87,17 +87,26 @@ int main()
 		float tempPosX = static_cast<float>(fieldWidth  *elementInRow);
 		float tempPosY = static_cast<float>(fieldHeight *elementInCol);
 
+		Tile* tile;
+		tile = new Tile(grassFieldTexture);
+		tile->setPosition(tempPosX,tempPosY);
+
+		tiles.push_back(tile);
+
+		
 		ClickableHooverableRectShape* tempField;
 		
 		//make temporary field 
-		tempField = new ClickableHooverableRectShape(
-				tempPosX, 
-				tempPosY, 
-				static_cast<float>(fieldWidth), 
-				static_cast<float>(fieldHeight));
+		// tempField = new ClickableHooverableRectShape(
+		// 		tempPosX, 
+		// 		tempPosY, 
+		// 		static_cast<float>(fieldWidth), 
+		// 		static_cast<float>(fieldHeight));
 
-		tempField->setDefaultColor(sf::Color::Blue);
-		tempField->setLeftPressedColor(sf::Color::Yellow);
+
+
+		// tempField->setDefaultColor(sf::Color::Blue);
+		// tempField->setLeftPressedColor(sf::Color::Yellow);
 
 		//add field to vector
 		fields.push_back(tempField);
@@ -178,11 +187,12 @@ void render(sf::RenderWindow &window)
 	//render field vector
 	for(unsigned i=0; i<fields.size();i++)
 	{
-		fields.at(i)->render(window);
+
+
+		tiles.at(i)->render(window);
 	}
 
-	tile->render(window);
-
+	
 
 }
 
@@ -192,7 +202,7 @@ void update(long dT)
 	//update field vector
 	for(unsigned i=0; i<fields.size();i++)
 	{
-		fields.at(i)->update(dT);
+		//fields.at(i)->update(dT);
 
 	}
 

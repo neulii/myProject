@@ -32,8 +32,8 @@ namespace neulii{
 
 			HooverableRectShape(float x, float y, float width, float height);
 			
-			void render(sf::RenderWindow &window);
-			void update(long dT);
+			virtual void render(sf::RenderWindow &window);
+			virtual void update(long dT);
 
 			sf::Vector2f getPosition();
 			sf::RectangleShape getRectangleShape();

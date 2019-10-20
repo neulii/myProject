@@ -10,6 +10,7 @@
 #include "Button.h"
 #include "MenuButton.h"
 #include "Tile.h"
+#include "ActionTile.h"
 
 using namespace neulii;
 
@@ -63,6 +64,9 @@ sf::Vector2f worldPos;
 //test.setDefaultColor(sf::Color::Green);
 
 //main - method
+
+ActionTile* aTile;
+
 int main()
 {
 	sf::Texture grassFieldTexture;
@@ -72,7 +76,17 @@ int main()
 		log("error by loading texture");
 	}
 
+	sf::Texture coalMineField;
+
+	if(!coalMineField.loadFromFile("resources/images/coalMineField.png"))
+	{
+		log("error by loading texture");
+	}
+
+
 	
+	aTile = new ActionTile(coalMineField ,10,10,50,50);
+
 
 
 	//calculate elements needed
@@ -192,7 +206,7 @@ void render(sf::RenderWindow &window)
 		tiles.at(i)->render(window);
 	}
 
-	
+	aTile->render(window);
 
 }
 

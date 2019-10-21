@@ -24,9 +24,9 @@ namespace neulii{
 			sf::Color defaultColor = sf::Color::White;
 			sf::Color hooveringColor = sf::Color::Magenta;
 
-		private:
+		protected:
 			void leaving();
-			void entering();
+			virtual void entering();
 
 		public:
 
@@ -39,7 +39,7 @@ namespace neulii{
 			sf::RectangleShape getRectangleShape();
 
 			bool checkIfHoovered();
-			void setEnterAction(HooverAction action);
+			virtual void setEnterAction(HooverAction action);
 			void setLeavingAction(HooverAction action);
 
 			//set Color for Default and Hoovering

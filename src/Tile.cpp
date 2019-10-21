@@ -14,7 +14,13 @@ namespace neulii
     void Tile::setPosition(float x, float y)
     {
         sprite.setPosition(x,y);
+
     }
+
+	sf::Vector2f Tile::getPosition()
+	{
+		return sprite.getPosition();
+	}
 
     void Tile::update(long dT)
     {

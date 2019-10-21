@@ -83,9 +83,9 @@ int main()
 		log("error by loading texture");
 	}
 
-	sf::Texture ironOreMineField;
+	sf::Texture iron_oreField;
 
-	if (!ironOreMineField.loadFromFile("resources/images/ironOreMineField.png"))
+	if (!iron_oreField.loadFromFile("resources/images/iron_oreField.png"))
 	{
 		log("error by loading texture");
 	}
@@ -93,7 +93,7 @@ int main()
 
 	
 	aTile = new ActionTile(coalMineField ,10,10,50,50);
-	Tile* blendTile = new Tile(ironOreMineField);
+	Tile* blendTile = new Tile(iron_oreField);
 
 
 	aTile->setHooveredTile(*blendTile);

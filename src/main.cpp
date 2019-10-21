@@ -139,7 +139,7 @@ int main()
 	}
 
 	//set Framerate to 60 FPS -> deactivated macos performance 
-	//window.setFramerateLimit(60);
+	window.setFramerateLimit(60);
 	
 	sf::Clock clock;
 	sf::Time time;

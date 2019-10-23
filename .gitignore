@@ -22,3 +22,6 @@ session
 *.vcxproj
 *.sln
 
+.cproject
+.project
+.settings/

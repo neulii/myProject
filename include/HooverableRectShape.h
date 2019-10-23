@@ -51,6 +51,9 @@ namespace neulii{
 			sf::RenderWindow* getWindow();
 
 			sf::Color getDefaultColor();
+
+			virtual ~HooverableRectShape();
+
 	};
 
 }//namespace neulii

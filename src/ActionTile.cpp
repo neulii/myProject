@@ -8,6 +8,8 @@ namespace neulii
     ActionTile::ActionTile(sf::Texture& tex, float x, float y, float width, float height)
     : ClickableHooverableRectShape(x,y,width,height)
     {
+    	hooveredTile = nullptr;
+
         this->tile = new Tile(tex);
 		tile->setPosition(x, y);
 

@@ -143,8 +143,4 @@ namespace neulii{
 	{
 		return rectShape;	
 	}
-
-	HooverableRectShape::~HooverableRectShape(){
-
-	}
 }//namespace neulii

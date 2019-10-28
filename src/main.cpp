@@ -103,7 +103,6 @@ int main()
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;
-
 	//create elements and add it to field-vector
 	for(unsigned i=0; i < elements; i++){
 
@@ -210,26 +209,22 @@ void setColorBlue()
 void render(sf::RenderWindow &window)
 {
 
-	//render field vector
-	for(unsigned i=0; i<fields.size();i++)
+	//render tiles vector
+	for(unsigned i=0; i<tiles.size();i++)
 	{
-
-
 		tiles.at(i)->render(window);
 	}
 
 	aTile->render(window);
-
 }
 
 //updating logic
 void update(long dT)
 {
-	//update field vector
-	for(unsigned i=0; i<fields.size();i++)
+	//update tiles vector
+	for(unsigned i=0; i<tiles.size();i++)
 	{
-		//fields.at(i)->update(dT);
-
+		tiles.at(i)->update(dT);
 	}
 
 	aTile->update(dT);

@@ -67,8 +67,20 @@ sf::Vector2f worldPos;
 
 ActionTile* aTile;
 
+sf::Texture testTex;
+sf::Sprite testSprite;
+
 int main()
 {
+
+	if (testTex.loadFromFile("resources/images/moneySymbol.png"))
+	{
+		log("fehler test");
+	}
+	testSprite.setTexture(testTex);
+
+
+
 	sf::Texture grassFieldTexture;
 
 	if(!grassFieldTexture.loadFromFile("resources/images/grassField.png"))
@@ -91,6 +103,7 @@ int main()
 	}
 
 
+	
 	
 	aTile = new ActionTile(coalMineField ,10,10,50,50);
 	Tile* blendTile = new Tile(iron_oreField);
@@ -216,6 +229,7 @@ void render(sf::RenderWindow &window)
 	}
 
 	aTile->render(window);
+	window.draw(testSprite);
 }
 
 //updating logic

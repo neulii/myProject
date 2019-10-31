@@ -19,8 +19,6 @@ namespace neulii
 	{
 		this->hooveredTile = &tile;
 		hooveredTile->setPosition(this->tile->getPosition().x,this->tile->getPosition().y);
-		
-		neulii::vector2ToConsole(hooveredTile->getPosition());
 		 
 	}
 

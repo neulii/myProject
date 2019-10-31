@@ -70,14 +70,101 @@ ActionTile* aTile;
 sf::Texture testTex;
 sf::Sprite testSprite;
 
+sf::Sprite hardSprite;
+
+void makeDarker(sf::Sprite &sprite, int level) {
+
+	int width = sprite.getLocalBounds().width;
+	int height = sprite.getLocalBounds().height;
+
+	const sf::Image test = sprite.getTexture()->copyToImage();
+
+
+	sf::Uint8* pixels;
+	const sf::Uint8* mypix = test.getPixelsPtr();
+
+	pixels = new sf::Uint8[width * height * 4];
+
+	for (int y = 0; y < height; y++) {
+
+		for (int x = 0; x < width; x++) {
+			int index = ((width)*y + x) * 4;
+
+
+			//std::cout << "index: " << index <<  " | " << x << "/" << y << std::endl;
+
+			pixels[index] = 255.0 / width * x;
+			pixels[index + 1] = 0;
+			pixels[index + 2] = 0;
+			pixels[index + 3] = 255;
+
+		}
+
+
+		
+	}
+
+
+}
+
+
+
 int main()
 {
 
-	if (testTex.loadFromFile("resources/images/moneySymbol.png"))
+	const int tex_x = 100;
+	const int tex_y = 100;
+
+	sf::Texture hardTex;
+	hardTex.create(tex_x, tex_y);
+	hardSprite.setTexture(hardTex);
+
+	sf::Uint8* pixels;
+
+	pixels = new sf::Uint8[tex_x * tex_y * 4];
+
+	for (int y = 0; y < tex_y; y++) {
+
+		for (int x = 0; x < tex_x; x++) {
+			int index = ((tex_x) * y + x) * 4;
+
+
+			//std::cout << "index: " << index <<  " | " << x << "/" << y << std::endl;
+			
+			pixels[index] = 255.0/tex_x * x;
+			pixels[index+1] = 0;
+			pixels[index+2] =	0;
+			pixels[index+3] = 255;
+		
+		}
+	}
+
+	hardTex.update(pixels);
+	//hardSprite.setScale(10,10);
+
+
+
+	
+
+
+
+
+
+
+	if (!testTex.loadFromFile("resources/images/moneySymbol.png"))
 	{
 		log("fehler test");
 	}
+	//testSprite.setTextureRect(sf::IntRect(0, 0, 200, 200));
+	std::cout << testTex.getSize().x << "  " << testTex.getSize().y << std::endl;
+
+	testSprite.scale(0.5f,0.5f);
+	testSprite.setPosition(200, 200);
+
 	testSprite.setTexture(testTex);
+
+
+
 
 
 
@@ -225,11 +312,12 @@ void render(sf::RenderWindow &window)
 	//render tiles vector
 	for(unsigned i=0; i<tiles.size();i++)
 	{
-		tiles.at(i)->render(window);
+		//tiles.at(i)->render(window);
 	}
 
-	aTile->render(window);
-	window.draw(testSprite);
+	//aTile->render(window);
+	//window.draw(testSprite);
+	window.draw(hardSprite);
 }
 
 //updating logic

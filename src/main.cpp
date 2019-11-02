@@ -132,7 +132,7 @@ int main()
 			//std::cout << "index: " << index <<  " | " << x << "/" << y << std::endl;
 			
 			pixels[index] = 255.0/tex_x * x;
-			pixels[index+1] = 0;
+			pixels[index+1] = 255.0/tex_x * x;
 			pixels[index+2] =	0;
 			pixels[index+3] = 255;
 		

@@ -72,50 +72,13 @@ sf::Sprite testSprite;
 
 sf::Sprite hardSprite;
 
-void makeDarker(sf::Sprite &sprite, int level) {
+sf::Texture hardTex;
 
-	int width = sprite.getLocalBounds().width;
-	int height = sprite.getLocalBounds().height;
-
-	const sf::Image test = sprite.getTexture()->copyToImage();
-
-
-	sf::Uint8* pixels;
-	const sf::Uint8* mypix = test.getPixelsPtr();
-
-	pixels = new sf::Uint8[width * height * 4];
-
-	for (int y = 0; y < height; y++) {
-
-		for (int x = 0; x < width; x++) {
-			int index = ((width)*y + x) * 4;
-
-
-			//std::cout << "index: " << index <<  " | " << x << "/" << y << std::endl;
-
-			pixels[index] = 255.0 / width * x;
-			pixels[index + 1] = 0;
-			pixels[index + 2] = 0;
-			pixels[index + 3] = 255;
-
-		}
-
-
-		
-	}
-
-
-}
-
-
-
-int main()
-{
+void showRGBDemo() {
 
 	const int tex_x = 100;
 	const int tex_y = 100;
 
-	sf::Texture hardTex;
 	hardTex.create(tex_x, tex_y);
 	hardSprite.setTexture(hardTex);
 
@@ -126,16 +89,16 @@ int main()
 	for (int y = 0; y < tex_y; y++) {
 
 		for (int x = 0; x < tex_x; x++) {
-			int index = ((tex_x) * y + x) * 4;
+			int index = ((tex_x)*y + x) * 4;
 
 
 			//std::cout << "index: " << index <<  " | " << x << "/" << y << std::endl;
-			
-			pixels[index] = 255.0/tex_x * x;
-			pixels[index+1] = 255.0/tex_x * x;
-			pixels[index+2] =	0;
-			pixels[index+3] = 255;
-		
+
+			pixels[index] = 255.0 / tex_x * x;
+			pixels[index + 1] = 255.0 / tex_x * x;
+			pixels[index + 2] = 0;
+			pixels[index + 3] = 255;
+
 		}
 	}
 
@@ -143,13 +106,14 @@ int main()
 	//hardSprite.setScale(10,10);
 
 
+}
 
+
+
+int main()
+{
 	
-
-
-
-
-
+	showRGBDemo(); 
 
 	if (!testTex.loadFromFile("resources/images/moneySymbol.png"))
 	{
@@ -162,10 +126,6 @@ int main()
 	testSprite.setPosition(200, 200);
 
 	testSprite.setTexture(testTex);
-
-
-
-
 
 
 	sf::Texture grassFieldTexture;
@@ -189,17 +149,11 @@ int main()
 		log("error by loading texture");
 	}
 
-
-	
-	
 	aTile = new ActionTile(coalMineField ,10,10,50,50);
 	Tile* blendTile = new Tile(iron_oreField);
 
 
 	aTile->setHooveredTile(*blendTile);
-
-
-
 
 	//calculate elements needed
 	unsigned elements = widthInFields * heightInFields;

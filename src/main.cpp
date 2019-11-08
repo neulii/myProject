@@ -28,8 +28,8 @@ unsigned heightInFields = 10;
 unsigned fieldWidth = 50;
 unsigned fieldHeight = 50;
 
-unsigned targetResolutionWidth = widthInFields * fieldWidth;
-unsigned targetResolutionHeight = heightInFields * fieldHeight;
+unsigned targetResolutionWidth = 800;
+unsigned targetResolutionHeight = 600;
 
 //fields 
 std::vector<ClickableHooverableRectShape*> fields;
@@ -48,7 +48,7 @@ ClickAction click = &buttonClickedText;
 //create window
 sf::RenderWindow window(sf::VideoMode(
 				targetResolutionWidth,
-				targetResolutionWidth),
+				targetResolutionHeight),
 				"Hello SFML-World"
 				,sf::Style::Default
 				/*,
@@ -109,11 +109,71 @@ void showRGBDemo() {
 }
 
 
+class Bar : public GameObject {
+
+private:
+
+	float x;
+	float y;
+
+	float width; 
+	float height;
+
+	sf::RectangleShape rect;
+
+public:
+
+	Bar(float x,float y,float width,float height){
+		rect.setPosition(x,y);
+		rect.setSize(sf::Vector2f(this->width, this->height));
+	}
+	
+	
+	void update(long dT){
+
+
+	}
+
+	void render(sf::RenderWindow& window){
+		window.draw(rect);
+		
+
+	}
+	
+	~Bar(){}
+
+
+
+
+};
 
 int main()
 {
 	
-	showRGBDemo(); 
+	Bar(0,0,10,10);
+
+	const int NUMBERS = 10;
+
+	std::vector<GameObject> bars;
+
+
+	//fill every bar with a random number;
+	for(int i = 0; i < NUMBERS; i++){
+
+		neulii::getRandomInt(0,1000);
+
+
+
+
+
+	}
+
+	
+
+
+
+
+	//showRGBDemo(); 
 
 	if (!testTex.loadFromFile("resources/images/moneySymbol.png"))
 	{

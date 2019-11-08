@@ -119,16 +119,27 @@ private:
 	float width; 
 	float height;
 
+	int value;
+	int range;
+
 	sf::RectangleShape rect;
 
 public:
 
-	Bar(float x,float y,float width,float height){
+	Bar(float x,float y,int range){
 		rect.setPosition(x,y);
-		rect.setSize(sf::Vector2f(this->width, this->height));
+		this->range = range;
 	}
 	
 	
+	void setValue(int value){
+		this->value = value;
+	}
+
+	int getValue(){
+		return this->value;
+	}
+
 	void update(long dT){
 
 
@@ -136,7 +147,7 @@ public:
 
 	void render(sf::RenderWindow& window){
 		window.draw(rect);
-		
+
 
 	}
 	
@@ -150,17 +161,20 @@ public:
 int main()
 {
 	
-	Bar(0,0,10,10);
 
+	Bar(0,0,1000);
+	const int MAX_RANGE = 1000;
 	const int NUMBERS = 10;
 
 	std::vector<GameObject> bars;
 
 
+
+
 	//fill every bar with a random number;
 	for(int i = 0; i < NUMBERS; i++){
 
-		neulii::getRandomInt(0,1000);
+		neulii::getRandomInt(0,MAX_RANGE);
 
 
 

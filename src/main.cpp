@@ -66,6 +66,7 @@ sf::Vector2f worldPos;
 //main - method
 
 ActionTile* aTile;
+std::vector<GameObject*> bars;
 
 sf::Texture testTex;
 sf::Sprite testSprite;
@@ -122,18 +123,36 @@ private:
 	int value;
 	int range;
 
+	float height_value;
+
 	sf::RectangleShape rect;
 
 public:
 
-	Bar(float x,float y,int range){
+	Bar(float x,float y, float width, float height, float range){
 		rect.setPosition(x,y);
+		this->width = width;
+		this->height = height;
+
+		rect.setSize(sf::Vector2f(width,height));
+		rect.setOutlineColor(sf::Color::Red);
+		rect.setOutlineThickness(2);
+		//rect.setFillColor(sf::Color::Red);
+
+
+
 		this->range = range;
 	}
 	
 	
 	void setValue(int value){
 		this->value = value;
+	
+		
+		this->height_value = height/range * value;
+
+		rect.setSize(sf::Vector2f(width,-height_value));
+
 	}
 
 	int getValue(){
@@ -142,49 +161,55 @@ public:
 
 	void update(long dT){
 
+		
+
 
 	}
 
 	void render(sf::RenderWindow& window){
 		window.draw(rect);
+		//std::cout << rect.getSize().x << "  " << rect.getSize().y << "   " << rect.getPosition().x << "   " << rect.getPosition().y << std::endl;
+		
+	
 
 
 	}
 	
 	~Bar(){}
 
-
-
-
 };
 
 int main()
 {
+
+	const int MAX_RANGE = 100000;
+	const int NUMBERS = 100;
+
+	//for random 
+	std::srand(static_cast<unsigned long>(std::time(nullptr)));
 	
-
-	Bar(0,0,1000);
-	const int MAX_RANGE = 1000;
-	const int NUMBERS = 10;
-
-	std::vector<GameObject> bars;
-
-
-
-
 	//fill every bar with a random number;
 	for(int i = 0; i < NUMBERS; i++){
 
-		neulii::getRandomInt(0,MAX_RANGE);
+		float barWidth;
+		float barHeight;
+
+		int barPosX;
+		int barPosY = targetResolutionHeight;
+
+		barWidth = targetResolutionWidth / NUMBERS;
+		barHeight = targetResolutionHeight;
+
+		barPosX = i*barWidth;
+
+		Bar* temp = new Bar(barPosX, barPosY,barWidth,barHeight,MAX_RANGE);
+
+		temp->setValue(neulii::getRandomInt(0,MAX_RANGE));
 
 
-
-
+		bars.push_back(temp);
 
 	}
-
-	
-
-
 
 
 	//showRGBDemo(); 
@@ -345,7 +370,13 @@ void render(sf::RenderWindow &window)
 
 	//aTile->render(window);
 	//window.draw(testSprite);
-	window.draw(hardSprite);
+	//window.draw(hardSprite);
+
+	for(int i= 0; i<bars.size(); i++){
+		bars.at(i)->render(window);
+	}
+
+
 }
 
 //updating logic

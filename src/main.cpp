@@ -120,8 +120,8 @@ private:
 	float width; 
 	float height;
 
-	int value;
-	int range;
+	float value;
+	float range;
 
 	float height_value;
 
@@ -130,16 +130,16 @@ private:
 public:
 
 	Bar(float x,float y, float width, float height, float range){
+		std::cout << width << std::endl;
+
 		rect.setPosition(x,y);
 		this->width = width;
 		this->height = height;
 
 		rect.setSize(sf::Vector2f(width,height));
-		rect.setOutlineColor(sf::Color::Red);
-		rect.setOutlineThickness(2);
-		//rect.setFillColor(sf::Color::Red);
-
-
+		//rect.setOutlineColor(sf::Color::Red);
+		//rect.setOutlineThickness(2);
+		rect.setFillColor(sf::Color::Blue);
 
 		this->range = range;
 	}
@@ -183,7 +183,7 @@ int main()
 {
 
 	const int MAX_RANGE = 100000;
-	const int NUMBERS = 100;
+	const int NUMBERS = 800;
 
 	//for random 
 	std::srand(static_cast<unsigned long>(std::time(nullptr)));
@@ -194,10 +194,10 @@ int main()
 		float barWidth;
 		float barHeight;
 
-		int barPosX;
-		int barPosY = targetResolutionHeight;
+		float barPosX;
+		float barPosY = targetResolutionHeight;
 
-		barWidth = targetResolutionWidth / NUMBERS;
+		barWidth = static_cast<float>(targetResolutionWidth) / NUMBERS;		//for calcing in float
 		barHeight = targetResolutionHeight;
 
 		barPosX = i*barWidth;

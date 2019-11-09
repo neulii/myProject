@@ -4,8 +4,10 @@
 #include <string>
 #include <fstream>
 
+
 namespace neulii{
 
+	//go on with lib functions
 	void log(const char* message)
 	{
 		std::cout << message << std::endl;
@@ -88,9 +90,15 @@ namespace neulii{
 		}
 	}
 
+	//sort array of bars
+	void bubbleSortBar(barArray bars){
 
-	void bubbleSortBar(){
 		
+
+
+
+
+
 	}
 
 	//returns the position of the biggest value

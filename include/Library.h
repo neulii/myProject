@@ -2,11 +2,15 @@
 #define LIBRARY_H
 
 #include "SFML/Graphics.hpp"
+#include "Bar.h"
 
 #define NL '\n'
 #define TAB '\t'
 
 namespace neulii{
+
+	//typedefs
+	typedef std::vector<Bar*>& barArray;
 
 	//log message to console
 	void log(const char* message);
@@ -34,6 +38,8 @@ namespace neulii{
 
 	void selectionSortIntegerArray(int array[], size_t size);
 	void bubbleSortIntegerArray(int array[], size_t size);
+	
+	void bubbleSortBar(barArray bars);
 	
 	void printArrayToConsole(int array[], size_t size);
 	void printArrayToLineConsole(int array[], size_t size);

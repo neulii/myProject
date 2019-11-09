@@ -68,7 +68,7 @@ sf::Vector2f worldPos;
 //main - method
 
 ActionTile* aTile;
-std::vector<GameObject*> bars;
+std::vector<Bar*> bars;
 
 sf::Texture testTex;
 sf::Sprite testSprite;

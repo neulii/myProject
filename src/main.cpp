@@ -12,6 +12,8 @@
 #include "Tile.h"
 #include "ActionTile.h"
 
+#include "Bar.h"
+
 using namespace neulii;
 
 void exitProg();
@@ -110,74 +112,6 @@ void showRGBDemo() {
 }
 
 
-class Bar : public GameObject {
-
-private:
-
-	float x;
-	float y;
-
-	float width; 
-	float height;
-
-	float value;
-	float range;
-
-	float height_value;
-
-	sf::RectangleShape rect;
-
-public:
-
-	Bar(float x,float y, float width, float height, float range){
-		std::cout << width << std::endl;
-
-		rect.setPosition(x,y);
-		this->width = width;
-		this->height = height;
-
-		rect.setSize(sf::Vector2f(width,height));
-		//rect.setOutlineColor(sf::Color::Red);
-		//rect.setOutlineThickness(2);
-		rect.setFillColor(sf::Color::Blue);
-
-		this->range = range;
-	}
-	
-	
-	void setValue(int value){
-		this->value = value;
-	
-		
-		this->height_value = height/range * value;
-
-		rect.setSize(sf::Vector2f(width,-height_value));
-
-	}
-
-	int getValue(){
-		return this->value;
-	}
-
-	void update(long dT){
-
-		
-
-
-	}
-
-	void render(sf::RenderWindow& window){
-		window.draw(rect);
-		//std::cout << rect.getSize().x << "  " << rect.getSize().y << "   " << rect.getPosition().x << "   " << rect.getPosition().y << std::endl;
-		
-	
-
-
-	}
-	
-	~Bar(){}
-
-};
 
 int main()
 {
@@ -219,7 +153,6 @@ int main()
 		log("fehler test");
 	}
 	//testSprite.setTextureRect(sf::IntRect(0, 0, 200, 200));
-	std::cout << testTex.getSize().x << "  " << testTex.getSize().y << std::endl;
 
 	testSprite.scale(0.5f,0.5f);
 	testSprite.setPosition(200, 200);

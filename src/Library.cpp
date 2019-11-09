@@ -88,6 +88,11 @@ namespace neulii{
 		}
 	}
 
+
+	void bubbleSortBar(){
+		
+	}
+
 	//returns the position of the biggest value
 	unsigned findMaxAtArray(int array[], size_t size){
 

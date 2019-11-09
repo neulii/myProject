@@ -5,6 +5,7 @@
 
 namespace neulii{
 
+
     class Bar : public GameObject {
 
     private:
@@ -33,6 +34,7 @@ namespace neulii{
         void render(sf::RenderWindow& window);
         ~Bar(){}
     };
+    
 
 }
 #endif

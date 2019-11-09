@@ -13,7 +13,7 @@
 #include "ActionTile.h"
 
 #include "Bar.h"
-
+#include "BarGraph.h"
 using namespace neulii;
 
 void exitProg();
@@ -68,6 +68,8 @@ sf::Vector2f worldPos;
 //main - method
 
 ActionTile* aTile;
+neulii::barArray b;
+
 std::vector<Bar*> bars;
 
 sf::Texture testTex;
@@ -115,6 +117,8 @@ void showRGBDemo() {
 
 int main()
 {
+
+	BarGraph(10,10);
 
 	const int MAX_RANGE = 100000;
 	const int NUMBERS = 800;
@@ -247,7 +251,11 @@ int main()
 			{
 
 				//select pressed key
+				if(event.key.code ==sf::Keyboard::Enter){
+
 				
+				}
+
 				if(event.key.code == sf::Keyboard::Escape){
 					window.close();
 				}
@@ -282,8 +290,9 @@ int main()
 
 void test()
 {
+	
 
-	std::cout << "super" << std::endl;
+	std::cout << "sort" << std::endl;
 }
 
 void setColorBlue()

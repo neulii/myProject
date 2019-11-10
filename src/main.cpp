@@ -70,7 +70,7 @@ sf::Vector2f worldPos;
 ActionTile* aTile;
 neulii::barArray b;
 
-std::vector<Bar*> bars;
+//std::vector<Bar*> bars;
 
 sf::Texture testTex;
 sf::Sprite testSprite;
@@ -120,11 +120,13 @@ void showRGBDemo() {
 int main()
 {
 
-	bar.addBar(20);
-	bar.addBar(10);
+	bar.addBar(50, sf::Color::Blue);
+	bar.addBar(20, sf::Color::Red);
+	bar.addBar(10,sf::Color::Yellow);
+	bar.addBar(100,sf::Color::Magenta);
+	bar.addBar(40,sf::Color::Green);
+	bar.addBar(50, sf::Color::Blue);
 
-
-	
 
 	const int MAX_RANGE = 100000;
 	const int NUMBERS = 800;
@@ -146,9 +148,9 @@ int main()
 
 		barPosX = i*barWidth;
 
-		Bar* temp = new Bar(barPosX, barPosY,barWidth,barHeight,MAX_RANGE);
+		//Bar* temp = new Bar(barPosX, barPosY,barWidth,barHeight,MAX_RANGE);
 
-		temp->setValue(neulii::getRandomInt(0,MAX_RANGE));
+		//temp->setValue(neulii::getRandomInt(0,MAX_RANGE));
 
 
 		//bars.push_back(temp);
@@ -258,7 +260,7 @@ int main()
 
 				//select pressed key
 				if(event.key.code ==sf::Keyboard::Enter){
-
+					bar.showBarGraphConsole();
 				
 				}
 
@@ -320,9 +322,9 @@ void render(sf::RenderWindow &window)
 	//window.draw(testSprite);
 	//window.draw(hardSprite);
 
-	for(int i= 0; i<bars.size(); i++){
-		bars.at(i)->render(window);
-	}
+	// for(int i= 0; i<bars.size(); i++){
+	// 	bars.at(i)->render(window);
+	// }
 
 	bar.render(window);
 

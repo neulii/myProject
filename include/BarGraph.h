@@ -13,16 +13,15 @@ namespace neulii{
         private: 
             barArray bars;
 
-            float range; 
-
             float barGraphPosX;
             float barGraphPosY;
 
             float width;
             float height;
 
+            float range; 
+
             float barWidth;
-    
 
         public:
             BarGraph(float x, float y, float width, float height, float range);
@@ -30,9 +29,8 @@ namespace neulii{
             void render(sf::RenderWindow& window);
             void update(long dT);
 
-            void addBar(float value);
-            
-
+            void addBar(float value, sf::Color color);
+            void showBarGraphConsole();
     };
 
 

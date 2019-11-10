@@ -4,28 +4,51 @@
 namespace neulii{
 
     BarGraph::BarGraph(float x, float y, float width, float height,float range):
-        width(width), height(height), range(range),
-        barGraphPosX(x), barGraphPosY(y)
+       barGraphPosX(x), barGraphPosY(y), 
+       width(width), height(height),
+       range(range)
 
     {
-        std::cout << this->width << "    " << this-> height << std::endl;
-
+        
     }
 
-    void BarGraph::addBar(float value)
+    void BarGraph::addBar(float value, sf::Color color)
     {
+
         barWidth = width/(bars.size()+1);
 
+        // std::cout << "======newBAr======" << std::endl;
+    
+        // std::cout << "width:     " << width << std::endl;
+        // std::cout << "bar width: " << barWidth << std::endl;
 
-        Bar* tempBar = new Bar( barGraphPosX + width*bars.size(), 
-                                -barGraphPosY, barWidth, height, range);
+
+        // std::cout << "=================" << std::endl;
+
+        Bar* tempBar = new Bar( barGraphPosX + (barWidth*bars.size()), 
+                                barGraphPosY, barWidth, height, range);
+        
+        tempBar->setValue(value);
+        tempBar->setColor(color);
         
         bars.push_back(tempBar);
 
         for (int i = 0; i<bars.size(); i++)
         {
             bars.at(i)->setWidth(barWidth);
+            bars.at(i)->setPosition(sf::Vector2f(barGraphPosX+barWidth * i, barGraphPosY));
+            
+            // std::cout << std::endl;
+            // std::cout << std::endl;
+
+            // std::cout << "=======      " << i+1 << "     ========" << std::endl;
+
+            
+            // vector2ToConsole(bars.at(i)->getPosition());
+            // vector2ToConsole(bars.at(i)->getSize());
+           // std::cout << "================================" << std::endl;
         }
+        //std::cout << "anzahl: " << bars.size() << std::endl;
         
     }
 
@@ -43,6 +66,22 @@ namespace neulii{
         {
             bars.at(i)->update(dT);
         }        
+    }
+
+    void BarGraph::showBarGraphConsole()
+    {
+        for(int i = 0; i<bars.size(); i++)
+        {
+            std::cout << "========" << i << "=======" << std::endl;
+            std::cout << "x: " << bars.at(i)->getPosition().x << "  y: " << bars.at(i)->getPosition().y << std::endl;
+            std::cout << "range: " << bars.at(i)->getRange() << "   " << "value: " << bars.at(i)->getRange() << std::endl;
+
+
+
+        }
+
+
+
     }
 
 }

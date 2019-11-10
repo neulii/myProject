@@ -59,20 +59,38 @@ namespace neulii{
 
     void BarGraph::sortBarGraph()
     {
+
+        
+
+        
+       
         for(unsigned j=0; j<bars.size()-1; j++){
+
             for (unsigned i=0; i<bars.size()-j-1; i++){
 
+              
+                    bars.at(i)->setColor(sf::Color::Red);
+              
                 if(bars.at(i)->getValue()> bars.at(i+1)->getValue())
                 {
-
                     float temp;
 
                     temp = bars.at(i)->getValue();
                     bars.at(i)->setValue(bars.at(i+1)->getValue());
                     bars.at(i+1)->setValue(temp);	
-                }					
+                    
+                    bars.at(i)->setColor(sf::Color::Blue);
+                    
+                    break;
+                   
+
+                }	
+                			
             }
+                
+            return;
         }
+        
         std::cout << "sorted" << std::endl;
     }
 

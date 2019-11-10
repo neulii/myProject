@@ -33,6 +33,8 @@ unsigned fieldHeight = 50;
 unsigned targetResolutionWidth = 800;
 unsigned targetResolutionHeight = 600;
 
+long tempTime = 0;
+
 //fields 
 std::vector<ClickableHooverableRectShape*> fields;
 
@@ -124,7 +126,7 @@ int main()
 
 
 	const int MAX_RANGE = 100;
-	const int NUMBERS = 10;
+	const int NUMBERS = 100;
 
 	//for random 
 	std::srand(static_cast<unsigned long>(std::time(nullptr)));
@@ -239,7 +241,7 @@ int main()
 				//select pressed key
 				if(event.key.code ==sf::Keyboard::Enter){
 					
-					bar.sortBarGraph();
+					
 				}
 
 				if(event.key.code == sf::Keyboard::Escape){
@@ -320,6 +322,17 @@ void update(long dT)
 	}
 
 	aTile->update(dT);
+
+	tempTime = tempTime + dT;
+
+	if(tempTime>10)
+	{
+		bar.sortBarGraph();
+		tempTime = 0;
+
+	}
+	
+	
 }
 
 void exitProg()

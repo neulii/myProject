@@ -11,6 +11,7 @@ namespace neulii{
     
     {
         private: 
+
             barArray bars;
 
             float barGraphPosX;
@@ -32,8 +33,10 @@ namespace neulii{
             void addBar(float value, sf::Color color);
             void showBarGraphConsole();
 
-            void sortBarGraph();
             void printAllValuesToConsole();
+
+            void swap(int first, int second);
+            
     };
 }
 #endif

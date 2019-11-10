@@ -240,7 +240,7 @@ int main()
 
 				//select pressed key
 				if(event.key.code ==sf::Keyboard::Enter){
-					
+					bar.swap(0,2);
 					
 				}
 
@@ -323,14 +323,9 @@ void update(long dT)
 
 	aTile->update(dT);
 
-	tempTime = tempTime + dT;
+	bar.update(dT);
 
-	if(tempTime>10)
-	{
-		bar.sortBarGraph();
-		tempTime = 0;
 
-	}
 	
 	
 }

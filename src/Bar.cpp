@@ -33,6 +33,9 @@ namespace neulii{
 
     void Bar::update(long dT)
     {
+        //rect.setSize(sf::Vector2f(width,height));
+       // rect.setPosition(sf::Vector2f(x,y));
+
     }
 
     void Bar::render(sf::RenderWindow& window)

@@ -44,7 +44,7 @@ namespace neulii{
         for(int i = 0; i<bars.size(); i++)
         {
             bars.at(i)->update(dT);
-        }        
+        }       
     }
 
     void BarGraph::showBarGraphConsole()
@@ -57,42 +57,6 @@ namespace neulii{
         }
     }
 
-    void BarGraph::sortBarGraph()
-    {
-
-        
-
-        
-       
-        for(unsigned j=0; j<bars.size()-1; j++){
-
-            for (unsigned i=0; i<bars.size()-j-1; i++){
-
-              
-                    bars.at(i)->setColor(sf::Color::Red);
-              
-                if(bars.at(i)->getValue()> bars.at(i+1)->getValue())
-                {
-                    float temp;
-
-                    temp = bars.at(i)->getValue();
-                    bars.at(i)->setValue(bars.at(i+1)->getValue());
-                    bars.at(i+1)->setValue(temp);	
-                    
-                    bars.at(i)->setColor(sf::Color::Blue);
-                    
-                    break;
-                   
-
-                }	
-                			
-            }
-                
-            return;
-        }
-        
-        std::cout << "sorted" << std::endl;
-    }
 
     void BarGraph::printAllValuesToConsole()
     {
@@ -100,5 +64,21 @@ namespace neulii{
         {
             std::cout << bars.at(i)->getValue() << "/";
         }
+    }
+
+    void BarGraph::swap(int first, int second)
+    {
+        std::cout << bars.at(first)->getValue() << std::endl;
+        std::cout << bars.at(second)->getValue() << std::endl;
+
+
+
+        Bar* temp = bars.at(first);
+        bars.at(first) = bars.at(second);
+        bars.at(second) = temp;
+        std::cout << "swapped" << std::endl;
+
+         std::cout << bars.at(first)->getValue() << std::endl;
+        std::cout << bars.at(second)->getValue() << std::endl;
     }
 }

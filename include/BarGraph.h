@@ -33,6 +33,7 @@ namespace neulii{
             void showBarGraphConsole();
 
             void sortBarGraph(int timeDelayInMillis);
+            void printAllValuesToConsole();
     };
 }
 #endif

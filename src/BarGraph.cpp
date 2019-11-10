@@ -59,7 +59,28 @@ namespace neulii{
 
     void BarGraph::sortBarGraph(int timeDelayInMillis)
     {
+        for(unsigned j=0; j<bars.size()-1; j++){
+            for (unsigned i=0; i<bars.size()-j-1; i++){
 
-        
+                if(bars.at(i)->getValue()> bars.at(i+1)->getValue())
+                {
+                
+                    float temp;
+
+                    temp = bars.at(i)->getValue();
+                    bars.at(i)->setValue(bars.at(i+1)->getValue());
+                    bars.at(i+1)->setValue(temp);	
+                }					
+            }
+        }
+        std::cout << "sorted" << std::endl;
+    }
+
+    void BarGraph::printAllValuesToConsole()
+    {
+        for(int i =0; i < bars.size(); i++)
+        {
+            std::cout << bars.at(i)->getValue() << "/";
+        }
     }
 }

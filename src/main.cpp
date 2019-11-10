@@ -124,7 +124,7 @@ int main()
 
 
 	const int MAX_RANGE = 100;
-	const int NUMBERS = 800;
+	const int NUMBERS = 10;
 
 	//for random 
 	std::srand(static_cast<unsigned long>(std::time(nullptr)));
@@ -238,7 +238,8 @@ int main()
 
 				//select pressed key
 				if(event.key.code ==sf::Keyboard::Enter){
-					bar.showBarGraphConsole();
+					bar.sortBarGraph(100);
+					bar.printAllValuesToConsole();
 				
 				}
 

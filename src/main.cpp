@@ -79,6 +79,8 @@ sf::Sprite hardSprite;
 
 sf::Texture hardTex;
 
+BarGraph bar(100,100,200,100,100);
+
 void showRGBDemo() {
 
 	const int tex_x = 100;
@@ -118,7 +120,11 @@ void showRGBDemo() {
 int main()
 {
 
-	BarGraph(10,10);
+	bar.addBar(20);
+	bar.addBar(10);
+
+
+	
 
 	const int MAX_RANGE = 100000;
 	const int NUMBERS = 800;
@@ -145,7 +151,7 @@ int main()
 		temp->setValue(neulii::getRandomInt(0,MAX_RANGE));
 
 
-		bars.push_back(temp);
+		//bars.push_back(temp);
 
 	}
 
@@ -317,6 +323,9 @@ void render(sf::RenderWindow &window)
 	for(int i= 0; i<bars.size(); i++){
 		bars.at(i)->render(window);
 	}
+
+	bar.render(window);
+
 
 
 }

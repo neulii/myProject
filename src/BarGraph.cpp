@@ -3,9 +3,10 @@
 
 namespace neulii{
 
-    BarGraph::BarGraph(float width, float height):
-        width(width),
-        height(height)
+    BarGraph::BarGraph(float x, float y, float width, float height,float range):
+        width(width), height(height), range(range),
+        barGraphPosX(x), barGraphPosY(y)
+
     {
         std::cout << this->width << "    " << this-> height << std::endl;
 
@@ -13,15 +14,19 @@ namespace neulii{
 
     void BarGraph::addBar(float value)
     {
-        barWidth = width/bars.size();
+        barWidth = width/(bars.size()+1);
 
+
+        Bar* tempBar = new Bar( barGraphPosX + width*bars.size(), 
+                                -barGraphPosY, barWidth, height, range);
         
+        bars.push_back(tempBar);
 
-
-
-
-
-
+        for (int i = 0; i<bars.size(); i++)
+        {
+            bars.at(i)->setWidth(barWidth);
+        }
+        
     }
 
     void BarGraph::render(sf::RenderWindow& window)

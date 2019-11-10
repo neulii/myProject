@@ -32,6 +32,10 @@ namespace neulii{
 
         void update(long dT);
         void render(sf::RenderWindow& window);
+
+        sf::Vector2f getPosition();
+        
+        void setWidth(float width);
         ~Bar(){}
     };
     

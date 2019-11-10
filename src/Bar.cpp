@@ -33,4 +33,14 @@ namespace neulii{
     void Bar::render(sf::RenderWindow& window){
         window.draw(rect);
     }
+
+    void Bar::setWidth(float width)
+    {
+        this->width = width;
+    }
+
+    sf::Vector2f Bar::getPosition()
+    {
+        return sf::Vector2f(x,y);
+    }
 }

@@ -57,14 +57,14 @@ namespace neulii{
         }
     }
 
-    void BarGraph::sortBarGraph(int timeDelayInMillis)
+    void BarGraph::sortBarGraph()
     {
         for(unsigned j=0; j<bars.size()-1; j++){
             for (unsigned i=0; i<bars.size()-j-1; i++){
 
                 if(bars.at(i)->getValue()> bars.at(i+1)->getValue())
                 {
-                
+
                     float temp;
 
                     temp = bars.at(i)->getValue();

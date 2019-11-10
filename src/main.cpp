@@ -238,9 +238,8 @@ int main()
 
 				//select pressed key
 				if(event.key.code ==sf::Keyboard::Enter){
-					bar.sortBarGraph(100);
-					bar.printAllValuesToConsole();
-				
+					
+					bar.sortBarGraph();
 				}
 
 				if(event.key.code == sf::Keyboard::Escape){
@@ -277,7 +276,7 @@ int main()
 
 void test()
 {
-	
+
 
 	std::cout << "sort" << std::endl;
 }

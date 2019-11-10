@@ -32,7 +32,7 @@ namespace neulii{
             void addBar(float value, sf::Color color);
             void showBarGraphConsole();
 
-            void sortBarGraph(int timeDelayInMillis);
+            void sortBarGraph();
             void printAllValuesToConsole();
     };
 }

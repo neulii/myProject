@@ -17,6 +17,8 @@ namespace neulii{
     {
         this->value = value;
         this->height_value = -height/range * value;
+        this->rect.setSize(sf::Vector2f(width,height_value));
+        
     }
 
     float Bar::getValue()

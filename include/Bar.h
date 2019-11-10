@@ -21,7 +21,6 @@ namespace neulii{
 
         float height_value;
 
-       
         sf::RectangleShape rect;
 
     public:
@@ -45,7 +44,5 @@ namespace neulii{
         void setWidth(float width);
         ~Bar(){}
     };
-    
-
 }
 #endif

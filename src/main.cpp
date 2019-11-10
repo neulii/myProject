@@ -79,7 +79,7 @@ sf::Sprite hardSprite;
 
 sf::Texture hardTex;
 
-BarGraph bar(100,100,200,100,100);
+BarGraph bar(100,500,500,300,100);
 
 void showRGBDemo() {
 
@@ -120,15 +120,10 @@ void showRGBDemo() {
 int main()
 {
 
-	bar.addBar(50, sf::Color::Blue);
-	bar.addBar(20, sf::Color::Red);
-	bar.addBar(10,sf::Color::Yellow);
-	bar.addBar(100,sf::Color::Magenta);
-	bar.addBar(40,sf::Color::Green);
-	bar.addBar(50, sf::Color::Blue);
+	
 
 
-	const int MAX_RANGE = 100000;
+	const int MAX_RANGE = 100;
 	const int NUMBERS = 800;
 
 	//for random 
@@ -137,24 +132,7 @@ int main()
 	//fill every bar with a random number;
 	for(int i = 0; i < NUMBERS; i++){
 
-		float barWidth;
-		float barHeight;
-
-		float barPosX;
-		float barPosY = targetResolutionHeight;
-
-		barWidth = static_cast<float>(targetResolutionWidth) / NUMBERS;		//for calcing in float
-		barHeight = targetResolutionHeight;
-
-		barPosX = i*barWidth;
-
-		//Bar* temp = new Bar(barPosX, barPosY,barWidth,barHeight,MAX_RANGE);
-
-		//temp->setValue(neulii::getRandomInt(0,MAX_RANGE));
-
-
-		//bars.push_back(temp);
-
+		bar.addBar(neulii::getRandomInt(0,MAX_RANGE),sf::Color::Blue);
 	}
 
 

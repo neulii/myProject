@@ -56,4 +56,10 @@ namespace neulii{
             std::cout << "range: " << bars.at(i)->getRange() << "   " << "value: " << bars.at(i)->getRange() << std::endl;
         }
     }
+
+    void BarGraph::sortBarGraph(int timeDelayInMillis)
+    {
+
+        
+    }
 }

@@ -73,4 +73,14 @@ namespace neulii{
 		bars.at(first)->setValue(bars.at(second)->getValue());
 		bars.at(second)->setValue(tempBarValue);
     }
+
+    int BarGraph::getBarCounter()
+    {
+        return bars.size();
+    }
+
+    float BarGraph::getValueFromBar(int barNumber)
+    {
+        return bars.at(barNumber)->getValue();
+    }
 }

@@ -24,6 +24,8 @@ void buttonClickedText();
 void render(sf::RenderWindow& window);
 void update(long dT);
 
+void sortBarGraph();
+
 unsigned widthInFields = 10;
 unsigned heightInFields = 10;
 
@@ -34,6 +36,8 @@ unsigned targetResolutionWidth = 800;
 unsigned targetResolutionHeight = 600;
 
 long tempTime = 0;
+
+
 
 //fields 
 std::vector<ClickableHooverableRectShape*> fields;
@@ -81,6 +85,8 @@ sf::Sprite hardSprite;
 
 sf::Texture hardTex;
 
+sf::Thread threadSort(&sortBarGraph);
+
 BarGraph bar(100,500,500,300,100);
 
 void showRGBDemo() {
@@ -126,7 +132,7 @@ int main()
 
 
 	const int MAX_RANGE = 100;
-	const int NUMBERS = 100;
+	const int NUMBERS = 500;
 
 	//for random 
 	std::srand(static_cast<unsigned long>(std::time(nullptr)));
@@ -240,11 +246,18 @@ int main()
 
 				//select pressed key
 				if(event.key.code ==sf::Keyboard::Enter){
-					bar.swap(0,2);
 					
+					threadSort.terminate();
+					threadSort.launch();
+				}
+
+				if(event.key.code==sf::Keyboard::Space)
+				{
+
 				}
 
 				if(event.key.code == sf::Keyboard::Escape){
+					threadSort.terminate();
 					window.close();
 				}
 			}
@@ -268,18 +281,41 @@ int main()
 		//render all elements
 		render(window);
 
-		
-
 		//show content on display
 		window.display();
 	//========================================================
 	}
 }
 
+void sortBarGraph()
+{
+	long time = 50000;
+	
+	for(unsigned j=0; j<bar.getBarCounter()-1; j++){
+		for(int u = 0; u<time; u++)
+			{
+
+			}
+		for (unsigned i=0; i<bar.getBarCounter()-j-1; i++){
+			for(int u = 0; u<time; u++)
+			{
+
+			}
+			if(bar.getValueFromBar(i)  >  bar.getValueFromBar(i+1)){
+			
+				float temp;
+
+				bar.swap(i,i+1);
+			}					
+		}
+	}
+
+	std::cout << "SORTED!!" << std::endl;
+}
+
+
 void test()
 {
-
-
 	std::cout << "sort" << std::endl;
 }
 
@@ -308,8 +344,6 @@ void render(sf::RenderWindow &window)
 
 	bar.render(window);
 
-
-
 }
 
 //updating logic
@@ -324,10 +358,6 @@ void update(long dT)
 	aTile->update(dT);
 
 	bar.update(dT);
-
-
-	
-	
 }
 
 void exitProg()

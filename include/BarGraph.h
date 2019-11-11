@@ -36,6 +36,9 @@ namespace neulii{
             void printAllValuesToConsole();
 
             void swap(int first, int second);
+
+            int getBarCounter();
+            float getValueFromBar(int barNumber);
             
     };
 }

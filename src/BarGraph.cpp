@@ -68,17 +68,9 @@ namespace neulii{
 
     void BarGraph::swap(int first, int second)
     {
-        std::cout << bars.at(first)->getValue() << std::endl;
-        std::cout << bars.at(second)->getValue() << std::endl;
-
-
-
-        Bar* temp = bars.at(first);
-        bars.at(first) = bars.at(second);
-        bars.at(second) = temp;
-        std::cout << "swapped" << std::endl;
-
-         std::cout << bars.at(first)->getValue() << std::endl;
-        std::cout << bars.at(second)->getValue() << std::endl;
+		int tempBarValue = bars.at(first)->getValue();
+		
+		bars.at(first)->setValue(bars.at(second)->getValue());
+		bars.at(second)->setValue(tempBarValue);
     }
 }

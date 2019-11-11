@@ -87,7 +87,7 @@ sf::Texture hardTex;
 
 sf::Thread threadSort(&sortBarGraph);
 
-BarGraph bar(100,500,500,300,100);
+BarGraph bar(100,500,500,300,5000);
 
 void showRGBDemo() {
 
@@ -127,11 +127,7 @@ void showRGBDemo() {
 
 int main()
 {
-
-	
-
-
-	const int MAX_RANGE = 100;
+	const int MAX_RANGE = 5000;
 	const int NUMBERS = 500;
 
 	//for random 
@@ -142,8 +138,7 @@ int main()
 
 		bar.addBar(neulii::getRandomInt(0,MAX_RANGE),sf::Color::Blue);
 	}
-
-
+	
 	//showRGBDemo(); 
 
 	if (!testTex.loadFromFile("resources/images/moneySymbol.png"))

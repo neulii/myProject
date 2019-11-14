@@ -12,6 +12,9 @@ OBJS = \
 	object/Bar.o \
 	object/BarGraph.o
 
+OBJS_TEST = \
+	object/test.o \
+
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
@@ -22,6 +25,10 @@ CPPFLAGS = -I "SFML/include" -I "include"
 
 game: $(OBJS) 
 	$(CXX) $(CXXFLAGS) -o game $(OBJS) $(LDFLAGS) $(LDLIBS)
+
+test: $(OBJS_TEST)
+	$(CXX) $(CXXFLAGS) -o test $(OBJS_TEST) $(LDFLAGS) $(LDLIBS)
+	
 
 object/main.o: src/main.cpp 
 	g++ $(CXXFLAGS) -c src/main.cpp -o object/main.o $(CPPFLAGS)
@@ -71,14 +78,11 @@ cleanwin:
 	rm object/*.o
 	del object\*.o
 
-test: object/test.o object/Library.o
-	g++ -o test object/test.o object/Library.o $(LDFLAGS)
-
 test.exe: object/test.o object/Library.o
 	g++ -o test.exe object/test.o object/Library.o $(LDFLAGS)
 
-object/test.o: src/test.cpp
-	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o  -I "include" -Wpedantic -Wall -Wextra $(CPPFLAGS)
+object/test.o: src/test.cpp src/Library.cpp
+	g++ $(CXXFLAGS) -c src/test.cpp -o object/test.o $(CPPFLAGS)
 
 cleantest:
 	del test.exe

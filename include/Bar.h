@@ -10,8 +10,8 @@ namespace neulii{
 
     private:
 
-        float x;
-        float y;
+        //float x;
+        //float y;
 
         float width; 
         float height;

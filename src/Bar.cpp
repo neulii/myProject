@@ -5,7 +5,6 @@
 namespace neulii{
 
     Bar::Bar(float x,float y, float width, float height, float range):
-        x(x), y(y),
         width(width), height(height),
         range(range)
     {

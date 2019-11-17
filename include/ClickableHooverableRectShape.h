@@ -12,7 +12,7 @@ namespace neulii{
 
 	private:
 
-		bool isPressed = false;
+		//bool isPressed = false;
 
 		bool leftActionExecuted = false;
 		bool rightActionExecuted = false;

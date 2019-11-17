@@ -30,10 +30,10 @@ namespace neulii{
 		if(getWindow()==nullptr)
 			return false;
 		//get position of window
-		sf::Vector2i windowPosition = this->window->getPosition();
+		//sf::Vector2i windowPosition = this->window->getPosition();
 		
 		//get position of mouse
-		sf::Vector2i mousePos = sf::Mouse::getPosition(*window);
+		//sf::Vector2i mousePos = sf::Mouse::getPosition(*window);
 
 		sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
 		sf::Vector2f worldPos = window->mapPixelToCoords(pixelPos);

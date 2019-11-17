@@ -7,6 +7,8 @@
 
 namespace neulii{
 
+    typedef std::vector<Bar*> barArray;
+    
     class BarGraph : public GameObject 
     
     {

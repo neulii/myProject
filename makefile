@@ -18,7 +18,7 @@ OBJS_TEST = \
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
 
-LDLIBS = -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system 
+LDLIBS = -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network 
 
 LDFLAGS = -L "SFML/lib" 
 CPPFLAGS = -I "SFML/include" -I "include" 

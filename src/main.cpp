@@ -14,6 +14,7 @@
 
 #include "Bar.h"
 #include "BarGraph.h"
+
 using namespace neulii;
 
 void exitProg();
@@ -36,7 +37,6 @@ unsigned targetResolutionWidth = 800;
 unsigned targetResolutionHeight = 600;
 
 long tempTime = 0;
-
 
 
 //fields 
@@ -69,7 +69,6 @@ sf::Vector2i pixelPos;
 // convert it to world coordinates
 sf::Vector2f worldPos;
 
-//test.setDefaultColor(sf::Color::Green);
 
 //main - method
 
@@ -85,10 +84,7 @@ sf::Sprite hardSprite;
 
 sf::Texture hardTex;
 
-sf::Thread threadSort(&sortBarGraph);
-
-BarGraph bar(100,500,500,300,5000);
-
+//just a demo function for editing pixel by pixel
 void showRGBDemo() {
 
 	const int tex_x = 100;
@@ -118,28 +114,10 @@ void showRGBDemo() {
 	}
 
 	hardTex.update(pixels);
-	//hardSprite.setScale(10,10);
-
-
 }
-
-
 
 int main()
 {
-	const int MAX_RANGE = 5000;
-	const int NUMBERS = 500;
-
-	//for random 
-	std::srand(static_cast<unsigned long>(std::time(nullptr)));
-	
-	//fill every bar with a random number;
-	for(int i = 0; i < NUMBERS; i++){
-
-		bar.addBar(neulii::getRandomInt(0,MAX_RANGE),sf::Color::Blue);
-	}
-	
-	//showRGBDemo(); 
 
 	if (!testTex.loadFromFile("resources/images/moneySymbol.png"))
 	{
@@ -240,19 +218,8 @@ int main()
 			{
 
 				//select pressed key
-				if(event.key.code ==sf::Keyboard::Enter){
-					
-					threadSort.terminate();
-					threadSort.launch();
-				}
-
-				if(event.key.code==sf::Keyboard::Space)
-				{
-
-				}
 
 				if(event.key.code == sf::Keyboard::Escape){
-					threadSort.terminate();
 					window.close();
 				}
 			}
@@ -282,7 +249,8 @@ int main()
 	}
 }
 
-void sortBarGraph()
+// function to sorting bars
+void sortBarGraph(BarGraph& bar)
 {
 	long time = 50000;
 	
@@ -297,9 +265,6 @@ void sortBarGraph()
 
 			}
 			if(bar.getValueFromBar(i)  >  bar.getValueFromBar(i+1)){
-			
-				float temp;
-
 				bar.swap(i,i+1);
 			}					
 		}
@@ -311,7 +276,6 @@ void sortBarGraph()
 
 void test()
 {
-	std::cout << "sort" << std::endl;
 }
 
 void setColorBlue()
@@ -326,7 +290,7 @@ void render(sf::RenderWindow &window)
 	//render tiles vector
 	for(unsigned i=0; i<tiles.size();i++)
 	{
-		//tiles.at(i)->render(window);
+		tiles.at(i)->render(window);
 	}
 
 	//aTile->render(window);
@@ -337,7 +301,6 @@ void render(sf::RenderWindow &window)
 	// 	bars.at(i)->render(window);
 	// }
 
-	bar.render(window);
 
 }
 
@@ -352,7 +315,6 @@ void update(long dT)
 
 	aTile->update(dT);
 
-	bar.update(dT);
 }
 
 void exitProg()
@@ -362,5 +324,4 @@ void exitProg()
 
 void buttonClickedText()
 {
-	std::cout << "button clicked" << std::endl;
 }

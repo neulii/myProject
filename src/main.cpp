@@ -25,8 +25,6 @@ void buttonClickedText();
 void render(sf::RenderWindow& window);
 void update(long dT);
 
-void sortBarGraph();
-
 unsigned widthInFields = 10;
 unsigned heightInFields = 10;
 
@@ -118,6 +116,7 @@ void showRGBDemo() {
 
 int main()
 {
+
 
 	if (!testTex.loadFromFile("resources/images/moneySymbol.png"))
 	{

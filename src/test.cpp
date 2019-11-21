@@ -3,7 +3,7 @@
 #include "SFML/Network.hpp"
 
 
-	int main()
+	int main_test()
 	{
 		std::cout << "hello" << std::endl;
 		return 0;
